@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev server/src/index.ts",
-    "heroku-postbuild": "cd client && npm i && npm run build"
+    "dev": "NODE_ENV=dev  ts-node-dev server/src/index.ts",
+    "heroku-postbuild": "cd client && npm i && npm run build",
+    "builddb": "ts-node-dev server/src/database/FakeData/buildFakeData"
   },
   "repository": {
     "type": "git",
