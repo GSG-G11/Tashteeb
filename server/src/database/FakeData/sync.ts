@@ -17,3 +17,11 @@ const buildFakeData = async () => {
 if (NODE_ENV !== 'test') {
   buildFakeData();
 }
+const sync = () => sequelize
+  .sync({ force: true })
+  .then(() => console.log('Database created successfully'))
+  .catch(console.log);
+
+if (NODE_ENV === 'dev') sync();
+
+export default sync;

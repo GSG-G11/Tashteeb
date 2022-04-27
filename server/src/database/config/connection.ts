@@ -15,6 +15,9 @@ switch (NODE_ENV) {
       rejectUnauthorized: false,
     };
     break;
+  case 'dev':
+    connectionString = DEV_DB;
+    break;
   default:
     connectionString = DEV_DB;
 }
