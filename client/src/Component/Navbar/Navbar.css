@@ -1,49 +1,63 @@
-.navbar-holder{
+.navbar-holder {
     height: 60px;
     background-color: #1D202F;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0rem 1.5rem;
+    padding: 0rem 1.5rem;
+    position: fixed;
+    width: 100%;
 }
-.app-logo img{
+
+.app-logo img {
     width: 13rem;
     object-fit: contain;
     padding: 20px;
     cursor: pointer;
 }
-.navbar-info{
+
+.navbar-info {
     display: flex;
 }
-.navbar-info a{
+
+.navbar-info a {
     padding: 0 15px;
     cursor: pointer;
     color: #fff;
-    font-weight: bold;
+    font-weight: 300;
     letter-spacing: 1.5px;
     transition: all .5s ease-in-out;
 }
-.navbar-info a:hover{
+
+.navbar-info a:hover {
     color: #EDB820;
 }
-.auth-section .auth-btn{
+
+.auth-section {
+    margin-right: 1rem;
+}
+
+.auth-section .auth-btn {
     padding: 8px 15px;
 }
-.signin-btn{
-margin-left: 5px;
-background-color:transparent;
-border-radius: 5px;
-outline: none;
-border: 2px solid #EDB820;
-color: #EDB820;
-font-weight: bold;
+
+.signin-btn {
+    margin-left: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #EDB820;
+    color: #EDB820;
+    font-weight: 500;
 }
-.signup-btn{
-margin-left: 5px;
-background-color:#EDB820;
-border-radius: 5px;
-outline: none;
-border: 2px solid #EDB820;
-color: #fff;
-font-weight: bold;
+
+.signup-btn {
+    margin-left: 5px;
+    background-color: #EDB820;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #EDB820;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 1rem;
 }

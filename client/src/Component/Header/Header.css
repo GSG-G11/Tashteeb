@@ -1,0 +1,31 @@
+.image-holder{
+}
+.image-holder img {
+    width: 100%;
+}
+.banner-info{
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(0,-200%);
+}
+.banner-info h3{
+    color: #EDB820;
+    font-weight: 400;
+}
+.banner-info h1{
+    color: #fff;
+    margin-top: 25px;
+    font-weight: 500;
+
+}
+.banner-info button{
+    margin-top: 25px;
+    padding: 10px 15px;
+    background-color: #EDB820;
+    border-radius: 5px;
+    border: 1px solid #EDB820;
+    color: #fff;
+    font-weight: 500;
+}

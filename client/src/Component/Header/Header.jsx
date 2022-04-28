@@ -1,10 +1,19 @@
 import Navbar from '../Navbar/Navbar'
+import banner from '../../Assets/home-done.svg'
+import './Header.css'
 const Header = () => {
   return (
-    <div className="header-holder">
+    <header className="header-holder">
       <Navbar />
-      Header
-    </div>
+      <section className="image-holder">
+        <img src={banner} alt="" />
+        <div className="banner-info">
+          <h3>we are construction parteners .</h3>
+          <h1>The builders we are the best </h1>
+          <button>View More.</button>
+        </div>
+      </section>
+    </header>
   );
 }
 
