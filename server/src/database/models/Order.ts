@@ -3,11 +3,11 @@ import sequelize from '../config/connection';
 
 interface IOrder extends Model {
   id: number;
-  user_id: number;
-  total_price: number;
+  userId: number;
+  totalPrice: number;
 }
 
-const order = sequelize.define<IOrder>(
+const Order = sequelize.define<IOrder>(
   'order',
   {
     id: {
@@ -15,15 +15,15 @@ const order = sequelize.define<IOrder>(
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    total_price: {
+    totalPrice: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
 );
 
-export default order;
+export default Order;

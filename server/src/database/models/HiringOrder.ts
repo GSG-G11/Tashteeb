@@ -1,26 +1,26 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/connection';
 
-interface IHiring_order extends Model {
+interface IHiringOrder extends Model {
   id: number;
-  user_id: number;
-  eng_id: number;
+  userId: number;
+  engId: number;
   status: string;
 }
 
-const HiringOrder = sequelize.define<IHiring_order>(
-  'hiring_order',
+const HiringOrder = sequelize.define<IHiringOrder>(
+  'hiringOrder',
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    eng_id: {
+    engId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -28,9 +28,6 @@ const HiringOrder = sequelize.define<IHiring_order>(
       type: DataTypes.STRING,
       allowNull: false,
     },
-  },
-  {
-    timestamps: false,
   },
 );
 

@@ -2,12 +2,12 @@ import { Model, DataTypes } from 'sequelize';
 
 import sequelize from '../config/connection';
 
-interface Icategory extends Model {
+interface ICategory extends Model {
   id: number;
   name: string;
   image: string;
 }
-const Category = sequelize.define<Icategory>('category', {
+const Category = sequelize.define<ICategory>('category', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

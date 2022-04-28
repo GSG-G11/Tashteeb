@@ -1,31 +1,44 @@
 import {
-  User, HiringOrder, Category, Product, Order, Review,
+  User, HiringOrder, Category, Product, Order, Review, ProductOrder,
 } from './models';
 import sequelize from './config/connection';
 
+// User and Order relationship
 User.hasMany(Order);
+Order.belongsTo(User);
 
+// User has Many Reviews
 User.hasMany(Review, {
-  foreignKey: 'user_id',
-  as: 'UserReview',
+  foreignKey: 'userId',
+  as: 'userReview',
 });
+
+// Engineer has Many Reviews
 User.hasMany(Review, {
-  foreignKey: 'eng_id',
+  foreignKey: 'engId',
   as: 'engReview',
 });
-HiringOrder.hasMany(User, {
-  foreignKey: 'eng_id',
-  as: 'engHire',
-});
-HiringOrder.hasMany(User, {
-  foreignKey: 'user_id',
-  as: 'UserHire',
-});
-Category.hasMany(Product);
 
-Product.belongsToMany(Order, { through: 'ProductOrder' });
-Order.belongsToMany(Product, { through: 'ProductOrder' });
+// Engineer has Many HiringOrder
+HiringOrder.hasMany(User, {
+  foreignKey: 'engId',
+  as: 'engHiringOrder',
+});
+
+// User has Many HiringOrder
+HiringOrder.hasMany(User, {
+  foreignKey: 'userId',
+  as: 'userHiringOrder',
+});
+
+// product and category relationship
+Category.hasMany(Product);
+Product.belongsTo(Category);
+
+// product and order relationship
+Product.belongsToMany(Order, { through: ProductOrder });
+Order.belongsToMany(Product, { through: ProductOrder });
 
 export {
-  sequelize, Category, Product, User,
+  sequelize, User, HiringOrder, Category, Product, Order, Review, ProductOrder,
 };

@@ -4,10 +4,10 @@ import sequelize from '../config/connection';
 
 interface IProductOrder extends Model {
   id: number;
-  order_id: number;
-  product_id: number;
+  orderId: number;
+  productId: number;
   quantity: number;
-  subtotal_price: number;
+  subtotalPrice: number;
 }
 
 const ProductOrder = sequelize.define<IProductOrder>('productOrder', {
@@ -16,11 +16,11 @@ const ProductOrder = sequelize.define<IProductOrder>('productOrder', {
     primaryKey: true,
     autoIncrement: true,
   },
-  order_id: {
+  orderId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  product_id: {
+  productId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -28,7 +28,7 @@ const ProductOrder = sequelize.define<IProductOrder>('productOrder', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  subtotal_price: {
+  subtotalPrice: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

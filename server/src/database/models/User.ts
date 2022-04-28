@@ -10,12 +10,12 @@ interface IUser
   extends Model<InferAttributes<IUser>, InferCreationAttributes<IUser>> {
   id?: number;
   email: string;
-  user_name: string;
+  username: string;
   password: string;
   image?: string;
   role?: number;
-  cart_items?: object;
-  hour_price?: number;
+  cartItems?: object;
+  hourPrice?: number;
   phone?: string;
 }
 
@@ -30,7 +30,7 @@ const User = sequelize.define<IUser>('users', {
     allowNull: false,
     unique: true,
   },
-  user_name: {
+  username: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
@@ -46,11 +46,11 @@ const User = sequelize.define<IUser>('users', {
     type: DataTypes.INTEGER,
     defaultValue: 0,
   },
-  cart_items: {
+  cartItems: {
     type: DataTypes.JSON,
     defaultValue: {},
   },
-  hour_price: {
+  hourPrice: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
   },

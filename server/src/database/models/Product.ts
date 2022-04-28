@@ -6,9 +6,10 @@ interface IProduct extends Model {
   name: string;
   price: number;
   description: string;
-  category_id: number;
+  categoryId: number;
   image: string;
 }
+
 const Product = sequelize.define<IProduct>('product', {
   id: {
     type: DataTypes.INTEGER,
@@ -26,7 +27,7 @@ const Product = sequelize.define<IProduct>('product', {
   description: {
     type: DataTypes.TEXT,
   },
-  category_id: {
+  categoryId: {
     type: DataTypes.INTEGER,
   },
 });

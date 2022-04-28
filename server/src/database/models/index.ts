@@ -1,10 +1,10 @@
 import User from './User';
 import Product from './Product';
 import Review from './Review';
-import Category from './Catergory';
+import Category from './Category';
 import Order from './Order';
-import ProductOrder from './Product_Order';
-import HiringOrder from './Hiring_order';
+import ProductOrder from './ProductOrder';
+import HiringOrder from './HiringOrder';
 
 export {
   User,
