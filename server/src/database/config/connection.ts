@@ -6,21 +6,18 @@ dotenv.config();
 const {
   env: { NODE_ENV, DATABASE_URL, DEV_DB },
 } = process;
-let connectionString: string | undefined;
+let connectionString: string | undefined = '';
 let ssl: boolean | object = false;
-switch (NODE_ENV) {
-  case 'production':
-    connectionString = DATABASE_URL;
-    ssl = {
-      rejectUnauthorized: false,
-    };
-    break;
-  case 'dev':
-    connectionString = DEV_DB;
-    break;
-  default:
-    connectionString = DEV_DB;
+
+if (NODE_ENV === 'dev') {
+  connectionString = DEV_DB;
+} else if (NODE_ENV === 'production') {
+  connectionString = DATABASE_URL;
+  ssl = {
+    rejectUnauthorized: false,
+  };
 }
+
 if (!connectionString) {
   throw new Error('DATABASE_URL is not defined');
 }

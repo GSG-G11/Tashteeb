@@ -7,7 +7,6 @@ const {
   env: { NODE_ENV },
 } = process;
 const buildFakeData = async () => {
-  console.log(User, Category, Product, sequelize);
   await sequelize.sync({ force: true });
   const dbData = await Promise.all([
     User.bulkCreate(fakeUsers),
