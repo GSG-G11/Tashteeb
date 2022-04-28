@@ -28,9 +28,6 @@ const order = sequelize.define<IOrder>(
       allowNull: false,
     },
   },
-  {
-    timestamps: false,
-  },
 );
 
 export default order;

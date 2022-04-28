@@ -1,12 +1,12 @@
 import {
-  User, HiringOrder, Category, Product, ProductOrder, Order, Review,
+  User, HiringOrder, Category, Product, Order, Review,
 } from './models';
 import sequelize from './config/connection';
 
 User.hasMany(Order);
 
 User.hasMany(Review, {
-  foreignKey: 'User_id',
+  foreignKey: 'user_id',
   as: 'UserReview',
 });
 User.hasMany(Review, {
@@ -18,21 +18,14 @@ HiringOrder.hasMany(User, {
   as: 'engHire',
 });
 HiringOrder.hasMany(User, {
-  foreignKey: 'User_id',
+  foreignKey: 'user_id',
   as: 'UserHire',
 });
-Category.hasMany(Product, {
-  foreignKey: 'Product_id',
-});
-Product.hasMany(ProductOrder, {
-  foreignKey: 'Order_id',
-});
+Category.hasMany(Product);
 
 Product.belongsToMany(Order, { through: 'ProductOrder' });
 Order.belongsToMany(Product, { through: 'ProductOrder' });
 
-HiringOrder.belongsToMany(User, { through: 'HiringOrder' });
-User.belongsToMany(HiringOrder, { through: 'HiringOrder' });
-
-export default sequelize;
-export { Category, Product, User };
+export {
+  sequelize, Category, Product, User,
+};

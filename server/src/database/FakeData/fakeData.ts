@@ -1,6 +1,5 @@
 const fakeUsers = [
   {
-    id: 1,
     email: 'admin@admin.com',
     user_name: 'admin',
     password: 'admin',
@@ -8,14 +7,12 @@ const fakeUsers = [
     role: 2,
   },
   {
-    id: 2,
     email: 'nabil@gmail.com',
     user_name: 'nabil',
     password: '123456',
     image: 'https://i.pravatar.cc/300?img=2',
   },
   {
-    id: 3,
     email: 'enghelles@helles.com',
     user_name: 'enghelles',
     password: '123456',

@@ -1,10 +1,13 @@
-import sequelize, { User, Category, Product } from '..';
+import {
+  sequelize, User, Category, Product,
+} from '..';
 import { fakeUsers, fakeProducts, fakeCategories } from './fakeData';
 
 const {
   env: { NODE_ENV },
 } = process;
 const buildFakeData = async () => {
+  console.log(User, Category, Product, sequelize);
   await sequelize.sync({ force: true });
   const dbData = await Promise.all([
     User.bulkCreate(fakeUsers),
@@ -17,11 +20,5 @@ const buildFakeData = async () => {
 if (NODE_ENV !== 'test') {
   buildFakeData();
 }
-const sync = () => sequelize
-  .sync({ force: true })
-  .then(() => console.log('Database created successfully'))
-  .catch(console.log);
 
-if (NODE_ENV === 'dev') sync();
-
-export default sync;
+export default buildFakeData;

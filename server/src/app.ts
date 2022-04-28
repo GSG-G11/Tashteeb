@@ -3,10 +3,8 @@ import dotenv from 'dotenv';
 import express, { Request, Response, Application } from 'express';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
-import sync from './database/FakeData/sync';
 
 const app: Application = express();
-sync();
 app.set('port', process.env.PORT || 8070);
 dotenv.config();
 

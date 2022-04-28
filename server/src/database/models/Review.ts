@@ -18,12 +18,10 @@ const Review = sequelize.define<IReview>('review', {
   user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    unique: true,
   },
   eng_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    unique: true,
   },
   review: {
     type: DataTypes.STRING,

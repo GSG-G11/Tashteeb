@@ -1,16 +1,22 @@
-import { Model, DataTypes } from 'sequelize';
+import {
+  Model,
+  DataTypes,
+  InferCreationAttributes,
+  InferAttributes,
+} from 'sequelize';
 import sequelize from '../config/connection';
 
-interface IUser extends Model {
-  id: number;
+interface IUser
+  extends Model<InferAttributes<IUser>, InferCreationAttributes<IUser>> {
+  id?: number;
   email: string;
   user_name: string;
   password: string;
-  image: string;
-  role: number;
-  cart_items: object;
-  hour_price: number;
-  phone: string;
+  image?: string;
+  role?: number;
+  cart_items?: object;
+  hour_price?: number;
+  phone?: string;
 }
 
 const User = sequelize.define<IUser>(
@@ -58,3 +64,4 @@ const User = sequelize.define<IUser>(
 );
 
 export default User;
+console.log(User)
