@@ -1,6 +1,8 @@
 import React from 'react'
-import './style.css';
+import './style.css'
 import logo from '../../Assets/Group 91.svg'
+import { Button } from 'antd'
+
 const Navbar = () => {
   return (
     <nav className="navbar-holder">
@@ -13,8 +15,12 @@ const Navbar = () => {
         <a>Services</a>
       </section>
       <section className="auth-section">
-        <button className="auth-btn signin-btn">Sign In</button>
-        <button className="auth-btn signup-btn">Sign Up</button>
+        <Button type="primary" shape="circle" className="auth-btn signin-btn">
+          Sign In
+        </Button>
+        <Button type="primary" shape="circle" className="auth-btn signup-btn">
+          Sign In
+        </Button>
       </section>
     </nav>
   )
