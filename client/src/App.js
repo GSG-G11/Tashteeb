@@ -1,4 +1,4 @@
-import Header from './Component/Header/Header';
+import Header from './Component/Header';
 import ServiceHolder from './Component/Services/ServiceHolder';
 
 

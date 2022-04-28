@@ -1,6 +1,6 @@
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../Navbar'
 import banner from '../../Assets/home-done.svg'
-import './Header.css'
+import './style.css'
 const Header = () => {
   return (
     <header className="header-holder">
