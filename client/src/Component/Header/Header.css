@@ -1,26 +1,31 @@
-.image-holder{
-}
 .image-holder img {
     width: 100%;
 }
-.banner-info{
+
+.banner-info {
     display: flex;
     justify-items: center;
     flex-direction: column;
     align-items: center;
-    transform: translate(0,-200%);
+    transform: translate(0, -200%);
+    margin-bottom: -10rem;
+    z-index: -9;
+
 }
-.banner-info h3{
+
+.banner-info h3 {
     color: #EDB820;
     font-weight: 400;
 }
-.banner-info h1{
+
+.banner-info h1 {
     color: #fff;
     margin-top: 25px;
     font-weight: 500;
 
 }
-.banner-info button{
+
+.banner-info button {
     margin-top: 25px;
     padding: 10px 15px;
     background-color: #EDB820;
@@ -28,4 +33,12 @@
     border: 1px solid #EDB820;
     color: #fff;
     font-weight: 500;
+    transition: all 1s ease-in-out;
+}
+
+.banner-info button:hover {
+    background-color: transparent;
+    border: 2px solid #EDB820;
+    color: #EDB820;
+    cursor: pointer;
 }
