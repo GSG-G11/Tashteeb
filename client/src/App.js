@@ -1,4 +1,3 @@
-import Footer from "./Component/footer/Footer";
 
 function App() {
   return (
