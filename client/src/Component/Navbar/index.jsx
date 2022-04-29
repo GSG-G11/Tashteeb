@@ -1,11 +1,21 @@
-import React from 'react'
-import './style.css'
-import logo from '../../Assets/Group 91.svg'
-import { Button } from 'antd'
+import React from 'react';
+import './style.css';
+import logo from '../../Assets/Group 91.svg';
+import { Button } from 'antd';
+import { useState } from 'react';
 
 const Navbar = () => {
+  const [navbar, setNavbar] = useState('transparent');
+  const changeBackground = () => {
+    if (window.scrollY > 50) {
+      setNavbar('solid');
+    } else {
+      setNavbar('transparent');
+    }
+  };
+  window.addEventListener('scroll', changeBackground);
   return (
-    <nav className="navbar-holder">
+    <nav className={`navbar-holder ${navbar}`}>
       <section className="app-logo">
         <img src={logo} alt="website logo" />
       </section>
@@ -45,7 +55,6 @@ const Navbar = () => {
         <Button
           type="primary"
           style={{
-            backgroundColor: 'red',
             marginTop: '25px',
             backgroundColor: '#EDB820',
             borderRadius: ' 5px',
@@ -64,6 +73,6 @@ const Navbar = () => {
       </section>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
