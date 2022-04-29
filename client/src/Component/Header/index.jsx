@@ -12,7 +12,7 @@ const Header = () => {
         <div className="banner-info">
           <h3>we are construction parteners .</h3>
           <h1>The builders we are the best </h1>
-          <Button type="primary" shape="circle" >
+          <Button type="primary"  >
            Who We Are
           </Button>
         </div>
