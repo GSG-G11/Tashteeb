@@ -1,7 +1,6 @@
-import ServiceHolder from './Component/Services/ServiceHolder';
-import Header from './Component/Header';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Home from './Component/Home';
 import NotFoundPage from './Pages/NotFound';
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
             path="/"
             element={
               <>
-                <Header /> <ServiceHolder />
+                <Home />
               </>
             }
           />
