@@ -1,20 +1,21 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './Component/Header'
+import ServiceHolder from './Component/Services/ServiceHolder'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import NotFoundPage from './Pages/NotFound';
-
-
+import NotFoundPage from './Pages/NotFound'
 
 function App() {
   return (
     <div className="App">
-<BrowserRouter>
-<Routes>
- 
-  <Route path='/*' element={<NotFoundPage/>}  />
-</Routes>
-</BrowserRouter>
+      <Router>
+        <Routes>
+          <Route path="/"element={<><Header /> <ServiceHolder /></>}  />
+           
+          
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
     </div>
-  );
+  )
 }
-
-export default App;
+export default App
