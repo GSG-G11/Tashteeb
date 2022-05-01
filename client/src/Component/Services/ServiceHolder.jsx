@@ -1,6 +1,6 @@
 import React from 'react'
 import ServiceCard from './ServiceCard'
-import './Service.css';
+import './style.css';
 const ServiceHolder = () => {
   return (
     <div className="service-holder">

@@ -1,6 +1,8 @@
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../Navbar'
 import banner from '../../Assets/home-done.svg'
-import './Header.css'
+import './style.css'
+import { Button } from 'antd';
+
 const Header = () => {
   return (
     <header className="header-holder">
@@ -10,11 +12,13 @@ const Header = () => {
         <div className="banner-info">
           <h3>we are construction parteners .</h3>
           <h1>The builders we are the best </h1>
-          <button>View More.</button>
+          <Button type="primary"  >
+           Who We Are
+          </Button>
         </div>
       </section>
     </header>
-  )
+  );
 }
 
 export default Header
