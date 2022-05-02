@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=dev  ts-node-dev server/src/index.ts",
-    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts" ,
+    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts",
     "heroku-postbuild": "cd client && npm i && npm run build",
     "build-db": "NODE_ENV=dev ts-node-dev server/src/database/FakeData/sync.ts"
   },
@@ -22,11 +22,13 @@
   },
   "homepage": "https://github.com/GSG-G11/Tashteeb#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "passport": "^0.5.2",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
@@ -35,10 +37,12 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@types/bcrypt": "^5.0.0",
     "@types/compression": "^1.7.2",
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.1",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "^17.0.25",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
