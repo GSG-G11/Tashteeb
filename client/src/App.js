@@ -1,18 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import NotFoundPage from './Pages/NotFound';
-
-
+import {ServicesBar} from './Component/servicesBar';
 
 function App() {
   return (
     <div className="App">
-<BrowserRouter>
-<Routes>
- 
-  <Route path='/*' element={<NotFoundPage/>}  />
-</Routes>
-</BrowserRouter>
+ <ServicesBar/>
     </div>
   );
 }
