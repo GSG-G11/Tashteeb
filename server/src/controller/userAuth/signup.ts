@@ -26,13 +26,11 @@ const signUp = async (req: Request, res: Response) => {
   if (userNameExists) {
     res.status(409).json({ message: 'This user name is already taken!' });
   }
-  const hashedPassword = bcrypt.hash(password, 10);
+  const hashedPassword : string = await bcrypt.hash(password, 10);
   const user = await User.create({
     ...req.body,
     password: hashedPassword,
   });
-  res.status(201).json({ message: 'User created successfully!' });
-
   const token = sign(
     { id: user.id, username: user.username },
     SECRET_KEY as Secret,
