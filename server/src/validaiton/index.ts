@@ -1,3 +1,3 @@
 import signupValidations from './signupValidation';
 
-export default { signupValidations };
+export default signupValidations;

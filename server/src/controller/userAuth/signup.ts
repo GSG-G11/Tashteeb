@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import { User } from '../../database';
 import CustomizeError from '../../error/customizeError';
 import handleKnownExceptions from '../../error/handleKnownError';
-import { signupValidation } from '../../validation';
+import signupValidation from '../../validaiton';
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const { SECRET_KEY } = process.env;
 
 const signUp = async (req: Request, res: Response) => {
   try {
-    signupValidation(req.body);
+    await signupValidation(req);
     const {
       password, email, username,
     } = req.body;
@@ -43,8 +43,12 @@ const signUp = async (req: Request, res: Response) => {
     { expiresIn: '10h' },
     );
     res.cookie('token', token, { httpOnly: true }).json({ message: 'User created successfully!', user: { id: user.id, username: user.username } });
-  } catch (err) {
-    handleKnownExceptions(err, res);
+  } catch (err : any) {
+    if (err.details) {
+      res.status(422).json({ message: err.message });
+    } else {
+      handleKnownExceptions(err, res);
+    }
   }
 };
 
