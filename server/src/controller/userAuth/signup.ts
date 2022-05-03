@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { User } from '../../database';
 import CustomizeError from '../../error/customizeError';
 import handleKnownExceptions from '../../error/handleKnownError';
+import { signupValidation } from '../../validation';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ const { SECRET_KEY } = process.env;
 
 const signUp = async (req: Request, res: Response) => {
   try {
+    signupValidation(req.body);
     const {
       password, email, username,
     } = req.body;
