@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const {
-  env: { NODE_ENV, DATABASE_URL, DEV_DB },
+  env: { NODE_ENV, DATABASE_URL, DEV_DB, TEST_DB },
 } = process;
 let connectionString: string | undefined = '';
 let ssl: boolean | object = false;
@@ -16,14 +16,18 @@ if (NODE_ENV === 'dev') {
   ssl = {
     rejectUnauthorized: false,
   };
+} else {
+  connectionString = TEST_DB;
 }
 
 if (!connectionString) {
   throw new Error('DATABASE_URL is not defined');
 }
 
-export default new Sequelize(connectionString, {
+const sequelize = new Sequelize(connectionString, {
   dialect: 'postgres',
   dialectOptions: { ssl },
   logging: false,
 });
+
+export default sequelize;
