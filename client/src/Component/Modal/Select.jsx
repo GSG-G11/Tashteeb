@@ -5,7 +5,7 @@ const { Option } = Select;
 
 const SelectInput = ({ changeFunction }) => {
   return (
-    <Select defaultValue="2" style={{ width: 120 }} onChange={changeFunction}>
+    <Select defaultValue="2" style={{ width: 120} } onChange={changeFunction} className="sele" >
       <Option value="1">Admin</Option>
       <Option value="2">User</Option>
       <Option value="3">Engineer</Option>

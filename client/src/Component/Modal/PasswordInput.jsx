@@ -3,13 +3,15 @@ import { Input, Form } from 'antd';
 
 const PasswordInput = ({placeHolder, changeFunction, name , hide, show}) => {
   return (
-    <Form.Item label={`${name}`} name={`${name}`}>
+    <Form.Item
+      label={`${name}`}
+      name={`${name}`}
+    
+    >
       <Input.Password
         placeholder={placeHolder}
         onChange={changeFunction}
-        iconRender={(visible) =>
-          visible ? show: hide
-        }
+        iconRender={(visible) => (visible ? show : hide)}
       />
     </Form.Item>
   );

@@ -8,7 +8,10 @@ const Forminput = ({
   changeFunction,
 }) => {
   return (
-    <Form.Item label={name} name={`${name}`}>
+    <Form.Item
+      label={name}
+      name={`${name}`}
+    >
       <Input
         prefix={prefix}
         placeholder={placeHolder}

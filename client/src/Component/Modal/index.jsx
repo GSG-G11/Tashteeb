@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Input, Form } from 'antd';
+import { Modal, Button, Form } from 'antd';
 import {
   UserOutlined,
   TagsOutlined,
@@ -10,6 +10,7 @@ import {
 import SelectInput from './Select';
 import Forminput from './input';
 import PasswordInput from './PasswordInput';
+import './style.css';
 
 const SignupModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -79,7 +80,10 @@ const SignupModal = () => {
           prefix={<LinkOutlined />}
           changeFunction={(e) => console.log(e.target.value)}
         />
-        <Form.Item label="Role" name="role">
+        <Form.Item
+          label="Role"
+          name="role"
+        >
           <SelectInput changeFunction={(e) => console.log(e)} />
         </Form.Item>{' '}
         <Forminput
