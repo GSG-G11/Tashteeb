@@ -1,13 +1,11 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './Component/Home';
 import NotFoundPage from './Pages/NotFound';
-
 
 function App() {
   return (
     <div className="App">
-
       <Router>
         <Routes>
           <Route
