@@ -1,0 +1,32 @@
+.hero-image{
+    background-image: linear-gradient(
+        90deg,
+        rgba(9, 8, 9, 0.6),
+        rgba(9, 8, 9, 0.6)
+      ),
+      url('./engineerBanner.jpg');
+    height: 685px;
+    width: 100%;
+    margin: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .engineerDate{
+    padding: 60px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+  }
+  .dataEng{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+margin-top: 360px;
+  }
+  .engineerLinks a{
+    text-decoration: none;
+    color: #ffff;
+  }
+
