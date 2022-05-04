@@ -38,7 +38,7 @@ const signUp = async (req: Request, res: Response) => {
       password: hashedPassword,
     });
     const token = sign(
-      { id: user.id, username: user.username },
+      { id: user.id, username: user.username, role: user.role },
     SECRET_KEY as Secret,
     { expiresIn: '10h' },
     );
