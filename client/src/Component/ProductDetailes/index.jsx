@@ -1,9 +1,11 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import './style.css'
+
 const ProductDetailes = () => {
   return (
  <>
- <div className='container'>
+ <div className='containerProduct'>
         <div className='wrapper'>
           <div className='image'>
             <img className='book-image' src='https://www.ounousa.com/wp-content/uploads/fly-images/141212/151103100501180-638x654.jpg' alt='images' />
@@ -26,6 +28,7 @@ const ProductDetailes = () => {
               <span className='notCheck'>
                 <i className='ri-star-line'></i>
               </span>
+              <span className='num'>45</span>
             </div>
             <div className='content'>
               <h3 className='title'>product name</h3>
@@ -34,7 +37,7 @@ const ProductDetailes = () => {
             </div>
 
             <div className='buttons'>
-                <button>
+                <button className='Buy'>
                   BUY
                 </button>
               <Link to='/home' className='browser '>
