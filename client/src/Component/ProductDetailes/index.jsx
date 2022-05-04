@@ -8,7 +8,7 @@ const ProductDetailes = () => {
  <div className='containerProduct'>
         <div className='wrapper'>
           <div className='image'>
-            <img className='book-image' src='https://www.ounousa.com/wp-content/uploads/fly-images/141212/151103100501180-638x654.jpg' alt='images' />
+            <img className='product-image' src='https://www.ounousa.com/wp-content/uploads/fly-images/141212/151103100501180-638x654.jpg' alt='images' />
           </div>
 
           <div className='data'>
