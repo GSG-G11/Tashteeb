@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=dev  ts-node-dev server/src/index.ts",
-    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts" ,
+    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts",
     "heroku-postbuild": "cd client && npm i && npm run build",
     "build-db": "NODE_ENV=dev ts-node-dev server/src/database/FakeData/sync.ts"
   },
@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/GSG-G11/Tashteeb#readme",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.20.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
