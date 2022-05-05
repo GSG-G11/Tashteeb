@@ -4,7 +4,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const {
-  env: { NODE_ENV, DATABASE_URL, DEV_DB, TEST_DB },
+  env: {
+    NODE_ENV, DATABASE_URL, DEV_DB, TEST_DB,
+  },
 } = process;
 let connectionString: string | undefined = '';
 let ssl: boolean | object = false;
