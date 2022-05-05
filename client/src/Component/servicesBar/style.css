@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Poppins:wght@300;400;500&display=swap');
+
+.service-bar {
+  width: calc(100% - 2rem);
+  height: 25rem;
+  background-color: #272b37;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.service-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+.service-description {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.2rem;
+    color:#DAE0E6;
+}
+.spacing {
+  height: 10rem;
+}
+.service-landing {
+  width: calc(100vw - 2rem);
+  height: calc(100vw / 6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+}
+.service-landing p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.service-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section hr {
+  width: 5rem;
+  height: 5px;
+  background-color: #edb820;
+  border: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .service-landing {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .service-container {
+    flex-wrap: wrap;
+  }
+  .service-bar {
+    height: 35rem;
+  }
+}
