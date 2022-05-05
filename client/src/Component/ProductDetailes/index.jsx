@@ -57,7 +57,7 @@ function ProductDetailes({
 
           <div className="buttons">
             {isProduct ? <button type="button" className="Buy">BUY</button> : <button type="button" className="Buy">Hire Me</button> }
-            <Link to="/home" className="browser ">
+            <Link to="/" className="browser ">
               Continue Browsing
             </Link>
           </div>
