@@ -15,15 +15,15 @@ function useProvideAuth() {
     .then((res) => {
       setUser(res.data);
       return res.data;
-    })
-    .catch((err) => err.response.data);
+    });
+    // .catch((err) => err.response.data);
 
   const logout = () => axios.post('logout')
     .then((res) => {
       setUser(res.data);
       return res.data;
-    })
-    .catch((err) => err.response.data);
+    });
+    // .catch((err) => err.response.data);
 
   return {
     user,

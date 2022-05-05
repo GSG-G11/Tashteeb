@@ -25,11 +25,18 @@ function SignupModal() {
   const handleOk = () => {
     setIsModalVisible(false);
     // console.log(data);
-    register(data).then((res) => {
-      success(res.message);
-    }).catch((err) => {
-      error(err.error.message);
-    });
+    if (data.email && data.password && data.username) {
+      register(data)
+        .then((res) => {
+          success(res.message);
+          setData({});
+        })
+        .catch((err) => {
+          error(err.response.data.error.message);
+        });
+    } else {
+      error('Please fill all the fields');
+    }
   };
 
   const handleCancel = () => {

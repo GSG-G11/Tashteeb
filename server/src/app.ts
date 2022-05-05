@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import express, { Request, Response, Application } from 'express';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
-import customErrorHandler from './error';
 import router from './routes';
 
 const app: Application = express();
@@ -25,8 +24,5 @@ if (NODE_ENV === 'production') {
   });
 }
 app.use(router);
-app.use((err: any, req: Request, res: Response) => {
-  customErrorHandler(err, res);
-});
 
 export default app;
