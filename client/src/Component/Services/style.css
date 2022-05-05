@@ -1,0 +1,45 @@
+.service-holder {
+    margin-top: -13rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.service-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.service-card img {
+    width: 50%;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+}
+
+.service-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5px;
+    margin: 0 10rem;
+
+}
+
+.service-info h2 {
+    font-weight: 400;
+
+}
+
+.service-info p {
+    color: rgb(96, 94, 94);
+    font-weight: 300;
+}
