@@ -5,8 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev server/src/index.ts",
-    "heroku-postbuild": "cd client && npm i && npm run build"
+    "dev": "NODE_ENV=dev  ts-node-dev server/src/index.ts",
+    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts",
+    "heroku-postbuild": "cd client && npm i && npm run build",
+    "build-db": "NODE_ENV=dev ts-node-dev server/src/database/FakeData/sync.ts",
+    "prepare": "npx husky install",
+    "lint": "eslint --ext .ts server/src/",
+    "lint-fix": "eslint --ext .ts server/src/ --fix",
+    "lint:client": "eslint --ext .js,.jsx client/src/",
+    "lint-fix:client": "eslint --ext .js,.jsx client/src/ --fix"
   },
   "repository": {
     "type": "git",
@@ -31,8 +38,8 @@
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
     "@types/compression": "^1.7.2",
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
@@ -46,6 +53,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "supertest": "^6.2.2",
     "ts-jest": "^27.1.4",
