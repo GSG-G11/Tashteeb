@@ -8,12 +8,11 @@ const {
 } = process;
 const buildFakeData = async () => {
   await sequelize.sync({ force: true });
-  const dbData = await Promise.all([
+  await Promise.all([
     User.bulkCreate(fakeUsers),
     Category.bulkCreate(fakeCategories),
     Product.bulkCreate(fakeProducts),
   ]);
-  dbData.forEach((data) => console.log(data));
 };
 
 if (NODE_ENV !== 'test') {
