@@ -1,23 +1,26 @@
-import React from "react";
-import { FaCaretRight } from "react-icons/fa";
+import React from 'react';
+import { FaCaretRight } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-const FooterUl = (props) => {
+function FooterUl({ header, data }) {
   return (
     <div className="footer__ul">
-      <h4 className="footer__ul__header">{props.header}</h4>
+      <h4 className="footer__ul__header">{header}</h4>
       <ul>
-        {Object.entries(props).map(([key, value]) => {
-          return (
-            <li>
-              
-              <FaCaretRight className="arrow__icon" />
-              {value}
-            </li>
-          );
-        })}
+        {data.map((value) => (
+          <li>
+            <FaCaretRight className="arrow__icon" />
+            {value}
+          </li>
+        ))}
       </ul>
     </div>
   );
+}
+
+FooterUl.propTypes = {
+  header: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default FooterUl;

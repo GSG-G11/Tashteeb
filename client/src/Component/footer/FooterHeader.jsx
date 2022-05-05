@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const FooterHeader = () => {
+function FooterHeader() {
   return (
     <div>
-        <h3 className='footer__header'> GIVE US A CALL </h3>
-        <h1 className='footer__number'>+972 - 592 - 100 - 443</h1>
+      <h3 className="footer__header"> GIVE US A CALL </h3>
+      <h1 className="footer__number">+972 - 592 - 100 - 443</h1>
     </div>
-  )
+  );
 }
 
-export default FooterHeader
+export default FooterHeader;

@@ -1,11 +1,10 @@
-import React from "react";
-import FooterHeader from "./FooterHeader";
-import "./footer.css";
-import FooterUl from "./FooterUl";
-import { FaCaretRight } from "react-icons/fa";
-import FooterTwitter from "./FooterTwitter";
-import img1 from "../../images/i1.jpg";
-const Footer = () => {
+import React from 'react';
+import FooterHeader from './FooterHeader';
+import './footer.css';
+import FooterUl from './FooterUl';
+import FooterTwitter from './FooterTwitter';
+
+function Footer() {
   return (
     <div className="footer">
       <FooterHeader />
@@ -18,16 +17,17 @@ const Footer = () => {
         />
         <FooterUl
           header="Services"
-          li1="Circuits & Wiring"
-          li2="Construction Meterials"
-          li3="Remodels"
-          li4="Tools"
+          data={[
+            'Circuits & Wiring',
+            'Construction Meterials',
+            'Remodels',
+            'Tools',
+          ]}
         />
         <FooterTwitter header="Twitter" />
-
       </div>
     </div>
   );
-};
+}
 
 export default Footer;
