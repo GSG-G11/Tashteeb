@@ -1,13 +1,14 @@
-import React from 'react'
-import ServiceCard from './ServiceCard'
+import React from 'react';
+import ServiceCard from './ServiceCard';
 import './style.css';
-const ServiceHolder = () => {
+
+function ServiceHolder() {
   return (
     <div className="service-holder">
       <ServiceCard />
-      <ServiceCard />    
+      <ServiceCard />
     </div>
   );
 }
 
-export default ServiceHolder
+export default ServiceHolder;
