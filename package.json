@@ -12,8 +12,8 @@
     "prepare": "npx husky install",
     "lint": "eslint --ext .ts server/src/",
     "lint-fix": "eslint --ext .ts server/src/ --fix",
-    "lint:client" : "eslint --ext .js,.jsx client/src/",
-    "lint-fix:client" : "eslint --ext .js,.jsx client/src/ --fix"
+    "lint:client": "eslint --ext .js,.jsx client/src/",
+    "lint-fix:client": "eslint --ext .js,.jsx client/src/ --fix"
   },
   "repository": {
     "type": "git",
