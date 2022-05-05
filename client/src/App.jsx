@@ -1,19 +1,24 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Home from './Component/Home';
 import NotFoundPage from './Pages/NotFound';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <Routes>
-
+          <Route
+            path="/"
+            element={(
+              <Home />
+            )}
+          />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
-
 export default App;
