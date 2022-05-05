@@ -12,7 +12,7 @@ import SelectInput from './Select';
 import Forminput from './input';
 import PasswordInput from './PasswordInput';
 import './style.css';
-import { success, error } from '../AntdMessages/messages';
+import { success, error } from '../AntdMessages.jsx/messages';
 
 function SignupModal() {
   const [data, setData] = useState({});
@@ -29,7 +29,6 @@ function SignupModal() {
       success(res.message);
     }).catch((err) => {
       error(err.error.message);
-      console.log(err.error);
     });
   };
 

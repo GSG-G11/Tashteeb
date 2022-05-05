@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './Component/Home';
+import ProductDetailes from './Component/ProductDetailes';
 import NotFoundPage from './Pages/NotFound';
 import { ProvideAuth } from './Context/AuthContext';
 
@@ -12,6 +13,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/info" element={<ProductDetailes />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>
