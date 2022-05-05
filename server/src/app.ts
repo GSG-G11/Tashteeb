@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import express, { Request, Response, Application } from 'express';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
-
+import customErrorHandler from './error';
+import api from './routes';
 const app: Application = express();
 app.set('port', process.env.PORT || 8070);
 dotenv.config();
@@ -22,5 +23,5 @@ if (NODE_ENV === 'production') {
     res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
   });
 }
-
+app.use('/', api);
 export default app;

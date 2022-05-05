@@ -1,9 +1,10 @@
-import Navbar from '../Navbar'
-import banner from '../../Assets/home-done.svg'
-import './style.css'
+import React from 'react';
 import { Button } from 'antd';
+import Navbar from '../Navbar';
+import banner from '../../Assets/home-done.svg';
+import './style.css';
 
-const Header = () => {
+function Header() {
   return (
     <header className="header-holder">
       <Navbar />
@@ -12,8 +13,8 @@ const Header = () => {
         <div className="banner-info">
           <h3>we are construction parteners .</h3>
           <h1>The builders we are the best </h1>
-          <Button type="primary"  >
-           Who We Are
+          <Button type="primary">
+            Who We Are
           </Button>
         </div>
       </section>
@@ -21,4 +22,4 @@ const Header = () => {
   );
 }
 
-export default Header
+export default Header;
