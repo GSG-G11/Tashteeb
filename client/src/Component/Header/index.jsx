@@ -1,7 +1,8 @@
+import React from 'react';
+import { Button } from 'antd';
 import Navbar from '../Navbar';
 import banner from '../../Assets/home-done.svg';
 import './style.css';
-import { Button } from 'antd';
 
 function Header() {
   return (
