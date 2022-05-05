@@ -1,25 +1,28 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { SignupContext } from "./context/signupContext";
 
-import Home from './Component/Home';
-import NotFoundPage from './Pages/NotFound';
+import Home from "./Component/Home";
+import NotFoundPage from "./Pages/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-              </>
-            }
-          />
-          <Route path="/*" element={<NotFoundPage />} />
-        </Routes>
-      </Router>
-    </div>
+    <SignupContext>
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Home />
+                </>
+              }
+            />
+            <Route path="/*" element={<NotFoundPage />} />
+          </Routes>
+        </Router>
+      </div>
+    </SignupContext>
   );
 }
 export default App;
