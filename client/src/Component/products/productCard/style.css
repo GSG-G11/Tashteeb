@@ -1,0 +1,34 @@
+.ant-card-meta-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ant-card-meta-title {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    color: #EDB820!important;
+}
+.ant-card-meta-description {
+    font-size: 1rem !important;
+    color: black !important;
+    height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+
+}
+.ant-card-body {
+   position: relative;
+}
+.ant-card-body button {
+    position: absolute;
+    background: #EDB820 !important;
+    border-color: #EDB820 !important;
+    top: -225px;
+    right: 15px;
+}
+
+.product-card:hover {
+    
+}
+    
