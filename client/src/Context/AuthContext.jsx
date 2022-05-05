@@ -6,26 +6,24 @@ import PropTypes from 'prop-types';
 
 const AuthContext = createContext();
 
-export const useAuth = () => useContext(AuthContext);
+const useAuth = () => useContext(AuthContext);
 
 function useProvideAuth() {
   const [user, setUser] = useState({});
 
-  const register = async (data) => {
-    await axios.post('/signup', data)
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => err.response.data);
-  };
+  const register = (data) => axios.post('/signup', data)
+    .then((res) => {
+      setUser(res.data);
+      return res.data;
+    })
+    .catch((err) => err.response.data);
 
-  const logout = async () => {
-    await axios.post('logout')
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => err.response.data);
-  };
+  const logout = () => axios.post('logout')
+    .then((res) => {
+      setUser(res.data);
+      return res.data;
+    })
+    .catch((err) => err.response.data);
 
   return {
     user,
@@ -43,4 +41,4 @@ ProvideAuth.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default ProvideAuth;
+export { ProvideAuth, useAuth };
