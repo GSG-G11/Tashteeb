@@ -1,7 +1,7 @@
-import React from 'react'
-import serviceImage from '../../Assets/01-Home-v1 1.svg'
+import React from 'react';
+import serviceImage from '../../Assets/01-Home-v1 1.svg';
 
-const ServiceCard = () => {
+function ServiceCard() {
   return (
     <div className="service-card">
       <div className="image">
@@ -18,4 +18,4 @@ const ServiceCard = () => {
   );
 }
 
-export default ServiceCard
+export default ServiceCard;

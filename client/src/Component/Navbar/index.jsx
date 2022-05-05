@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
-import logo from '../../Assets/Group 91.svg';
 import { Button } from 'antd';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../Assets/Group 91.svg';
 
-const Navbar = () => {
+function Navbar() {
   const [navbar, setNavbar] = useState('transparent');
   const changeBackground = () => {
     if (window.scrollY > 50) {
@@ -20,9 +20,9 @@ const Navbar = () => {
         <img src={logo} alt="website logo" />
       </section>
       <section className="navbar-info">
-        <a>Home</a>
-        <a>Shop </a>
-        <a>Services</a>
+        <Link href="/">Home</Link>
+        <Link href="/shop">Shop </Link>
+        <Link href="/services">Services</Link>
       </section>
       <section
         className="auth-section"
@@ -73,6 +73,6 @@ const Navbar = () => {
       </section>
     </nav>
   );
-};
+}
 
 export default Navbar;
