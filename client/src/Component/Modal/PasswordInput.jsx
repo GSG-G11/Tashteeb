@@ -23,8 +23,8 @@ PasswordInput.propTypes = {
   placeHolder: PropTypes.string.isRequired,
   changeFunction: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  hide: PropTypes.func.isRequired,
-  show: PropTypes.func.isRequired,
+  show: PropTypes.node.isRequired,
+  hide: PropTypes.node.isRequired,
 };
 
 export default PasswordInput;
