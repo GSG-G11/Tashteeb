@@ -1,12 +1,14 @@
+import React from 'react';
 import Header from '../Header';
 import ServiceHolder from '../Services/ServiceHolder';
-const Home = () => {
+
+function Home() {
   return (
-      <>
-          <Header />
-          <ServiceHolder />
-      </>
-  )
+    <>
+      <Header />
+      <ServiceHolder />
+    </>
+  );
 }
 
 export default Home;
