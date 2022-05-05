@@ -13,7 +13,7 @@ function App() {
             path="/"
             element={(
               <Home />
-            )}
+              )}
           />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
