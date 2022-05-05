@@ -42,8 +42,7 @@ const signUp = async (req: Request, res: Response) => {
     SECRET_KEY as Secret,
     { expiresIn: '10h' },
     );
-    res.cookie('token', token, { httpOnly: true })
-      .json({ message: 'User created successfully!', user: { id: user.id, username: user.username, role: user.role } });
+    res.cookie('token', token, { httpOnly: true }).json({ message: 'User created successfully!', user: { id: user.id, username: user.username, role: user.role } });
   } catch (err : any) {
     if (err.details) {
       res.status(422).json({ message: err.message });
