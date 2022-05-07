@@ -1,17 +1,10 @@
-import { Router as router, Request, Response } from 'express';
-import customErrorHandler from '../error';
-import login from '../controller/userAuth/login';
+import { Router } from 'express';
+import { signUp, login, currentUser } from '../controller/userAuth';
 
-const api = router();
+const router = Router();
 
-api.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-api.post('/login', login);
+router.post('/signup', signUp);
+router.post('/login', login);
+router.get('/auth/user', currentUser);
 
-api.use((err: any, req: Request, res: Response) => {
-  console.log(err.name);
-  customErrorHandler(err, res);
-});
-
-export default api;
+export default router;

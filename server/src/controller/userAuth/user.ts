@@ -1,18 +1,19 @@
 import { Request, Response } from 'express';
-import passport from 'passport';
-import customPassport from '../../auth/passport';
+import passport from '../../auth/passport';
 
-customPassport(passport);
 const currentUser = (req: Request, res: Response) => {
-  passport.authenticate('jwt', (err, user, info) => {
+  passport.authenticate('jwt', { session: false }, (err, user) => {
     if (err) {
       console.log(err);
-      return res.status(401).json({ status: 'error', code: 'unauthorized' });
+      return res.status(401).json({ status: 'error', code: 'unauthorized err' });
     }
     if (!user) {
-      return res.status(401).json({ status: 'error', code: 'unauthorized' });
+      return res.status(401).json({ status: 'error', code: 'unauthorized no user' });
     }
-    return info;
+    const { id, username, role } = user;
+    return res.status(200).json({
+      status: 'success', id, username, role,
+    });
   })(req, res);
 };
 
