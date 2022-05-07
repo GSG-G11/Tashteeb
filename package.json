@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=dev  ts-node-dev server/src/index.ts",
-    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts" ,
+    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts",
     "heroku-postbuild": "cd client && npm i && npm run build",
     "build-db": "NODE_ENV=dev ts-node-dev server/src/database/FakeData/sync.ts"
   },
@@ -30,7 +30,8 @@
     "passport": "^0.5.2",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.0",
+    "sequelize-querystring": "^0.10.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
