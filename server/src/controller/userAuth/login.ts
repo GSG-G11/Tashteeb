@@ -11,7 +11,7 @@ dotenv.config();
 
 const { JWT_SECRET, NODE_ENV } = process.env;
 
-export default async (req: Request, res: Response) => {
+export default async (req: Request, res: Response) : Promise<any> => {
   try {
     const { email, password } = req.body;
 
