@@ -1,6 +1,8 @@
 import { Router, Request, Response } from 'express';
 
-import { signup, logout, login, currentUser } from '../controller/userAuth/index';
+import {
+  signup, logout, login, currentUser,
+} from '../controller/userAuth/index';
 import customErrorHandler from '../error';
 
 const router = Router();
