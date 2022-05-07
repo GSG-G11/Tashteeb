@@ -1,3 +1,4 @@
 import signUp from './signup';
+import logout from './logout';
 
-export default signUp;
+export { signUp, logout };

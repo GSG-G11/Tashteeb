@@ -23,7 +23,7 @@ function Forminput({
 }
 Forminput.propTypes = {
   name: PropTypes.string.isRequired,
-  prefix: PropTypes.string.isRequired,
+  prefix: PropTypes.node.isRequired,
   placeHolder: PropTypes.string.isRequired,
   changeFunction: PropTypes.func.isRequired,
 };
