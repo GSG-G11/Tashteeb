@@ -21,9 +21,9 @@ function Navbar() {
         <img src={logo} alt="website logo" />
       </section>
       <section className="navbar-info">
-        <Link href="/">Home</Link>
-        <Link href="/shop">Shop </Link>
-        <Link href="/services">Services</Link>
+        <Link to="/">Home</Link>
+        <Link to="/shop">Shop </Link>
+        <Link to="/services">Services</Link>
       </section>
       <section
         className="auth-section"
