@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-import {
-  UserOutlined,
-  EyeTwoTone,
-  EyeInvisibleOutlined,
+import { UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
+import { useAuth } from '../../Context/AuthContext';
 
-} from '@ant-design/icons';
 import Forminput from './input';
 import PasswordInput from './PasswordInput';
 import './style.css';
+import { success, error } from '../AntdMessages.jsx/messages';
 
 function loginModal() {
+  const { login } = useAuth();
+  const [data, setData] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -20,6 +20,18 @@ function loginModal() {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    if (data.email && data.password) {
+      login(data)
+        .then((res) => {
+          success(res.message);
+          setData({});
+        })
+        .catch((err) => {
+          error(err.response.data.error.message);
+        });
+    } else {
+      error('Please fill all the fields');
+    }
   };
 
   const handleCancel = () => {
@@ -47,24 +59,19 @@ function loginModal() {
       >
         Log In
       </Button>
-      <Modal
-        title="Log In"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
+      <Modal title="Log In" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <Forminput
           name="Email"
           placeHolder="Enter Your Email"
           prefix={<UserOutlined />}
-          changeFunction={() => {}}
+          changeFunction={(e) => setData({ ...data, email: e.target.value })}
         />
         <PasswordInput
           name="Password"
           placeHolder="Enter Your Password"
           show={<EyeTwoTone />}
           hide={<EyeInvisibleOutlined />}
-          changeFunction={() => {}}
+          changeFunction={(e) => setData({ ...data, password: e.target.value })}
         />
       </Modal>
     </>
