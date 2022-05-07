@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SingleCard from './SingleCard';
 import './style.css';
 
 function EngCard() {
+  const [info] = useState('');
+  useEffect(() => {
+    const abortController = new AbortController();
+    fetch('/api/engHome', {
+      signal: abortController.signal,
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+    return () => abortController.abort();
+  }, [info]);
   return (
     <div className="containerCard">
       <div className="EngCardTitle">
@@ -15,7 +26,9 @@ function EngCard() {
         <SingleCard />
       </div>
       <div className="cardBtn">
-        <button type="button" className="btn">JOIN US !</button>
+        <button type="button" className="btn">
+          JOIN US !
+        </button>
       </div>
     </div>
   );
