@@ -1,10 +1,12 @@
+import { ENGINEER, ADMIN } from '../models/User';
+
 const fakeUsers = [
   {
     email: 'admin@admin.com',
     username: 'admin',
     password: 'admin',
     image: 'https://i.pravatar.cc/300?img=1',
-    role: 2,
+    role: ADMIN,
   },
   {
     email: 'nabil@gmail.com',
@@ -17,8 +19,44 @@ const fakeUsers = [
     username: 'enghelles',
     password: '123456',
     image: 'https://i.pravatar.cc/300?img=3',
-    role: 1,
+    role: ENGINEER,
     hour_price: 100,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engibrahime@helles.com',
+    username: 'engibrahime',
+    password: '123456',
+    image: 'https://i.pravatar.cc/300?img=3',
+    role: ENGINEER,
+    hour_price: 150,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engahmed@helles.com',
+    username: 'engahmed',
+    password: '123456',
+    image: 'https://i.pravatar.cc/300?img=3',
+    role: ENGINEER,
+    hour_price: 200,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engmohammed@helles.com',
+    username: 'engmohammed',
+    password: '123456',
+    image: 'https://i.pravatar.cc/300?img=3',
+    role: ENGINEER,
+    hour_price: 200,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engnabil@helles.com',
+    username: 'engnabil',
+    password: '123456',
+    image: 'https://i.pravatar.cc/300?img=3',
+    role: ENGINEER,
+    hour_price: 250,
     phone: '+20100100100',
   },
 ];
