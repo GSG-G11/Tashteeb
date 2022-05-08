@@ -1,7 +1,6 @@
 import { Product } from '../models';
 
 const findAllProducts = async () => {
-  const ff = await Product.findAll();
-  console.log(ff);
+  await Product.findAll();
 };
 export default findAllProducts;
