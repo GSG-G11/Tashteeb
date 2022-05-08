@@ -5,11 +5,12 @@ import handleUnknownExceptions from '../../error/handleUnkownError';
 
 const getAllEngineer = async (req: Request, res:Response) => {
   try {
-    // const { page, size } = req.query;
+    const { page = 1, pageSize = 6 } = req.query;
+    console.log(page, pageSize);
     const allEngineers = await User.findAndCountAll({
       where: { role: ENGINEER },
-      limit: 9,
-      // offset: size * page,
+      limit: +pageSize,
+      offset: +pageSize * (+page - 1),
     });
     res.json({ status: 200, data: allEngineers });
   } catch (err:any) {

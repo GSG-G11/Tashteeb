@@ -1,3 +1,15 @@
 .engineerInfo{
    margin-top: 40px;
 }
+.paginationEng{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom:4rem;
+}
+.engController{
+    width: 80rem;
+    height: 80rem;
+    margin: auto;
+}
