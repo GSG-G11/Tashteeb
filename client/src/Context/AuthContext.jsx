@@ -18,6 +18,12 @@ function useProvideAuth() {
     });
     // .catch((err) => err.response.data);
 
+  const login = (data) => axios.post('/login', data)
+    .then((res) => {
+      setUser(res.data);
+      return res.data;
+    });
+
   const logout = () => axios.post('logout')
     .then((res) => {
       setUser(res.data);
@@ -29,6 +35,7 @@ function useProvideAuth() {
     user,
     register,
     logout,
+    login,
   };
 }
 
