@@ -1,0 +1,9 @@
+.Dashboard-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Dashboard-header>h2{
+    color: #edb820 ;
+    padding: 0 60px;
+}
