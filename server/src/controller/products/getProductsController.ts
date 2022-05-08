@@ -6,10 +6,10 @@ import Product from '../../database/models/Product';
 const getProducts = async (req: Request, res: Response) => {
   const {
     q, categoryId, minPrice, maxPrice, limit = 10, page = 1,
-  } = req.query;
+  } : any = req.query;
 
   try {
-    const product = Product.findAll({
+    const product = await Product.findAll({
       attributes: ['id', 'name', 'price', 'description', 'categoryId'],
       limit,
       offset: (page - 1) * 6,
@@ -22,13 +22,12 @@ const getProducts = async (req: Request, res: Response) => {
               [Op.between]: [minPrice || 0, maxPrice || Number.MAX_SAFE_INTEGER],
             },
           },
-
         ],
       },
     });
-    res.json({ status: 200, data: product });
+    res.json({ status: 200, product });
   } catch (error: any) {
-    throw new Error('replcae with cutomized error');
+    throw new Error('replce with cutiomized error');
   }
 };
 

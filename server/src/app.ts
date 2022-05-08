@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import express, { Request, Response, Application } from 'express';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
-import getProducts from './controller/products/getProducts';
 
 const app: Application = express();
 app.set('port', process.env.PORT || 8070);
@@ -23,5 +22,4 @@ if (NODE_ENV === 'production') {
     res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
   });
 }
-app.get('/m7med', getProducts);
 export default app;
