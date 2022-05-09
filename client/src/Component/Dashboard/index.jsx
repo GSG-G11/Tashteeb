@@ -1,23 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import logo from '../../Assets/Group 91.svg';
-import ProductList from './ProductList';
-import Satistics from './Satistics';
 
 const { Header, Sider, Content } = Layout;
-const items2 = [UserOutlined, LaptopOutlined].map((icon, index) => {
-  const key = String(index + 1);
-  return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: ` ${key === '1' ? 'Products' : 'Satistics'}`,
-  };
-});
+
 function Dashboard() {
-  const [subMenu, setSubMenu] = useState(false);
   return (
     <div className="Dashboard">
       <Layout>
@@ -37,16 +26,30 @@ function Dashboard() {
             <Menu
               theme="dark"
               mode="inline"
-              defaultSelectedKeys={['2']}
+              defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{
                 height: '100%',
                 paddingTop: '50px',
                 backgroundColor: '#1D202F',
               }}
-              items={items2}
-              onClick={() => setSubMenu(!subMenu)}
-            />
+            >
+              <Menu.Item key="1">
+                <Link to="/dashboard/product">
+                  <span>Product</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/dashboard/orders">
+                  <span>Orders</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/dashboard/satistics">
+                  <span>Satistics</span>
+                </Link>
+              </Menu.Item>
+            </Menu>
           </Sider>
           <Layout>
             <Content style={{ padding: '0 50px' }}>
@@ -61,7 +64,7 @@ function Dashboard() {
                   minHeight: 450,
                 }}
               >
-                {subMenu ? <ProductList subMenu={subMenu} /> : <Satistics />}
+                <Outlet />
               </div>
             </Content>
           </Layout>

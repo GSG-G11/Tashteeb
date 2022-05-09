@@ -2,14 +2,17 @@ import { Router, Request, Response } from 'express';
 import getEngineer from '../controller';
 
 import {
-  signup, logout, login, currentUser,
+  signup,
+  logout,
+  login,
+  currentUser,
 } from '../controller/userAuth/index';
 import customErrorHandler from '../error';
 
 const router = Router();
-router.post('/signup', signUp);
-router.get('/engHome', getEngineer);
 router.post('/signup', signup);
+router.get('/engHome', getEngineer);
+// router.post('/signup', signup);
 router.post('/login', login);
 router.get('/auth/user', currentUser);
 router.get('/engHome', getEngineer);
