@@ -9,6 +9,7 @@ import LoginModal from '../Modal/login';
 
 function Navbar() {
   const { user } = useAuth();
+
   const [navbar, setNavbar] = useState('transparent');
   const changeBackground = () => {
     if (window.scrollY > 50) {
@@ -37,13 +38,13 @@ function Navbar() {
           marginBottom: '25px',
         }}
       >
-        {!user.user ? (
+        {!user ? (
           <>
             <LoginModal />
             <SignupModal />
           </>
         ) : (
-          <UserInfo username={user.user.username} />
+          <UserInfo username={user.username} />
         )}
       </section>
     </nav>

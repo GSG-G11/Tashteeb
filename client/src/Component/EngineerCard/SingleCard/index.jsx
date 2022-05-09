@@ -1,18 +1,22 @@
 import React from 'react';
 import '../style.css';
+import { PropTypes } from 'prop-types';
 
-function SingleCard() {
+function SingleCard({ img, name }) {
   return (
     <div>
       <div className="card">
-        <img src="http://themesflat.com/html/nah/images/member/1t1.png" alt="Avatar" />
+        <img src={img} alt="Avatar" />
         <div className="Engdetailes">
-          <h4><b>John Doe</b></h4>
+          <h4><b>{name}</b></h4>
           <p>Architect & Engineer</p>
         </div>
       </div>
     </div>
   );
 }
-
+SingleCard.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 export default SingleCard;

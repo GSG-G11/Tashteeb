@@ -41,7 +41,7 @@ const signUp = async (req: Request, res: Response): Promise<any> => {
       { expiresIn: '10h' },
     );
     res
-      .cookie('token', token, { httpOnly: true })
+      .cookie('token', token)
       .json({
         message: 'User created successfully!',
         user: { id: user.id, username: user.username, role: user.role },
