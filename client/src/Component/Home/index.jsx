@@ -1,12 +1,18 @@
+import React from 'react';
 import Header from '../Header';
 import ServiceHolder from '../Services/ServiceHolder';
-const Home = () => {
+import EngCard from '../EngineerCard';
+import ServicesBar from '../servicesBar/index';
+
+function Home() {
   return (
-      <>
-          <Header />
-          <ServiceHolder />
-      </>
-  )
+    <>
+      <Header />
+      <ServiceHolder />
+      <ServicesBar />
+      <EngCard />
+    </>
+  );
 }
 
 export default Home;
