@@ -6,7 +6,6 @@ import handleUnknownExceptions from '../../error/handleUnkownError';
 const getAllEngineer = async (req: Request, res:Response) => {
   try {
     const { page = 1, pageSize = 6 } = req.query;
-    console.log(page, pageSize);
     const allEngineers = await User.findAndCountAll({
       where: { role: ENGINEER },
       limit: +pageSize,
