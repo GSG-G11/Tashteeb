@@ -5,23 +5,20 @@ import EnginnerBanner from './Component/EnginnerBanner';
 import Home from './Component/Home';
 import ProductDetailes from './Component/ProductDetailes';
 import NotFoundPage from './Pages/NotFound';
+import { ProvideAuth } from './Context/AuthContext';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={(
-              <Home />
-              )}
-          />
-          <Route path="/eng" element={<EnginnerBanner />} />
-          <Route path="/info" element={<ProductDetailes />} />
-          <Route path="/*" element={<NotFoundPage />} />
-        </Routes>
-      </Router>
+      <ProvideAuth>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/info" element={<ProductDetailes />} />
+            <Route path="/*" element={<NotFoundPage />} />
+          </Routes>
+        </Router>
+      </ProvideAuth>
     </div>
   );
 }

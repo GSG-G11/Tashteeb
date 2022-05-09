@@ -1,3 +1,8 @@
-import signUp from './signup';
+import signup from './signup';
+import login from './login';
+import currentUser from './user';
+import logout from './logout';
 
-export default signUp;
+export {
+  signup, logout, login, currentUser,
+};
