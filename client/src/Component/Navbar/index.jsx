@@ -3,6 +3,7 @@ import './style.css';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/Group 91.svg';
+import SignupModal from '../Modal';
 
 function Navbar() {
   const [navbar, setNavbar] = useState('transparent');
@@ -52,24 +53,7 @@ function Navbar() {
         >
           Sign In
         </Button>
-        <Button
-          type="primary"
-          style={{
-            marginTop: '25px',
-            backgroundColor: '#EDB820',
-            borderRadius: ' 5px',
-            border: ' 1px solid #EDB820',
-            color: '#fff',
-            fontWeight: ' 500',
-            transition: 'all 1s ease-in-out',
-            display: 'flex',
-            alignItems: 'center',
-            marginLeft: '10px ',
-          }}
-          className="signup-btn"
-        >
-          Sign Up
-        </Button>
+        <SignupModal />
       </section>
     </nav>
   );
