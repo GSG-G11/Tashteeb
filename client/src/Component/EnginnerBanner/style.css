@@ -19,11 +19,14 @@
     color: white;
     font-size: 40px;
   }
+  .engineerDate h1{
+    color: white;
+  }
   .dataEng{
     display: flex;
     flex-direction: column;
     justify-content:flex-end;
-margin-top: 360px;
+margin-top: 400px;
   }
   .engineerLinks a{
     text-decoration: none;
