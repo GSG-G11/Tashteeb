@@ -1,32 +1,27 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form } from 'antd';
-import {
-  UserOutlined,
-  TagsOutlined,
-  EyeTwoTone,
-  EyeInvisibleOutlined,
-  LinkOutlined,
-} from '@ant-design/icons';
+import { Modal, Button } from 'antd';
+
+import { UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 import { useAuth } from '../../Context/AuthContext';
-import SelectInput from './Select';
+
 import Forminput from './input';
 import PasswordInput from './PasswordInput';
 import './style.css';
 import { success, error } from '../AntdMessages.jsx/messages';
 
-function SignupModal() {
+function loginModal() {
+  const { login } = useAuth();
   const [data, setData] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { register } = useAuth();
+
   const showModal = () => {
     setIsModalVisible(true);
   };
 
   const handleOk = () => {
     setIsModalVisible(false);
-    // console.log(data);
-    if (data.email && data.password && data.username) {
-      register(data)
+    if (data.email && data.password) {
+      login(data)
         .then((res) => {
           success(res.message);
           setData({});
@@ -44,38 +39,27 @@ function SignupModal() {
   };
 
   return (
-    <Form>
+    <>
       <Button
         type="primary"
         style={{
           marginTop: '25px',
-          backgroundColor: '#EDB820',
+          backgroundColor: 'transparent',
           borderRadius: ' 5px',
           border: ' 1px solid #EDB820',
-          color: '#fff',
+          color: '#EDB820',
           fontWeight: ' 500',
           transition: 'all 1s ease-in-out',
           display: 'flex',
           alignItems: 'center',
-          marginLeft: '10px ',
+          marginRight: '10px',
         }}
-        className="signup-btn"
+        className="login-btn"
         onClick={showModal}
       >
-        Sign Up
+        Log In
       </Button>
-      <Modal
-        title="Sign Up"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <Forminput
-          name="Name"
-          placeHolder="ENTER YOUR NAME"
-          prefix={<UserOutlined />}
-          changeFunction={(e) => setData({ ...data, username: e.target.value })}
-        />
+      <Modal title="Log In" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <Forminput
           name="Email"
           placeHolder="Enter Your Email"
@@ -89,25 +73,9 @@ function SignupModal() {
           hide={<EyeInvisibleOutlined />}
           changeFunction={(e) => setData({ ...data, password: e.target.value })}
         />
-        <Forminput
-          name="image"
-          placeHolder="Enter Your Image Link"
-          prefix={<LinkOutlined />}
-          changeFunction={(e) => setData({ ...data, image: e.target.value })}
-        />
-        <Form.Item label="Role" name="role">
-          <SelectInput changeFunction={(e) => setData({ ...data, role: e })} />
-
-        </Form.Item>
-        <Forminput
-          name="Phone"
-          placeHolder="Enter Your Phone Number"
-          prefix={<TagsOutlined />}
-          changeFunction={(e) => setData({ ...data, phone: e.target.value })}
-        />
       </Modal>
-    </Form>
+    </>
   );
 }
 
-export default SignupModal;
+export default loginModal;
