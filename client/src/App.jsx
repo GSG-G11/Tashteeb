@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import EnginnerBanner from './Component/EnginnerBanner';
 
 import Home from './Component/Home';
 import NotFoundPage from './Pages/NotFound';
@@ -15,6 +16,7 @@ function App() {
               <Home />
             )}
           />
+          <Route path="/eng" element={<EnginnerBanner />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </Router>
