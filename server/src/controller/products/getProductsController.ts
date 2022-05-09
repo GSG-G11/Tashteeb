@@ -17,13 +17,13 @@ const getProducts = async (req: Request, res: Response) => {
     const product = await Product.findAll({
       attributes: ['id', 'name', 'price', 'description', 'categoryId'],
       limit,
-      offset: (page - 1) * 10,
+      offset: (page - 1) * limit,
       where: {
         [Op.and]: [
-          q !== undefined && { name: { [Op.substring]: q } },
-          categoryId !== undefined && categoryId,
-          minPrice !== undefined
-            && maxPrice !== undefined && {
+          q && { name: { [Op.iLike]: `%${q}%` } },
+          categoryId && { categoryId },
+          minPrice
+            && maxPrice && {
             price: {
               [Op.between]: [
                 minPrice || 0,

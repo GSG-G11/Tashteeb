@@ -4,6 +4,7 @@ import express, { Request, Response, Application } from 'express';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import router from './routes';
+import getProducts from './controller/products/getProductsController';
 
 const app: Application = express();
 app.set('port', process.env.PORT || 8070);
@@ -27,5 +28,6 @@ if (NODE_ENV === 'production') {
   });
 }
 app.use(router);
+app.get('/pro', getProducts);
 
 export default app;
