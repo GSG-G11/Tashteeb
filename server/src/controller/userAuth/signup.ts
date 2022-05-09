@@ -9,14 +9,12 @@ import signupValidation from '../../validaiton';
 
 dotenv.config();
 
-const { SECRET_KEY } = process.env;
+const { JWT_SECRET } = process.env;
 
-const signUp = async (req: Request, res: Response) => {
+const signUp = async (req: Request, res: Response): Promise<any> => {
   try {
     await signupValidation(req);
-    const {
-      password, email, username,
-    } = req.body;
+    const { password, email, username } = req.body;
     const emailDoesExist = await User.findOne({
       where: { email },
     });
@@ -32,18 +30,23 @@ const signUp = async (req: Request, res: Response) => {
     if (userNameExists) {
       throw new CustomizeError(409, 'This username is already taken!');
     }
-    const hashedPassword : string = await bcrypt.hash(password, 10);
+    const hashedPassword: string = await bcrypt.hash(password, 10);
     const user = await User.create({
       ...req.body,
       password: hashedPassword,
     });
     const token = sign(
       { id: user.id, username: user.username, role: user.role },
-    SECRET_KEY as Secret,
-    { expiresIn: '10h' },
+      JWT_SECRET as Secret,
+      { expiresIn: '10h' },
     );
-    res.cookie('token', token, { httpOnly: true }).json({ message: 'User created successfully!', user: { id: user.id, username: user.username, role: user.role } });
-  } catch (err : any) {
+    res
+      .cookie('token', token, { httpOnly: true })
+      .json({
+        message: 'User created successfully!',
+        user: { id: user.id, username: user.username, role: user.role },
+      });
+  } catch (err: any) {
     if (err.details) {
       res.status(422).json({ message: err.message });
     } else {
