@@ -11,20 +11,30 @@ const ADMIN_ROLE = 2;
 
 function useProvideAuth() {
   const [user, setUser] = useState({});
-  const register = (data) => axios.post('/signup', data).then((res) => {
-    setUser(res.data);
-    return res.data;
-  });
 
-  const logout = () => axios.post('logout').then((res) => {
-    setUser(res.data);
-    return res.data;
-  });
+  const register = (data) => axios.post('/signup', data)
+    .then((res) => {
+      setUser(res.data);
+      return res.data;
+    });
+
+  const login = (data) => axios.post('/login', data)
+    .then((res) => {
+      setUser(res.data);
+      return res.data;
+    });
+
+  const logout = () => axios.post('/logout')
+    .then((res) => {
+      setUser(res.data);
+      return res.data;
+    });
 
   return {
     user,
     register,
     logout,
+    login,
   };
 }
 
