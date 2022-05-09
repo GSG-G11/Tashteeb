@@ -11,21 +11,21 @@ import {
 
 export function ProtectedAdmin({ children }) {
   const { user } = useAuth();
-  if (!user.user) {
+  if (user.role === ADMIN_ROLE) {
     return <Navigate to="/dashboard" replace />;
   }
   return children;
 }
 export function ProtectedUser({ children }) {
   const { user } = useAuth();
-  if (user.user.role === ADMIN_ROLE) {
+  if (user) {
     return <Navigate to="/" replace />;
   }
   return children;
 }
 export function ProtectedEngineer({ children }) {
   const { user } = useAuth();
-  if (user.user.role === ENGINEER_ROLE) {
+  if (user.role === ENGINEER_ROLE) {
     return <Navigate to="/engineer" replace />;
   }
   return children;
