@@ -7,7 +7,7 @@ import customErrorHandler from '../error';
 
 const router = Router();
 router.get('/engPage', getAllEngineer);
-router.post('/signup', signUp);
+router.post('/signup', signup);
 router.post('/login', login);
 router.get('/auth/user', currentUser);
 router.post('/logout', logout);
