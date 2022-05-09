@@ -1,10 +1,12 @@
+import { ENGINEER, ADMIN } from '../models/User';
+
 const fakeUsers = [
   {
     email: 'admin@admin.com',
     username: 'admin',
     password: 'admin',
     image: 'http://themesflat.com/html/nah/images/member/3t1.png',
-    role: 2,
+    role: ADMIN,
   },
   {
     email: 'nabil@gmail.com',
@@ -16,9 +18,45 @@ const fakeUsers = [
     email: 'enghelles@helles.com',
     username: 'enghelles',
     password: '123456',
-    image: 'http://themesflat.com/html/nah/images/member/1t1.png',
-    role: 1,
+    image: 'http://themesflat.com/html/nah/images/member/2t1.png',
+    role: ENGINEER,
     hour_price: 100,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engibrahime@helles.com',
+    username: 'engibrahime',
+    password: '123456',
+    image: 'http://themesflat.com/html/nah/images/member/1t1.png',
+    role: ENGINEER,
+    hour_price: 150,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engahmed@helles.com',
+    username: 'engahmed',
+    password: '123456',
+    image: 'http://themesflat.com/html/nah/images/member/1t1.png',
+    role: ENGINEER,
+    hour_price: 200,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engmohammed@helles.com',
+    username: 'engmohammed',
+    password: '123456',
+    image: 'http://themesflat.com/html/nah/images/member/2t1.png',
+    role: ENGINEER,
+    hour_price: 200,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engnabil@helles.com',
+    username: 'engnabil',
+    password: '123456',
+    image: 'http://themesflat.com/html/nah/images/member/1t1.png',
+    role: ENGINEER,
+    hour_price: 250,
     phone: '+20100100100',
   },
 ];

@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import SingleCard from './SingleCard';
 import './style.css';
 
 function EngCard() {
   const [info, setInfo] = useState([]);
   useEffect(() => {
-    const abortController = new AbortController();
-    fetch('/api/engHome', {
-      signal: abortController.signal,
-    })
-      .then((res) => res.json())
-      .then((data) => setInfo(data.data))
-      .catch((err) => console.log(err));
-    return () => abortController.abort();
+    const cancelToken = axios.CancelToken;
+    const source = cancelToken.source();
+    const fetchData = async () => {
+      const dataAxios = await axios('/api/engHome', { cancelToken: source.token });
+      const { data } = dataAxios.data;
+      setInfo(data);
+    };
+    fetchData();
+    return () => source.cancel();
   }, []);
   return (
-    // {id: 1, email: 'admin@admin.com', username: 'admin', password: 'admin', image: '
     <div className="containerCard">
       <div className="EngCardTitle">
         <h2>OUR TEAM</h2>
