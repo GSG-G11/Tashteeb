@@ -59,6 +59,24 @@ const fakeUsers = [
     hour_price: 250,
     phone: '+20100100100',
   },
+  {
+    email: 'engnabil1@helles.com',
+    username: 'engnabil2',
+    password: '123456',
+    image: 'http://themesflat.com/html/nah/images/member/1t1.png',
+    role: ENGINEER,
+    hour_price: 250,
+    phone: '+20100100100',
+  },
+  {
+    email: 'engnabil2@helles.com',
+    username: 'engnabil3',
+    password: '123456',
+    image: 'http://themesflat.com/html/nah/images/member/1t1.png',
+    role: ENGINEER,
+    hour_price: 250,
+    phone: '+20100100100',
+  },
 ];
 
 const fakeProducts = [
