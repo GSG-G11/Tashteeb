@@ -27,7 +27,8 @@ const Product = sequelize.define<IProduct>('product', {
   description: {
     type: DataTypes.TEXT,
   },
-  categoryId: {
+  categoryid: {
+
     type: DataTypes.INTEGER,
   },
 });
