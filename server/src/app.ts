@@ -18,6 +18,9 @@ app.use('/api', router);
 const {
   env: { NODE_ENV },
 } = process;
+
+app.disable('x-powered-by');
+
 if (NODE_ENV === 'production') {
   app.use(express.static(join(__dirname, '..', '..', 'client', 'build')));
   app.get('*', (req: Request, res: Response) => {
