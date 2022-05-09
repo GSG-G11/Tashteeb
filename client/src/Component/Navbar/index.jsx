@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './style.css';
-import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/Group 91.svg';
 import SignupModal from '../Modal';
+import LoginModal from '../Modal/login';
 
 function Navbar() {
   const [navbar, setNavbar] = useState('transparent');
@@ -34,7 +34,7 @@ function Navbar() {
           marginBottom: '25px',
         }}
       >
-        <Button
+        {/* <Button
           type="primary"
           ghost
           style={{
@@ -52,7 +52,8 @@ function Navbar() {
           className="signin-btn"
         >
           Sign In
-        </Button>
+        </Button> */}
+        <LoginModal />
         <SignupModal />
       </section>
     </nav>
