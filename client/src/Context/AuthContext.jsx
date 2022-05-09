@@ -1,29 +1,25 @@
-import React, {
-  useState, useContext, createContext,
-} from 'react';
+import React, { useState, useContext, createContext } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
 const AuthContext = createContext();
 
 const useAuth = () => useContext(AuthContext);
+const USER_ROLE = 0;
+const ENGINEER_ROLE = 1;
+const ADMIN_ROLE = 2;
 
 function useProvideAuth() {
   const [user, setUser] = useState({});
+  const register = (data) => axios.post('/signup', data).then((res) => {
+    setUser(res.data);
+    return res.data;
+  });
 
-  const register = (data) => axios.post('/signup', data)
-    .then((res) => {
-      setUser(res.data);
-      return res.data;
-    });
-    // .catch((err) => err.response.data);
-
-  const logout = () => axios.post('logout')
-    .then((res) => {
-      setUser(res.data);
-      return res.data;
-    });
-    // .catch((err) => err.response.data);
+  const logout = () => axios.post('logout').then((res) => {
+    setUser(res.data);
+    return res.data;
+  });
 
   return {
     user,
@@ -41,4 +37,6 @@ ProvideAuth.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { ProvideAuth, useAuth };
+export {
+  ProvideAuth, useAuth, USER_ROLE, ENGINEER_ROLE, ADMIN_ROLE,
+};

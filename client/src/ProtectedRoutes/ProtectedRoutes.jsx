@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import {
   Navigate,
 } from 'react-router-dom';
-import { useAuth } from '../Context/AuthContext';
+import {
+  useAuth,
+  ENGINEER_ROLE,
+  ADMIN_ROLE,
+} from '../Context/AuthContext';
 
 export function ProtectedAdmin({ children }) {
   const { user } = useAuth();
@@ -14,14 +18,14 @@ export function ProtectedAdmin({ children }) {
 }
 export function ProtectedUser({ children }) {
   const { user } = useAuth();
-  if (user.user.role === 0) {
+  if (user.user.role === ADMIN_ROLE) {
     return <Navigate to="/" replace />;
   }
   return children;
 }
 export function ProtectedEngineer({ children }) {
   const { user } = useAuth();
-  if (user.user.role === 2) {
+  if (user.user.role === ENGINEER_ROLE) {
     return <Navigate to="/engineer" replace />;
   }
   return children;
