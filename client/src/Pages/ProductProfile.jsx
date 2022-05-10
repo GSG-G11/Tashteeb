@@ -3,30 +3,31 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductDetailes from '../Component/ProductDetailes';
 
-function EngineerProfile() {
+function ProductProfile() {
   const { id } = useParams();
   const [info, setInfo] = useState('');
   useEffect(() => {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
-    const fetchData = async () => {
-      const datares = await axios.get(`/api/eng/${id}`, {
+    const fetchdata = async () => {
+      const dataResponse = await axios(`/api/product/${id}`, {
         cancelToken: source.token,
       });
-      setInfo(datares.data.user);
+      setInfo(dataResponse.data.data);
     };
-    fetchData();
+    fetchdata();
     return () => source.cancel();
-  }, []);
+  });
   return (
     <ProductDetailes
-      isProduct={false}
-      name={info.username}
+      isProduct
+      id={info.id}
+      description={info.description}
+      name={info.name}
+      price={info.price}
       img={info.image}
-      price={info.hourPrice}
-      phone={info.phone}
     />
   );
 }
 
-export default EngineerProfile;
+export default ProductProfile;
