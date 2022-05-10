@@ -14,7 +14,7 @@ interface IUser
   password: string;
   image?: string;
   role?: number;
-  cartItems?: object;
+  cartItems?: any;
   hourPrice?: number;
   phone?: string;
 }

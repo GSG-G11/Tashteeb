@@ -2,7 +2,7 @@ const fakeUsers = [
   {
     email: 'admin@admin.com',
     username: 'admin',
-    password: 'admin',
+    password: '$2a$10$yxS08sgH3.nLAZdQbwglIe1Ph12aVRNlA/J2qv/x03aSq.Q1ebqy.',
     image: 'https://i.pravatar.cc/300?img=1',
     role: 2,
   },
