@@ -27,4 +27,8 @@ if (NODE_ENV === 'production') {
   });
 }
 
+// app.use((err: any, req: Request, res: Response) => {
+//   customErrorHandler(err, res);
+// });
+
 export default app;
