@@ -6,7 +6,7 @@ import {
   getCategories,
   getAllEngineer,
 } from '../controller';
-import { deleteProduct } from '../controller/products';
+import { deleteProduct, updateProduct } from '../controller/products';
 
 import {
   signup,
@@ -28,6 +28,7 @@ router.post('/logout', logout);
 router.get('/products', getProducts);
 router.post('/products', addProduct);
 router.delete('/products/:id', deleteProduct);
+router.patch('/products/:id', updateProduct);
 router.get('/categories', getCategories);
 
 router.use((req, res) => {
