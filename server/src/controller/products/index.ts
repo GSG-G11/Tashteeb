@@ -1,3 +1,5 @@
 import getProducrById from './gitProductById';
+import getCategories from '../categories/getCategoriesController';
+import getProducts from './getProductsController';
 
-export default getProducrById;
+export { getCategories, getProducts, getProducrById };
