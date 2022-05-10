@@ -6,6 +6,7 @@ import ProductDetailes from './Component/ProductDetailes';
 import NotFoundPage from './Pages/NotFound';
 import { ProvideAuth } from './Context/AuthContext';
 import EngineerPage from './Pages/EngineerPage';
+import EngineerProfile from './Pages/EngineerProfile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/info" element={<ProductDetailes />} />
             <Route path="/eng" element={<EngineerPage />} />
+            <Route path="/profile/:id" element={<EngineerProfile />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>

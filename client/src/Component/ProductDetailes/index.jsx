@@ -5,11 +5,11 @@ import { PropTypes } from 'prop-types';
 
 function ProductDetailes({
   isProduct = false,
-  // name,
+  name,
   // description,
-  // img,
+  img,
   // price,
-
+  // phone,
 }) {
   return (
     <div className="containerProduct">
@@ -17,7 +17,7 @@ function ProductDetailes({
         <div className="image">
           <img
             className="product-image"
-            src="https://www.ounousa.com/wp-content/uploads/fly-images/141212/151103100501180-638x654.jpg"
+            src={img}
             alt="images"
           />
         </div>
@@ -42,7 +42,7 @@ function ProductDetailes({
             <span className="num">45</span>
           </div>
           <div className="content">
-            <h3 className="title">product name</h3>
+            <h3 className="title">{name}</h3>
             <p className="text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -68,10 +68,11 @@ function ProductDetailes({
 }
 ProductDetailes.propTypes = {
   isProduct: PropTypes.bool,
-  // name: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   // description: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
   // price: PropTypes.number.isRequired,
-  // img: PropTypes.string.isRequired,
+  // phone: PropTypes.number.isRequired,
 };
 
 ProductDetailes.defaultProps = {
