@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
 
+app.use('/api', router);
 const {
   env: { NODE_ENV },
 } = process;
@@ -26,6 +27,9 @@ if (NODE_ENV === 'production') {
     res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
   });
 }
-app.use(router);
+
+// app.use((err: any, req: Request, res: Response) => {
+//   customErrorHandler(err, res);
+// });
 
 export default app;

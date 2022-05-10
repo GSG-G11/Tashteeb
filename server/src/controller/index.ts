@@ -2,4 +2,6 @@ import { getProducts } from './products';
 
 import { getCategories } from './categories';
 
-export { getCategories, getProducts };
+import getEngineer from './engineer/gitEngineer';
+
+export { getCategories, getProducts, getEngineer };
