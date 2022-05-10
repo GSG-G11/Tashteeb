@@ -5,6 +5,7 @@ import Home from './Component/Home';
 import ProductDetailes from './Component/ProductDetailes';
 import NotFoundPage from './Pages/NotFound';
 import { ProvideAuth } from './Context/AuthContext';
+import EngineerPage from './Pages/EngineerPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/info" element={<ProductDetailes />} />
+            <Route path="/eng" element={<EngineerPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>

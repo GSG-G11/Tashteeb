@@ -13,7 +13,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
-
 app.use('/api', router);
 const {
   env: { NODE_ENV },
