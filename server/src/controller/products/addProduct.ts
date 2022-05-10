@@ -2,14 +2,14 @@ import { Request, Response } from 'express';
 
 import Product from '../../database/models/Product';
 import handleKnownExceptions from '../../error/handleKnownError';
-import signupValidation from '../../validaiton/signupValidation';
+import addProductValidation from '../../validaiton/addProductValidation';
 
 const addProduct = async (req: Request, res: Response) => {
   const {
     name, price, description, categoryId,
   }: any = req.body;
   try {
-    await signupValidation(req);
+    await addProductValidation(req);
     const product = await Product.create({
       name,
       price,

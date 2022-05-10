@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import {
   getEngineer,
   getProducts,
+  addProduct,
   getCategories,
   getAllEngineer,
 } from '../controller';
@@ -24,6 +25,7 @@ router.post('/login', login);
 router.get('/auth/user', currentUser);
 router.post('/logout', logout);
 router.get('/products', getProducts);
+router.post('/products', addProduct);
 router.get('/categories', getCategories);
 
 router.use((req, res) => {
