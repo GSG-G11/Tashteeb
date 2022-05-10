@@ -24,7 +24,6 @@ function SignupModal() {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    // console.log(data);
     if (data.email && data.password && data.username) {
       register(data)
         .then((res) => {

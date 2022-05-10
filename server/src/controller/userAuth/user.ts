@@ -13,7 +13,12 @@ const currentUser = (req: Request, res: Response) => {
     }
     const { id, username, role } = user;
     return res.status(200).json({
-      status: 'success', id, username, role,
+      status: 'success',
+      user: {
+        id,
+        username,
+        role,
+      },
     });
   })(req, res);
 };
