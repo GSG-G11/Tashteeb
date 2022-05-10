@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Op } from 'sequelize';
 
-import Product from '../../database/models/Product';
+import { Product, Category } from '../../database';
 
 const getProducts = async (req: Request, res: Response) => {
   const {
@@ -16,6 +16,7 @@ const getProducts = async (req: Request, res: Response) => {
   try {
     const product = await Product.findAll({
       attributes: ['id', 'name', 'price', 'description', 'categoryId'],
+      include: Category,
       limit,
       offset: (page - 1) * limit,
       where: {
@@ -34,6 +35,7 @@ const getProducts = async (req: Request, res: Response) => {
         ],
       },
     });
+
     res.json({ status: 200, product });
   } catch (error: any) {
     throw new Error('replce with cutiomized error');
