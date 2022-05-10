@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 
 function SingleCard({ img, name }) {
   return (
-    <div>
+    <div className="continerCard">
       <div className="card">
         <img src={img} alt="Avatar" />
         <div className="Engdetailes">
@@ -19,4 +19,5 @@ SingleCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
+
 export default SingleCard;

@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
-import getEngineer from '../controller';
+import { getEngineer, getProducts, getCategories, getAllEngineer } from '../controller';
+
 
 import {
   signup, logout, login, currentUser,
@@ -7,13 +8,16 @@ import {
 import customErrorHandler from '../error';
 
 const router = Router();
-router.post('/signup', signUp);
+
+router.post('/signup', signup);
+router.get('/engPage', getAllEngineer);
 router.get('/engHome', getEngineer);
 router.post('/signup', signup);
 router.post('/login', login);
 router.get('/auth/user', currentUser);
-router.get('/engHome', getEngineer);
 router.post('/logout', logout);
+router.get('/products', getProducts);
+router.get('/categories', getCategories);
 router.use((req, res) => {
   res.status(404).json({
     status: 404,
