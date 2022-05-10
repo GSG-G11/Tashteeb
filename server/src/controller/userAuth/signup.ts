@@ -11,7 +11,7 @@ dotenv.config();
 
 const { JWT_SECRET } = process.env;
 
-const signUp = async (req: Request, res: Response): Promise<any> => {
+const signup = async (req: Request, res: Response): Promise<any> => {
   try {
     await signupValidation(req);
     const { password, email, username } = req.body;
@@ -40,12 +40,10 @@ const signUp = async (req: Request, res: Response): Promise<any> => {
       JWT_SECRET as Secret,
       { expiresIn: '10h' },
     );
-    res
-      .cookie('token', token)
-      .json({
-        message: 'User created successfully!',
-        user: { id: user.id, username: user.username, role: user.role },
-      });
+    res.cookie('token', token).json({
+      message: 'User created successfully!',
+      user: { id: user.id, username: user.username, role: user.role },
+    });
   } catch (err: any) {
     if (err.details) {
       res.status(422).json({ message: err.message });
@@ -55,4 +53,4 @@ const signUp = async (req: Request, res: Response): Promise<any> => {
   }
 };
 
-export default signUp;
+export default signup;
