@@ -7,9 +7,13 @@
     align-items: center;
     align-content: center;
     margin-bottom:4rem;
+    margin-top:2rem;
 }
 .engController{
     width: 80%;
     height: 80rem;
     margin: auto;
+}
+.pagGng{
+    margin-left: 3em !important;
 }

@@ -35,6 +35,7 @@ function EngineerInfo() {
       </div>
       <div className="paginationEng">
         <Pagination
+          className="pagGng"
           defaultCurrent={1}
           defaultPageSize={pageSize}
           showSizeChanger

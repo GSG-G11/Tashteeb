@@ -6,10 +6,13 @@ flex-wrap: wrap;
 }
 
 .EngCardTitle{
+  margin-left: 34%;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
+    margin-top: 2em;
+    margin-bottom: 1em;
 }
 .EngCardTitle h2{
     font-size: 27px;
@@ -29,6 +32,7 @@ flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-left: 5%;
 }
 .continerCard{
   width: 30%;
@@ -38,6 +42,7 @@ flex-wrap: wrap;
     transition: 0.3s;
     width: 304px;
     height: 450px;
+    margin-bottom: 2em;
   }
 
   .cardDetailes .card img{
@@ -77,6 +82,6 @@ flex-wrap: wrap;
     padding: 1em 2em;
     text-decoration: none;
     border-radius: 8px;
-    margin-top: 2em;
+    margin-right: 4em;
     text-align: center;
   }

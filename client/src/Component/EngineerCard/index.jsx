@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import SingleCard from './SingleCard';
 import './style.css';
 
@@ -17,20 +18,20 @@ function EngCard() {
     return () => source.cancel();
   }, []);
   return (
-    <div className="containerCard">
-      <div className="EngCardTitle">
-        <h2>OUR TEAM</h2>
-        <p>We Have A Team Of Amzining Engineers</p>
-      </div>
-      <div className="cardDetailes">
-        {info.map((item) => <SingleCard key={item.id} img={item.image} name={item.username} />)}
+    <>
+      <div className="containerCard">
+        <div className="EngCardTitle">
+          <h2>OUR TEAM</h2>
+          <p>We Have A Team Of Amzining Engineers</p>
+        </div>
+        <div className="cardDetailes">
+          {info.map((item) => <SingleCard key={item.id} img={item.image} name={item.username} />)}
+        </div>
       </div>
       <div className="cardBtn">
-        <button type="button" className="btn">
-          JOIN US !
-        </button>
+        <Link to="/eng" className="btn">JOIN US !</Link>
       </div>
-    </div>
+    </>
   );
 }
 
