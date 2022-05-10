@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { getEngineer, getProducts, getCategories, getAllEngineer } from '../controller';
-
+import {
+  getEngineer, getProducts, getCategories, getAllEngineer,
+} from '../controller';
 
 import {
   signup, logout, login, currentUser,
