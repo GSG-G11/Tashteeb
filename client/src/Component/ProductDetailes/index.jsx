@@ -9,17 +9,13 @@ function ProductDetailes({
   // description,
   img,
   // price,
-  // phone,
+  phone,
 }) {
   return (
     <div className="containerProduct">
       <div className="wrapper">
         <div className="image">
-          <img
-            className="product-image"
-            src={img}
-            alt="images"
-          />
+          <img className="product-image" src={img} alt="images" />
         </div>
 
         <div className="data">
@@ -51,12 +47,30 @@ function ProductDetailes({
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
               nulla pariatur.
             </p>
-            {isProduct ? <> </> : <i className="ri-whatsapp-line iconWhats" /> }
-            {isProduct ? <h3 className="price"> $ 15,63</h3> : <h3 className="price"> $ 15,6 3/hr</h3>}
+            {isProduct ? (
+              <> </>
+            ) : (
+              <a href={`https://wa.me/${phone}`} target="_blank" rel="noopener noreferrer">
+                <i className="ri-whatsapp-line iconWhats" />
+              </a>
+            )}
+            {isProduct ? (
+              <h3 className="price"> $ 15,63</h3>
+            ) : (
+              <h3 className="price"> $ 15,6 3/hr</h3>
+            )}
           </div>
 
           <div className="buttons">
-            {isProduct ? <button type="button" className="Buy">BUY</button> : <button type="button" className="Buy">Hire Me</button> }
+            {isProduct ? (
+              <button type="button" className="Buy">
+                BUY
+              </button>
+            ) : (
+              <button type="button" className="Buy">
+                Hire Me
+              </button>
+            )}
             <Link to="/" className="browser ">
               Continue Browsing
             </Link>
@@ -72,7 +86,7 @@ ProductDetailes.propTypes = {
   // description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   // price: PropTypes.number.isRequired,
-  // phone: PropTypes.number.isRequired,
+  phone: PropTypes.number.isRequired,
 };
 
 ProductDetailes.defaultProps = {
