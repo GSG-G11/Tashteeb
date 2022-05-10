@@ -55,8 +55,6 @@ describe('POST /addProduct', () => {
       .expect(422)
       .end((err, res) => {
         if (err) return done(err);
-        console.log(res.text);
-
         expect(JSON.parse(res.text).message).toBe(
           '"description" length must be at least 6 characters long',
         );
