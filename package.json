@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest server/src/test/ --watch ",
     "dev": "cross-env NODE_ENV=dev  ts-node-dev server/src/index.ts",
-    "user": "NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts",
+    "user": "cross-env NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts",
     "heroku-postbuild": "cd client && npm i && npm run build",
     "build-db": "cross-env NODE_ENV=dev ts-node-dev server/src/database/FakeData/sync.ts",
     "prepare": "npx husky install",
