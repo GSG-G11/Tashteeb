@@ -1,4 +1,10 @@
-import getAllEngineer from './engineer/gitAllEngineers';
+
+import { getProducts } from './products';
+
+import { getCategories } from './categories';
+
 import getEngineer from './engineer/gitEngineer';
 
-export { getEngineer, getAllEngineer };
+import getAllEngineer from './engineer/gitAllEngineers';
+
+export { getCategories, getProducts, getEngineer, getAllEngineer };
