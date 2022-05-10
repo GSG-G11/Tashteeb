@@ -44,6 +44,7 @@ function useProvideAuth() {
       })
       .catch((err) => {
         if (axios.isCancel(err)) {
+          // eslint-disable-next-line no-console
           console.log('successfully aborted');
         }
       });

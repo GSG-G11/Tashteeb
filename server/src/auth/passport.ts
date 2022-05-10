@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import { Request } from 'express';
 import passport from 'passport';
+
 import { Strategy as JwtStartegy } from 'passport-jwt';
 import { User } from '../database';
 
