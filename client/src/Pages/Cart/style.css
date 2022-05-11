@@ -30,3 +30,11 @@ th:last-child{
 tr.spaceUnder>td {
     padding-bottom: 1em;
   }
+
+  .continue-shopping {
+      
+    margin-top: 1em;
+    background-color: #EDB821 !important;
+    border-color: #EDB821 !important;
+    margin-left: calc(50% - 110px);
+  }

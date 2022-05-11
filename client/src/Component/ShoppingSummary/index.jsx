@@ -1,7 +1,17 @@
-import React from 'react';
+/* eslint-disable react/jsx-one-expression-per-line */
+import React, { useContext } from 'react';
+import axios from 'axios';
 import './style.css';
+import { Context } from '../../Context/shoppingSummary';
 
 function ShoppingSummary() {
+  const { totalPrice, cart, setCart } = useContext(Context);
+  const checkout = async () => {
+    await axios.post('/checkout', {
+      products: cart,
+    });
+    setCart([]);
+  };
   return (
     <div className="summary">
       <div className="shopSummary">
@@ -21,18 +31,18 @@ function ShoppingSummary() {
       <div className="buy">
         <div className="subtotal">
           <span>Subtotal</span>
-          <span className="num">$ 83,92</span>
+          <span className="num">${totalPrice}</span>
         </div>
         <div className="tax">
           <span>Tax</span>
-          <span className="num">% 25</span>
+          <span className="num">%25</span>
         </div>
         <hr />
         <div className="total">
           <span>Total</span>
-          <span className="num">$86,27</span>
+          <span className="num">${totalPrice * 1.25}</span>
         </div>
-        <button type="button" className="checkout-btn">CHECKOUT</button>
+        <button type="button" onClick={checkout} className="checkout-btn">CHECKOUT</button>
         <span className="confirm">Confirm Shopping</span>
       </div>
 

@@ -1,10 +1,11 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import CartRow from '../../Component/CartRow';
+import { Context } from '../../Context/shoppingSummary';
 
 function Table() {
-  const [cart, setCart] = useState([]);
+  const { setTotalPrice, cart, setCart } = useContext(Context);
 
   const setQuantity = (id, quantity) => {
     const newCart = cart.map((item) => {
@@ -31,6 +32,8 @@ function Table() {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
+    const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    setTotalPrice(totalPrice);
   }, [cart]);
 
   return (
@@ -60,7 +63,7 @@ function Table() {
           />
         )) }
         <CartRow
-          img="https://i.pravatar.cc/300?img=1"
+          img="https://media.istockphoto.com/photos/hummer-and-nails-picture-id1213092931"
           name="hummer with nails"
           price={80.33}
           quantity={2}
@@ -69,7 +72,7 @@ function Table() {
           deleteItem={deleteItem}
         />
         <CartRow
-          img="https://i.pravatar.cc/300?img=1"
+          img="https://media.istockphoto.com/photos/hummer-and-nails-picture-id1213092931"
           name="hummer with nails"
           price={80.33}
           quantity={2}
