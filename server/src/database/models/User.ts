@@ -8,7 +8,7 @@ import sequelize from '../config/connection';
 
 interface IUser
   extends Model<InferAttributes<IUser>, InferCreationAttributes<IUser>> {
-  id?: number;
+  id: number;
   email: string;
   username: string;
   password: string;
@@ -18,7 +18,9 @@ interface IUser
   hourPrice?: number;
   phone?: string;
 }
-
+const USER : number = 0;
+const ENGINEER :number = 1;
+const ADMIN :number = 2;
 const User = sequelize.define<IUser>('users', {
   id: {
     type: DataTypes.INTEGER,
@@ -44,11 +46,7 @@ const User = sequelize.define<IUser>('users', {
   },
   role: {
     type: DataTypes.INTEGER,
-    defaultValue: 0,
-  },
-  cartItems: {
-    type: DataTypes.JSON,
-    defaultValue: {},
+    defaultValue: USER,
   },
   hourPrice: {
     type: DataTypes.INTEGER,
@@ -59,5 +57,5 @@ const User = sequelize.define<IUser>('users', {
     defaultValue: '',
   },
 });
-
+export { USER, ENGINEER, ADMIN };
 export default User;

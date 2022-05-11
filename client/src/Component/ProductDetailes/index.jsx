@@ -67,11 +67,15 @@ function ProductDetailes({
   );
 }
 ProductDetailes.propTypes = {
-  isProduct: PropTypes.bool.isRequired,
+  isProduct: PropTypes.bool,
   // name: PropTypes.string.isRequired,
   // description: PropTypes.string.isRequired,
   // price: PropTypes.number.isRequired,
   // img: PropTypes.string.isRequired,
+};
+
+ProductDetailes.defaultProps = {
+  isProduct: false,
 };
 
 export default ProductDetailes;

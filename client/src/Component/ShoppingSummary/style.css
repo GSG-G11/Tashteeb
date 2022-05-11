@@ -1,0 +1,86 @@
+.summary{
+    width: 70%;
+    margin: auto;
+    background-color: #FEDF85;
+    display: flex;
+    justify-content: space-around;
+    padding: 3em 4em;
+   margin-top: 3em;
+}
+.shopSummary{
+    display: flex;
+    flex-direction: column;
+}
+.shopSummary, .buy {
+    width: 48%;
+}
+.buy .num{
+    font-weight: bold;
+    color:black;
+}
+.shopSummary h3{
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+.shopSummary p {
+    font-size: 0.8em;
+    display: inline-block;
+    width: 350px;
+    color: rgba(0, 0,0, 0.5);
+    margin-bottom: 3em;
+}
+.shopSummary span {
+    display: block;
+    font-size: 0.8em;
+    margin-bottom: 3em;
+}
+.promoCode{
+    display: flex;
+    margin-top: 0.6rem;
+}
+.promoCode input {
+ width: 280px;
+ border-radius: 5px;
+ background-color: #F2D275;
+ padding: 0.7em;
+ margin-right: 0.5em;
+ height: 40px;
+ border: none;
+}
+.promoCode button {
+    background-color: #EDB821;
+    color: #fff;
+    padding: 0.7em 0.8em;
+    border-radius: 5px;
+    height: 40px;
+    border: none;
+}
+.buy .subtotal,
+.buy .tax,
+.buy .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.buy .total {
+    margin-top: 0.5em;
+    margin-bottom: 2.5em;
+}
+.checkout-btn {
+    display: block;
+    background-color: #EDB821;
+    color: #fff;
+    border-radius: 5px;
+    height: 40px;
+    width: 90%;
+    margin: auto;
+    margin-top: 5em;
+    border: none;
+}
+.confirm {
+    color: #EDB821;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    cursor: pointer;
+}
