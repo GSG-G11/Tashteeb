@@ -1,13 +1,9 @@
 import { Router, Request, Response } from 'express';
 import {
-<<<<<<< HEAD
-  getEngineer, getProducts, getCategories, getAllEngineer,
-=======
   getEngineer,
   getProducts,
   getCategories,
   getAllEngineer,
->>>>>>> a8df0b5808121bdb68b66e5a216ccbffd70374be
 } from '../controller';
 
 import {
