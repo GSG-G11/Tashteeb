@@ -5,6 +5,7 @@ import app from '../app';
 import buildFakeData from '../database/FakeData/sync';
 
 beforeAll(() => buildFakeData());
+
 describe('POST /addProduct', () => {
   test('success addProduct', (done) => {
     supertest(app)
@@ -42,6 +43,7 @@ describe('POST /addProduct', () => {
       });
   });
 });
+
 describe('POST /addProduct', () => {
   test('validation failed addProduct', (done) => {
     supertest(app)
@@ -62,6 +64,7 @@ describe('POST /addProduct', () => {
       });
   });
 });
+
 // success updateProduct
 describe('patch /products/:id', () => {
   test('success updateProduct', (done) => {
@@ -81,6 +84,7 @@ describe('patch /products/:id', () => {
       });
   });
 });
+
 // success deleteProduct
 describe('DELETE /products/:id', () => {
   test(
@@ -95,6 +99,25 @@ describe('DELETE /products/:id', () => {
     },
   );
 });
-afterAll(() => {
-  sequelize.close();
+
+// test add product with unauthenticated user
+describe('POST /addProduct', () => {
+  test('unauthenticated addProduct', (done) => {
+    supertest(app)
+      .post('/products')
+      .send({
+        name: 'hummer',
+        price: 20,
+        description: 'simple hummer tool',
+        categoryId: 1,
+      })
+      .expect(401)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.status).toBe(401);
+        return done();
+      });
+  });
 });
+
+afterAll(() => sequelize.close());

@@ -4,7 +4,11 @@ import Product from '../../database/models/Product';
 import handleKnownExceptions from '../../error/handleKnownError';
 import addProductValidation from '../../validaiton/addProductValidation';
 
-const addProduct = async (req: Request, res: Response) => {
+interface IReqUser extends Request {
+  user: any;
+}
+
+const addProduct = async (req: IReqUser, res: Response) => {
   const {
     name, price, description, categoryId,
   }: any = req.body;
