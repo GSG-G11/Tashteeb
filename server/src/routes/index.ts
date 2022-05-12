@@ -23,7 +23,6 @@ router.get('/eng/:id', gitEngineerById);
 router.get('/product/:id', getProducrById);
 router.get('/engHome', getEngineer);
 router.post('/signup', signup);
-router.get('/engHome', getEngineer);
 router.post('/login', login);
 router.get('/auth/user', currentUser);
 router.post('/logout', logout);

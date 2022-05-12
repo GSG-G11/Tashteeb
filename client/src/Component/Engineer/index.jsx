@@ -14,7 +14,7 @@ function EngineerInfo() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchEng = async () => {
-      const getData = await axios.get('/api/engPage', {
+      const getData = await axios.get('/engPage', {
         cancelToken: source.token,
         params: { pageSize, page },
       });
@@ -32,7 +32,6 @@ function EngineerInfo() {
   };
 
   return (
-    // {id: 3, email: 'enghefsdfdslles@helles.com', username: 'en
     <div className="engController">
       <div className="cardDetailes engineerInfo">
         {info.map((item) => (
