@@ -62,6 +62,39 @@ describe('POST /addProduct', () => {
       });
   });
 });
+// success updateProduct
+describe('patch /products/:id', () => {
+  test('success updateProduct', (done) => {
+    supertest(app)
+      .patch('/products/1')
+      .send({
+        name: 'hummer',
+        price: 20,
+        description: 'simple hummer tool',
+        categoryId: 1,
+      })
+      .expect(201)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(JSON.parse(res.text).message).toBe('Product updated');
+        return done();
+      });
+  });
+});
+// success deleteProduct
+describe('DELETE /products/:id', () => {
+  test(
+    'success deleteProduct',
+    (done) => {
+      supertest(app)
+        .delete('/products/1')
+        .end((err, res) => {
+          if (err) return done(err);
+          expect(JSON.parse(res.text).message).toBe('Product deleted'); return done();
+        });
+    },
+  );
+});
 afterAll(() => {
   sequelize.close();
 });

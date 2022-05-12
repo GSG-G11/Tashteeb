@@ -1,12 +1,13 @@
 import { Router, Request, Response } from 'express';
+import { getProducrById, deleteProduct, updateProduct } from '../controller/products';
 import {
   getEngineer,
   getProducts,
   addProduct,
   getCategories,
   getAllEngineer,
+  gitEngineerById,
 } from '../controller';
-import { deleteProduct, updateProduct } from '../controller/products';
 
 import {
   signup,
@@ -19,6 +20,8 @@ import customErrorHandler from '../error';
 const router = Router();
 
 router.get('/engPage', getAllEngineer);
+router.get('/eng/:id', gitEngineerById);
+router.get('/product/:id', getProducrById);
 router.get('/engHome', getEngineer);
 router.post('/signup', signup);
 router.get('/engHome', getEngineer);

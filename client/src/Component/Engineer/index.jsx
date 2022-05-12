@@ -14,7 +14,10 @@ function EngineerInfo() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchEng = async () => {
-      const getData = await axios.get('/api/engPage', { cancelToken: source.token, params: { pageSize, page } });
+      const getData = await axios.get('/api/engPage', {
+        cancelToken: source.token,
+        params: { pageSize, page },
+      });
       const data = getData.data.data.rows;
       setTotal(getData.data.data.count);
       setInfo(data);
@@ -29,9 +32,17 @@ function EngineerInfo() {
   };
 
   return (
+    // {id: 3, email: 'enghefsdfdslles@helles.com', username: 'en
     <div className="engController">
       <div className="cardDetailes engineerInfo">
-        {info.map((item) => <SingleCard key={item.id} name={item.username} img={item.image} />)}
+        {info.map((item) => (
+          <SingleCard
+            key={item.id}
+            id={item.id}
+            name={item.username}
+            img={item.image}
+          />
+        ))}
       </div>
       <div className="paginationEng">
         <Pagination

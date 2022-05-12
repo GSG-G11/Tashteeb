@@ -2,9 +2,11 @@ import { Request, Response } from 'express';
 import { Product } from '../../database';
 import CustomizeError from '../../error/customizeError';
 import handleKnownExceptions from '../../error/handleKnownError';
+import updateProductValidation from '../../validaiton/updateProductValidation';
 
 const updateProduct = async (req: Request, res: Response) => {
   try {
+    await updateProductValidation(req);
     const { id } = req.params;
     const product = await Product.findByPk(id);
     if (!product) {
