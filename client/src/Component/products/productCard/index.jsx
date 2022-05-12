@@ -3,11 +3,13 @@ import './style.css';
 import { Card, Button } from 'antd';
 import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 import { PropTypes } from 'prop-types';
+// import { Link } from 'react-router-dom';
 
 const { Meta } = Card;
 
 function ProductCard({
   isAddedToCart = false,
+  // id,
   // description,
   // title,
   // img,
