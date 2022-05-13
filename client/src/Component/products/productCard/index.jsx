@@ -7,11 +7,11 @@ import { PropTypes } from 'prop-types';
 const { Meta } = Card;
 
 function ProductCard({
-  isAddedToCart = false,
+  title,
+  price,
   // description,
-  // title,
   // img,
-  // price,
+  isAddedToCart = false,
 }) {
   return (
     <Card
@@ -22,7 +22,7 @@ function ProductCard({
         <img
           alt="example"
           height={240}
-          src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+          src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
         />
       )}
     >
@@ -32,8 +32,8 @@ function ProductCard({
         <Button type="primary" shape="circle" icon={<ShoppingCartOutlined />} />
       )}
       <Meta
-        title="$199.99"
-        description="i want to buy this item here in this place because thars too long"
+        title={`$${price}`}
+        description={title}
       />
     </Card>
   );
@@ -42,8 +42,8 @@ function ProductCard({
 ProductCard.propTypes = {
   isAddedToCart: PropTypes.bool.isRequired,
   // description: PropTypes.string.isRequired,
-  // title: PropTypes.string.isRequired,
-  // price: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   // img: PropTypes.string.isRequired,
 };
 

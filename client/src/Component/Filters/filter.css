@@ -35,12 +35,13 @@ input:focus {
   transform: scale(1.1);
 }
 
-.ant-dropdown-trigger {
+.ant-dropdown-trigger,
+.sele__categories {
   background-color: #edb62097;
   width: 100% !important;
-  height: 3rem;
   font-size: 1.3rem;
 }
+
 .ant-slider-rail {
   background-color: rgb(193, 161, 161) !important;
 }

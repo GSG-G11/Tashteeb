@@ -1,57 +1,30 @@
 import React from 'react';
-import { Menu, Dropdown, Space } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Select } from 'antd';
+import { PropTypes } from 'prop-types';
 
-const menu = (
-  <Menu
-    items={[
-      {
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.antgroup.com"
-          >
-            Category1
-          </a>
-        ),
-      },
-      {
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.aliyun.com"
-          >
-            Category2
-          </a>
-        ),
-      },
-      {
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.luohanacademy.com"
-          >
-            Category3
-          </a>
-        ),
-      },
-    ]}
-  />
-);
+const { Option } = Select;
 
 // eslint-disable-next-line func-names
-export default function () {
+function Categories({ handleCateorieCahnge, allCategories }) {
   return (
-    <Dropdown overlay={menu}>
-      <button type="button" onClick={(e) => e.preventDefault()}>
-        <Space>
-          Pick a Category
-          <DownOutlined />
-        </Space>
-      </button>
-    </Dropdown>
+    <Select
+      defaultValue="Pick A Category"
+      style={{ width: 120 }}
+      onChange={(e) => handleCateorieCahnge(e)}
+      className="sele__categories"
+    >
+      {allCategories.map((e) => (
+        <Option key={e.id} value={e.id}>
+          {e.name}
+        </Option>
+      ))}
+    </Select>
   );
 }
+
+Categories.propTypes = {
+  handleCateorieCahnge: PropTypes.func.isRequired,
+  allCategories: PropTypes.func.isRequired,
+};
+
+export default Categories;

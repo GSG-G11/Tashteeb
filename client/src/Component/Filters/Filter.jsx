@@ -1,15 +1,21 @@
 import React from 'react';
 import './filter.css';
 import { Slider } from 'antd';
+import PropTypes from 'prop-types';
 
-function Filter() {
+function Filter({ handlePriceFilter }) {
   return (
-    <Slider className="slider__filter" range={{ draggableTrack: true }} defaultValue={[0, 100]} />
-    // <div className="filter__wrapper">
-    //   <input type="number" placeholder="$Min" />
-    //   <input type="number" placeholder="$Max" />
-    // </div>
+    <Slider
+      onChange={(e) => handlePriceFilter(e)}
+      max={1000}
+      className="slider__filter"
+      range={{ draggableTrack: true }}
+      defaultValue={[0, 1000]}
+    />
   );
 }
+Filter.propTypes = {
+  handlePriceFilter: PropTypes.func.isRequired,
+};
 
 export default Filter;
