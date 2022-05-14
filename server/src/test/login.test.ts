@@ -34,7 +34,7 @@ describe('POST /login', () => {
         email: 'admin@admin.com',
         password: 'incorrect password',
       })
-      .expect(409)
+      .expect(401)
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).toBe(401);
