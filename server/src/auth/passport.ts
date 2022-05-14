@@ -33,8 +33,8 @@ passport.use(
         if (user) {
           return done(null, {
             id: user.id,
-            role: user.role,
             username: user.username,
+            role: user.role,
           });
         }
         return done(null, false);

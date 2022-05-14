@@ -5,7 +5,7 @@ import handleKnownExceptions from '../../error/handleKnownError';
 import addProductValidation from '../../validaiton/addProductValidation';
 
 interface IReqUser extends Request {
-  user: any;
+  user?: any;
 }
 
 const addProduct = async (req: IReqUser, res: Response) => {
