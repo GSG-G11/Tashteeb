@@ -24,7 +24,9 @@ function Categories({ handleCateorieCahnge, allCategories }) {
 
 Categories.propTypes = {
   handleCateorieCahnge: PropTypes.func.isRequired,
-  allCategories: PropTypes.func.isRequired,
+  allCategories: PropTypes.arrayOf(
+    PropTypes.shape({}),
+  ).isRequired,
 };
 
 export default Categories;

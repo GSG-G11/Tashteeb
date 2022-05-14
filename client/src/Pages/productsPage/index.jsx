@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Pagination } from 'antd';
 import axios from 'axios';
 import EngineerBanner from '../../Component/EngineerBanner';
 import ProductCard from '../../Component/products/productCard';
@@ -14,6 +15,9 @@ function ProdcutsPage() {
   const [category, setCategory] = useState('');
   const [sliderValue, setSliderValue] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
+  const [total, setTotal] = useState();
+  const [pageSize, setPageSize] = useState(10);
+  const [page, setPage] = useState(1);
 
   const getAllCategories = () => {
     axios('/categories').then((res) => {
@@ -38,10 +42,17 @@ function ProdcutsPage() {
         setProducts(data);
         getAllCategories();
         getCategorieName(category);
+        setTotal(data.count);
       });
     };
     getProducts();
-  }, [search, sliderValue, category, categoryName]);
+  }, [search, sliderValue, category, categoryName, page, pageSize]);
+
+  const handleChange = (newPage, newPageSize) => {
+    setPageSize(newPageSize);
+    setPage(newPage);
+  };
+
   const handlePriceFilter = (e) => {
     setSliderValue(e);
   };
@@ -92,11 +103,20 @@ function ProdcutsPage() {
                 price={product.price}
               />
             ))}
-
+          </div>
+          <div className="paginationEng">
+            <Pagination
+              className="pagGng"
+              defaultCurrent={1}
+              defaultPageSize={pageSize}
+              showSizeChanger
+              total={total}
+              onChange={handleChange}
+              pageSizeOptions={[6, 9, 12, 21]}
+            />
           </div>
         </div>
       </div>
-
     </div>
   );
 }

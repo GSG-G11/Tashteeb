@@ -26,9 +26,9 @@ function CategoryFilter({
         {allCategories.map((ele) => (
           <button
             onClick={(e) => {
-              // setCateoryName(ele.name);
               handleCategorieButtons(e);
             }}
+            key={ele.id}
             type="button"
             value={ele.id}
           >
@@ -48,7 +48,9 @@ function CategoryFilter({
 
 CategoryFilter.propTypes = {
   handleCateorieCahnge: PropTypes.func.isRequired,
-  allCategories: PropTypes.func.isRequired,
+  allCategories: PropTypes.arrayOf(
+    PropTypes.shape({}),
+  ).isRequired,
   handleCategorieButtons: PropTypes.func.isRequired,
   clearCategories: PropTypes.func.isRequired,
 };
