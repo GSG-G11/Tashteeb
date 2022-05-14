@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 import { Request, Response } from 'express';
 import { Order, ProductOrder } from '../../database';
+import handleUnknownError from '../../error/handleUnkownError';
 
 interface IReqUser extends Request {
-  user: any;
+  user?: any;
 }
 
 export default async (req: IReqUser, res: Response) => {
@@ -15,7 +16,7 @@ export default async (req: IReqUser, res: Response) => {
     });
     const orderId = order.id;
     const productOrder = await ProductOrder.bulkCreate(
-      req.body.products.map((product: { id: any; quantity: any; price : any }) => ({
+      req.body.products.map((product: { id: number; quantity: number; price : number }) => ({
         orderId,
         productId: product.id,
         quantity: product.quantity,
@@ -28,8 +29,6 @@ export default async (req: IReqUser, res: Response) => {
       productOrder,
     });
   } catch (error: any) {
-    res.status(500).json({
-      message: 'Error while checking out cart',
-    });
+    handleUnknownError(error, res);
   }
 };
