@@ -4,7 +4,7 @@ import express, { Request, Response, Application } from 'express';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import router from './routes';
-
+getProducrById
 const app: Application = express();
 app.set('port', process.env.PORT || 8070);
 dotenv.config();
@@ -26,9 +26,6 @@ if (NODE_ENV === 'production') {
     res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
   });
 }
-
-// app.use((err: any, req: Request, res: Response) => {
-//   customErrorHandler(err, res);
-// });
+app.use(router);
 
 export default app;
