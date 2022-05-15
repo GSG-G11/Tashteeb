@@ -5,40 +5,46 @@ import { Modal } from 'antd';
 import axios from 'axios';
 import './style.css';
 import { Context } from '../../Context/shoppingSummary';
-import { user } from '../../Context/AuthContext';
+import { useAuth } from '../../Context/AuthContext';
 
 const ReachableContext = React.createContext();
 
-const empty = {
-  title: 'Cart is empty!',
-  content: (
-    <ReachableContext.Consumer>Please add some items to your cart before checkouting.</ReachableContext.Consumer>
-
-  ),
-};
-const notLoggedIn = {
-  title: 'Not Logged in!',
-  content: (
-    <ReachableContext.Consumer>Please log in to checkout</ReachableContext.Consumer>
-  ),
-};
-
 function ShoppingSummary() {
+  const { user } = useAuth();
+
   const { totalPrice, cart, setCart } = useContext(Context);
+
+  const empty = {
+    title: 'Cart is empty!',
+    content: (
+      <ReachableContext.Consumer>{() => 'Please add some items to your cart before checkouting.'}</ReachableContext.Consumer>
+
+    ),
+  };
+  const notLoggedIn = {
+    title: 'Not Logged in!',
+    content: (
+      <ReachableContext.Consumer>{() => 'Please log in to checkout'}</ReachableContext.Consumer>
+    ),
+  };
+
   const confirmCheckout = {
     title: 'Confirm Purchasing!',
     content: (
-      <ReachableContext.Consumer>Are you sure about these items?</ReachableContext.Consumer>
+      <ReachableContext.Consumer>{() => 'Are you sure about these items?'}</ReachableContext.Consumer>
+
     ),
     okText: 'Yes',
     cancelText: 'No',
     onOk: async () => {
-      const data = {
-        products: cart,
-      };
-      const response = await axios.post('/api/checkout', data);
-      if (response.data.success) {
+      try {
+        const data = {
+          products: cart,
+        };
+        await axios.post('/checkout', data);
         setCart([]);
+      } catch (error) {
+        console.log(error);
       }
     },
   };
@@ -52,6 +58,9 @@ function ShoppingSummary() {
       modal.confirm(confirmCheckout);
     }
   };
+  localStorage.setItem('cart', JSON.stringify([{
+    id: 1, name: 'test', price: 10, quantity: 1, img: 'https://picsum.photos/200',
+  }]));
   return (
     <ReachableContext.Provider value="Light">
       <div className="summary">
@@ -83,7 +92,7 @@ function ShoppingSummary() {
             <span>Total</span>
             <span className="num">${totalPrice * 1.25}</span>
           </div>
-          <button type="button" onClick={checkout} className="checkout-btn">CHECKOUT</button>
+          <button type="button" onClick={() => checkout()} className="checkout-btn">CHECKOUT</button>
           <span className="confirm">Confirm Shopping</span>
         </div>
 
