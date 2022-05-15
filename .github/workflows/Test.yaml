@@ -6,6 +6,7 @@ on:
     branches: [ main ]
 env:
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  ADMIN: ${{ secrets.ADMIN }}
 
 jobs:
   container-job:
