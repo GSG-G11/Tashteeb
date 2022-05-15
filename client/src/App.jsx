@@ -12,6 +12,7 @@ import ProductList from './Component/Dashboard/ProductList';
 import Orders from './Component/Dashboard/Orders';
 import EngineerPage from './Pages/EngineerPage';
 import Cart from './Pages/Cart';
+import EngineerInfo from './Component/Engineer';
 
 function App() {
   return (
