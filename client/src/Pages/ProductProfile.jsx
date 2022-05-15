@@ -10,7 +10,7 @@ function ProductProfile() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchdata = async () => {
-      const dataResponse = await axios(`/product/${id}`, {
+      const dataResponse = await axios(`/products/${id}`, {
         cancelToken: source.token,
       });
       setInfo(dataResponse.data.data);

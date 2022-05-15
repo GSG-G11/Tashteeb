@@ -18,10 +18,10 @@ import customErrorHandler from '../error';
 
 const router = Router();
 
-router.get('/engPage', getAllEngineer);
-router.get('/eng/:id', gitEngineerById);
-router.get('/product/:id', getProducrById);
-router.get('/engHome', getEngineer);
+router.get('/engineers', getAllEngineer);
+router.get('/engineers/home', getEngineer);
+router.get('/engineers/:id', gitEngineerById);
+router.get('/products/:id', getProducrById);
 router.post('/signup', signup);
 router.post('/login', login);
 router.get('/auth/user', currentUser);

@@ -13,7 +13,7 @@ afterAll(() => {
 describe('get home engineer', () => {
   test('success get data', (done) => {
     supertest(app)
-      .get('/engHome')
+      .get('/engineers/home')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -27,7 +27,7 @@ describe('get home engineer', () => {
 describe('get home engineer', () => {
   test('failed get data', (done) => {
     supertest(app)
-      .get('/enghomee')
+      .get('/engineers/home')
       .expect(404)
       .end((err, res) => {
         if (err) return done(err);

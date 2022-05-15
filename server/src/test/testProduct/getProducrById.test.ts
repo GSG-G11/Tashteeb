@@ -13,7 +13,7 @@ afterAll(() => {
 describe('get product by id', () => {
   test('success get product by id', (done) => {
     supertest(app)
-      .get('/product/1')
+      .get('/products/1')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -28,7 +28,7 @@ describe('get product by id', () => {
 describe('get product by id', () => {
   test('failed get product by id', (done) => {
     supertest(app)
-      .get('/product/5000')
+      .get('/products/5000')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
