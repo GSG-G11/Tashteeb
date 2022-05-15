@@ -3,7 +3,7 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/connection';
 
 interface IProductOrder extends Model {
-  id: number;
+  id?: number;
   orderId: number;
   productId: number;
   quantity: number;

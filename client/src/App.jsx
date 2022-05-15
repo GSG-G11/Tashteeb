@@ -10,6 +10,8 @@ import Dashboard from './Component/Dashboard';
 import Satistics from './Component/Dashboard/Satistics';
 import ProductList from './Component/Dashboard/ProductList';
 import Orders from './Component/Dashboard/Orders';
+import EngineerPage from './Pages/EngineerPage';
+import Cart from './Pages/Cart';
 import EngineerInfo from './Component/Engineer';
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
               <Route path="satistics" element={<Satistics />} />
               <Route path="orders" element={<Orders />} />
             </Route>
+            <Route path="/cart" element={<Cart />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>
