@@ -4,7 +4,7 @@ const fakeUsers = [
   {
     email: 'admin@admin.com',
     username: 'admin',
-    password: 'admin',
+    password: '$2a$10$yxS08sgH3.nLAZdQbwglIe1Ph12aVRNlA/J2qv/x03aSq.Q1ebqy.',
     image: 'http://themesflat.com/html/nah/images/member/3t1.png',
     role: ADMIN,
   },
