@@ -10,6 +10,47 @@ afterAll(() => {
   sequelize.close();
 });
 
+describe('get all engineer', () => {
+  test('success get data', (done) => {
+    supertest(app)
+      .get('/engineers')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.status).toBe(200);
+        expect(res.body.message).toBe('success get all engineer');
+        expect(res.body.data.rows.length).toBe(6);
+        return done();
+      });
+  });
+});
+
+describe('get all engineer', () => {
+  test('failed get data', (done) => {
+    supertest(app)
+      .get('/engineerss')
+      .expect(404)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.status).toBe(404);
+        return done();
+      });
+  });
+});
+describe('get home engineer', () => {
+  test('success get data', (done) => {
+    supertest(app)
+      .get('/engineers/home')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.status).toBe(200);
+        expect(res.body.data.length).toBe(3);
+        return done();
+      });
+  });
+});
+
 describe('get engineer by id', () => {
   test('success get engineer by id', (done) => {
     supertest(app)
