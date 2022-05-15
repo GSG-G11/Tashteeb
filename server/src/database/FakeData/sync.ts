@@ -13,6 +13,7 @@ const buildFakeData = async () => {
     await User.bulkCreate(fakeUsers);
     await Product.bulkCreate(fakeProducts);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
