@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-import sequelize from '../../database/config/connection';
-import app from '../../app';
-import buildFakeData from '../../database/FakeData/sync';
+import sequelize from '../database/config/connection';
+import app from '../app';
+import buildFakeData from '../database/FakeData/sync';
 
 const {
   env: { ADMIN },

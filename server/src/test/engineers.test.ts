@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-import app from '../../app';
-import sequelize from '../../database/config/connection';
-import buildFakeData from '../../database/FakeData/sync';
+import app from '../app';
+import sequelize from '../database/config/connection';
+import buildFakeData from '../database/FakeData/sync';
 
 beforeEach(() => buildFakeData());
 
