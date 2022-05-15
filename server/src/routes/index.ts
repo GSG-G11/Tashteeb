@@ -7,10 +7,12 @@ import {
   getCategories,
   getAllEngineer,
   gitEngineerById,
+  checkout,
   getProducrById,
   deleteProduct,
   updateProduct,
 } from '../controller';
+import { isUser } from '../middlewares';
 
 import {
   signup,
@@ -36,6 +38,7 @@ router.get('/products', getProducts);
 router.delete('/products/:id', isAdmin, deleteProduct);
 router.patch('/products/:id', isAdmin, updateProduct);
 router.get('/categories', getCategories);
+router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);
 
 router.use((req, res) => {
