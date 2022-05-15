@@ -9,15 +9,15 @@ import CategoryFilter from '../../Component/Filters/CategoryFilter';
 import SearchInput from '../../Component/SearchInput/SearchInput';
 
 function ProdcutsPage() {
-  const [search, setSearch] = useState('');
+  const [q, setSearch] = useState();
   const [products, setProducts] = useState([]);
   const [categoryName, setCateoryName] = useState('');
-  const [category, setCategory] = useState('');
+  const [categoryId, setCategoryId] = useState();
   const [sliderValue, setSliderValue] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
-  const [total, setTotal] = useState();
-  const [pageSize, setPageSize] = useState(10);
-  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(); // how many products
+  const [pageSize, setPageSize] = useState(6);
+  const [page, setPage] = useState(2);
 
   const getAllCategories = () => {
     axios('/categories').then((res) => {
@@ -27,26 +27,36 @@ function ProdcutsPage() {
   };
 
   const getCategorieName = (id) => {
-    const name = allCategories.filter((cate) => cate.id === id);
-    setCateoryName(name[0].name);
+    const names = allCategories.filter((cate) => cate.id === id);
+    if (names.length) {
+      setCateoryName(names[0].name);
+    }
   };
 
   useEffect(() => {
     const getProducts = () => {
       axios(
-        `/products?q=${search || ''}&categoryId=${category || ''}&minPrice=${
-          sliderValue[0] || 0
-        }&maxPrice=${sliderValue[1] || 1000}&limit=10&page=1`,
+        '/products',
+        {
+          params: {
+            q,
+            categoryId,
+            minPrice: sliderValue[0],
+            maxPrice: sliderValue[1],
+            limit: pageSize,
+            page,
+          },
+        },
       ).then((res) => {
-        const data = res.data.product;
+        const data = res.data.product.rows;
         setProducts(data);
         getAllCategories();
-        getCategorieName(category);
-        setTotal(data.count);
+        getCategorieName(categoryId);
+        setTotal(res.data.product.count);
       });
     };
     getProducts();
-  }, [search, sliderValue, category, categoryName, page, pageSize]);
+  }, [q, sliderValue, categoryId, categoryName, page, pageSize]);
 
   const handleChange = (newPage, newPageSize) => {
     setPageSize(newPageSize);
@@ -62,16 +72,16 @@ function ProdcutsPage() {
   };
 
   const handleCateorieCahnge = (e) => {
-    setCategory(e);
+    setCategoryId(e);
   };
 
   const handleCategorieButtons = (e) => {
-    setCategory(e.target.value);
+    setCategoryId(e.target.value);
     setCateoryName(e.target.textContent);
   };
 
   const clearCategories = () => {
-    setCategory('');
+    setCategoryId('');
   };
   return (
     <div>
