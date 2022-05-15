@@ -14,7 +14,7 @@ const isAdmin = (req: Request, res: Response, next: NextFunction) => {
       }
 
       if (user.role === 2) {
-        req.user = user;
+        req.user = { id: user.id, role: user.role, username: user.username };
         next();
       } else {
         throw new CustomizeError(401, 'unauthorized not an admin');
