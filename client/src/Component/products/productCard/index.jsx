@@ -1,18 +1,40 @@
-import React from 'react';
-import './style.css';
+import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'antd';
 import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 import { PropTypes } from 'prop-types';
+import './style.css';
 
 const { Meta } = Card;
 
 function ProductCard({
-  title,
+  id,
+  name,
+  image,
   price,
-  // description,
-  // img,
-  isAddedToCart = false,
 }) {
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const addFunc = () => {
+    if (!isAddedToCart) {
+      const products = JSON.parse(localStorage.getItem('products'));
+      products.push({
+        id, name, price, image, quantity: 1,
+      });
+      localStorage.setItem('products', JSON.stringify(products));
+      setIsAddedToCart(true);
+    } else {
+      const products = JSON.parse(localStorage.getItem('products'));
+      const newProducts = products.filter((item) => item.id !== id);
+      localStorage.setItem('products', JSON.stringify(newProducts));
+      setIsAddedToCart(false);
+    }
+  };
+
+  useEffect(() => {
+    const products = JSON.parse(localStorage.getItem('products'));
+    const addedToCart = products.some((item) => item.id === id);
+    setIsAddedToCart(addedToCart);
+  }, []);
+
   return (
     <Card
       className="product-card"
@@ -20,31 +42,26 @@ function ProductCard({
       style={{ width: 240 }}
       cover={(
         <img
-          alt="example"
+          alt={name}
           height={240}
-          src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+          src={image}
         />
       )}
     >
-      {isAddedToCart ? (
-        <Button type="primary" shape="circle" icon={<CheckOutlined />} />
-      ) : (
-        <Button type="primary" shape="circle" icon={<ShoppingCartOutlined />} />
-      )}
+      <Button type="primary" onClick={addFunc} shape="circle" icon={isAddedToCart ? <CheckOutlined /> : <ShoppingCartOutlined />} />
       <Meta
-        title={`$${price}`}
-        description={title}
+        title={`$${price.toFixed(2)}`}
+        description={name}
       />
     </Card>
   );
 }
 
 ProductCard.propTypes = {
-  isAddedToCart: PropTypes.bool.isRequired,
-  // description: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  // img: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default ProductCard;
