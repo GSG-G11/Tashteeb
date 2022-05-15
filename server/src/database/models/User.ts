@@ -8,7 +8,7 @@ import sequelize from '../config/connection';
 
 interface IUser
   extends Model<InferAttributes<IUser>, InferCreationAttributes<IUser>> {
-  id: number;
+  id?: number;
   email: string;
   username: string;
   password: string;
