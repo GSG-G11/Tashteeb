@@ -12,7 +12,7 @@ describe('POST /login', () => {
       .post('/login')
       .send({
         email: 'admin@admin.com',
-        password: '12345678',
+        password: '123456789',
 
       })
       .expect(200)
