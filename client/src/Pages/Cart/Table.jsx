@@ -62,24 +62,6 @@ function Table() {
             deleteItem={deleteItem}
           />
         )) }
-        <CartRow
-          img="https://media.istockphoto.com/photos/hummer-and-nails-picture-id1213092931"
-          name="hummer with nails"
-          price={80.33}
-          quantity={2}
-          setQuantity={setQuantity}
-          id={1}
-          deleteItem={deleteItem}
-        />
-        <CartRow
-          img="https://media.istockphoto.com/photos/hummer-and-nails-picture-id1213092931"
-          name="hummer with nails"
-          price={80.33}
-          quantity={2}
-          setQuantity={setQuantity}
-          id={2}
-          deleteItem={deleteItem}
-        />
       </tbody>
     </table>
   );
