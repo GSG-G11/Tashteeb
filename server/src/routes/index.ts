@@ -15,6 +15,8 @@ import {
   currentUser,
 } from '../controller/userAuth/index';
 import customErrorHandler from '../error';
+import uploadImage from '../controller/cloudinaryController';
+import multer from '../middlewares/multer';
 
 const router = Router();
 
@@ -29,6 +31,7 @@ router.get('/auth/user', currentUser);
 router.post('/logout', logout);
 router.get('/products', getProducts);
 router.get('/categories', getCategories);
+router.post('/image', multer.single('images'), uploadImage);
 
 router.use((req, res) => {
   res.status(404).json({
