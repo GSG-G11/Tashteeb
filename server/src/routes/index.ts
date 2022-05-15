@@ -33,8 +33,8 @@ router.post('/login', login);
 router.get('/auth/user', currentUser);
 router.post('/logout', logout);
 router.get('/products', getProducts);
-router.delete('/products/:id', deleteProduct);
-router.patch('/products/:id', updateProduct);
+router.delete('/products/:id', isAdmin, deleteProduct);
+router.patch('/products/:id', isAdmin, updateProduct);
 router.get('/categories', getCategories);
 router.post('/products', isAdmin, addProduct);
 

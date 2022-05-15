@@ -4,12 +4,17 @@ import sequelize from '../database/config/connection';
 import app from '../app';
 import buildFakeData from '../database/FakeData/sync';
 
+const {
+  env: { ADMIN },
+} = process;
+
 beforeAll(() => buildFakeData());
 
 describe('POST /addProduct', () => {
   test('success addProduct', (done) => {
     supertest(app)
       .post('/products')
+      .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
         price: 20,
@@ -18,7 +23,9 @@ describe('POST /addProduct', () => {
       })
       .expect(200)
       .end((err, res) => {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         expect(res.status).toBe(200);
         return done();
       });
@@ -29,6 +36,7 @@ describe('POST /addProduct', () => {
   test('faild addProduct', (done) => {
     supertest(app)
       .post('/products')
+      .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
         price: 20,
@@ -48,6 +56,7 @@ describe('POST /addProduct', () => {
   test('validation failed addProduct', (done) => {
     supertest(app)
       .post('/products')
+      .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
         price: 20,
@@ -70,6 +79,7 @@ describe('patch /products/:id', () => {
   test('success updateProduct', (done) => {
     supertest(app)
       .patch('/products/1')
+      .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
         price: 20,
@@ -92,9 +102,11 @@ describe('DELETE /products/:id', () => {
     (done) => {
       supertest(app)
         .delete('/products/1')
+        .set('Cookie', [`token=${ADMIN}`])
         .end((err, res) => {
           if (err) return done(err);
-          expect(JSON.parse(res.text).message).toBe('Product deleted'); return done();
+          expect(JSON.parse(res.text).message).toBe('Product deleted');
+          return done();
         });
     },
   );
