@@ -1,7 +1,8 @@
 import { Router, Request, Response } from 'express';
-import { getEngineer, getProducts, getCategories, getAllEngineer } from '../controller';
-
-
+import {
+  getEngineer, getProducts, getCategories, getAllEngineer, checkout,
+} from '../controller';
+import { isUser } from '../middlewares';
 import {
   signup, logout, login, currentUser,
 } from '../controller/userAuth/index';
@@ -18,6 +19,7 @@ router.get('/auth/user', currentUser);
 router.post('/logout', logout);
 router.get('/products', getProducts);
 router.get('/categories', getCategories);
+router.post('/checkout', isUser, checkout);
 router.use((req, res) => {
   res.status(404).json({
     status: 404,
