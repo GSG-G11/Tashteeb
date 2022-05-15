@@ -7,12 +7,14 @@ const {
   env: { NODE_ENV },
 } = process;
 const buildFakeData = async () => {
-  await sequelize.sync({ force: true });
-  await Promise.all([
-    User.bulkCreate(fakeUsers),
-    Category.bulkCreate(fakeCategories),
-    Product.bulkCreate(fakeProducts),
-  ]);
+  try {
+    await sequelize.sync({ force: true });
+    await Category.bulkCreate(fakeCategories);
+    await User.bulkCreate(fakeUsers);
+    await Product.bulkCreate(fakeProducts);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 if (NODE_ENV !== 'test') {

@@ -31,7 +31,11 @@ passport.use(
     })
       .then((user: any) => {
         if (user) {
-          return done(null, user);
+          return done(null, {
+            id: user.id,
+            username: user.username,
+            role: user.role,
+          });
         }
         return done(null, false);
       })

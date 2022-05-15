@@ -1,23 +1,24 @@
-import { ENGINEER, ADMIN } from '../models/User';
+import { ENGINEER, ADMIN, USER } from '../models/User';
 
 const fakeUsers = [
   {
     email: 'admin@admin.com',
     username: 'admin',
-    password: 'admin',
+    password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/3t1.png',
     role: ADMIN,
   },
   {
     email: 'nabil@gmail.com',
     username: 'nabil',
-    password: '123456',
+    password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/2t1.png',
+    role: USER,
   },
   {
-    email: 'enghefsdfdslles@helles.com',
-    username: 'enghelfdsfdles',
-    password: '123456',
+    email: 'mohamed@helles.com',
+    username: 'Mohamed',
+    password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/2t1.png',
     role: ENGINEER,
     hour_price: 100,

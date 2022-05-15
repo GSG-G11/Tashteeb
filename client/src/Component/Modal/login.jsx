@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
@@ -27,7 +28,7 @@ function loginModal() {
           setData({});
         })
         .catch((err) => {
-          error(err.response.data.error.message);
+          error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
         });
     } else {
       error('Please fill all the fields');

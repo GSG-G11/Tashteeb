@@ -14,7 +14,6 @@ interface IUser
   password: string;
   image?: string;
   role?: number;
-  cartItems?: object;
   hourPrice?: number;
   phone?: string;
 }
@@ -47,10 +46,6 @@ const User = sequelize.define<IUser>('users', {
   role: {
     type: DataTypes.INTEGER,
     defaultValue: USER,
-  },
-  cartItems: {
-    type: DataTypes.JSON,
-    defaultValue: {},
   },
   hourPrice: {
     type: DataTypes.INTEGER,
