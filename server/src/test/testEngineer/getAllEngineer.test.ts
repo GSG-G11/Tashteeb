@@ -28,7 +28,7 @@ describe('get all engineer', () => {
 describe('get all engineer', () => {
   test('failed get data', (done) => {
     supertest(app)
-      .get('/engineers')
+      .get('/engineerss')
       .expect(404)
       .end((err, res) => {
         if (err) return done(err);

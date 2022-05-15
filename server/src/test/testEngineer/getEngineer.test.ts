@@ -23,16 +23,3 @@ describe('get home engineer', () => {
       });
   });
 });
-
-describe('get home engineer', () => {
-  test('failed get data', (done) => {
-    supertest(app)
-      .get('/engineers/home')
-      .expect(404)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res.status).toBe(404);
-        return done();
-      });
-  });
-});
