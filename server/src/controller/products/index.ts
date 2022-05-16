@@ -1,4 +1,4 @@
-import getProducrById from './gitProductById';
+import getProducrById from './getProductById';
 import getCategories from '../categories/getCategoriesController';
 import addProduct from './addProduct';
 import getProducts from './getProductsController';
