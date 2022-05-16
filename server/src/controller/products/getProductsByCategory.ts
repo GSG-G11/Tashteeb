@@ -5,12 +5,15 @@ import handleUnknownExceptions from '../../error/handleUnkownError';
 
 const getProductByCategory = async (req: Request, res: Response) => {
   try {
+    console.log(req.params);
     const { categoryId } = req.params;
-    console.log(categoryId);
-    const products = await Product.findAll({ where: { categoryId } });
-    res.json({ status: 200, data: products });
+    const products = await Product.findAll({ where: { categoryId }, limit: 5 });
+    if (products.length) {
+      res.json({ status: 200, data: products });
+    } else {
+      res.json({ status: 404, message: 'No products found' });
+    }
   } catch (err: any) {
-    console.log(err);
     handleUnknownExceptions(err, res);
   }
 };

@@ -12,6 +12,7 @@ import ProductList from './Component/Dashboard/ProductList';
 import Orders from './Component/Dashboard/Orders';
 import Cart from './Pages/Cart';
 import EngineerInfo from './Component/Engineer';
+import RelatedProducts from './Component/RelatedProduct';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="orders" element={<Orders />} />
             </Route>
             <Route path="/cart" element={<Cart />} />
+            <Route path="/related" element={<RelatedProducts />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>

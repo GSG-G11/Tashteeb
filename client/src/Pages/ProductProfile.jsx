@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductDetailes from '../Component/ProductDetailes';
+import RelatedProducts from '../Component/RelatedProduct';
 
 function ProductProfile() {
   const { id } = useParams();
   const [info, setInfo] = useState('');
+  const [catrgorgID, setcatrgorgID] = useState(null);
   useEffect(() => {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
@@ -14,19 +16,23 @@ function ProductProfile() {
         cancelToken: source.token,
       });
       setInfo(dataResponse.data.data);
+      setcatrgorgID(dataResponse.data.data.categoryId);
     };
     fetchdata();
     return () => source.cancel();
   });
   return (
-    <ProductDetailes
-      isProduct
-      id={info.id}
-      description={info.description}
-      name={info.name}
-      price={info.price}
-      img={info.image}
-    />
+    <>
+      <ProductDetailes
+        isProduct
+        id={info.id}
+        description={info.description}
+        name={info.name}
+        price={info.price}
+        img={info.image}
+      />
+      {catrgorgID && <RelatedProducts categoryId={catrgorgID} /> }
+    </>
   );
 }
 
