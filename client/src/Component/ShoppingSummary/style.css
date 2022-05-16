@@ -1,11 +1,13 @@
 .summary{
-    width: 70%;
+    /* width: 70%; */
     margin: auto;
     background-color: #FEDF85;
+    border-radius: 10px;
     display: flex;
     justify-content: space-around;
     padding: 3em 4em;
    margin-top: 3em;
+   flex-direction: row;
 }
 .shopSummary{
     display: flex;
@@ -76,6 +78,7 @@
     margin: auto;
     margin-top: 5em;
     border: none;
+    cursor: pointer;
 }
 .confirm {
     color: #EDB821;

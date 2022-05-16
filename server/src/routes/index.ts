@@ -1,12 +1,18 @@
 import { Router, Request, Response } from 'express';
-import { getProducrById } from '../controller/products';
+
 import {
   getEngineer,
   getProducts,
+  addProduct,
   getCategories,
   getAllEngineer,
   gitEngineerById,
+  checkout,
+  getProducrById,
+  deleteProduct,
+  updateProduct,
 } from '../controller';
+import { isUser } from '../middlewares';
 
 import {
   signup,
@@ -17,21 +23,28 @@ import {
 import customErrorHandler from '../error';
 import uploadImage from '../controller/cloudinaryController';
 import multer from '../middlewares/multer';
+import isAdmin from '../middlewares/admin';
 
 const router = Router();
 
-router.get('/engPage', getAllEngineer);
-router.get('/eng/:id', gitEngineerById);
-router.get('/product/:id', getProducrById);
-router.get('/engHome', getEngineer);
+router.get('/engineers', getAllEngineer);
+router.get('/engineers/home', getEngineer);
+router.get('/engineers/:id', gitEngineerById);
+
 router.post('/signup', signup);
-router.get('/engHome', getEngineer);
 router.post('/login', login);
 router.get('/auth/user', currentUser);
 router.post('/logout', logout);
+
 router.get('/products', getProducts);
+router.get('/products/:id', getProducrById);
+router.post('/products', isAdmin, addProduct);
+router.patch('/products/:id', isAdmin, updateProduct);
+router.delete('/products/:id', isAdmin, deleteProduct);
+
 router.get('/categories', getCategories);
 router.post('/image', multer.single('images'), uploadImage);
+router.post('/checkout', isUser, checkout);
 
 router.use((req, res) => {
   res.status(404).json({

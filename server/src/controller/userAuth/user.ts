@@ -5,7 +5,6 @@ const currentUser = (req: Request, res: Response) => {
   passport.authenticate('jwt', { session: false }, (err, user) => {
     if (err) {
       // eslint-disable-next-line no-console
-      console.log(err);
       return res.status(401).json({ status: 'error', code: 'unauthorized err' });
     }
     if (!user) {
