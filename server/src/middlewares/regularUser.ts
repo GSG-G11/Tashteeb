@@ -14,7 +14,7 @@ const isAdmin = (req: Request, res: Response, next: NextFunction) => {
       }
 
       if (user.role === 0) {
-        req.user = { id: user.id, role: user.role, username: user.username };
+        req.user = user;
         next();
       } else {
         throw new CustomizeError(401, 'unauthorized not a reqgualr user');
