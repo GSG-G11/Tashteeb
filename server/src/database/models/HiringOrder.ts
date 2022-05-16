@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/connection';
 
 interface IHiringOrder extends Model {
-  id: number;
+  id?: number;
   userId: number;
   engId: number;
   status: string;

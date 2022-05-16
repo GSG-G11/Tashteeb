@@ -10,7 +10,9 @@ function EngCard() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchData = async () => {
-      const dataAxios = await axios('/api/engHome', { cancelToken: source.token });
+      const dataAxios = await axios('/engineers/home', {
+        cancelToken: source.token,
+      });
       const { data } = dataAxios.data;
       setInfo(data);
     };
@@ -25,11 +27,20 @@ function EngCard() {
           <p>We Have A Team Of Amzining Engineers</p>
         </div>
         <div className="cardDetailes">
-          {info.map((item) => <SingleCard key={item.id} img={item.image} name={item.username} />)}
+          {info.map((item) => (
+            <SingleCard
+              key={item.id}
+              id={item.id}
+              img={item.image}
+              name={item.username}
+            />
+          ))}
         </div>
       </div>
       <div className="cardBtn">
-        <Link to="/eng" className="btn">JOIN US !</Link>
+        <Link to="/eng" className="btn">
+          JOIN US !
+        </Link>
       </div>
     </>
   );

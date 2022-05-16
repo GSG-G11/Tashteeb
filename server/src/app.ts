@@ -26,9 +26,6 @@ if (NODE_ENV === 'production') {
     res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
   });
 }
-
-// app.use((err: any, req: Request, res: Response) => {
-//   customErrorHandler(err, res);
-// });
+app.use(router);
 
 export default app;

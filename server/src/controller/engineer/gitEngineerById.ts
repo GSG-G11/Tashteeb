@@ -7,7 +7,11 @@ const gitEngineerById = async (req: Request, res:Response) => {
   try {
     const { id } = req.params;
     const data = await User.findOne({ where: { role: ENGINEER, id } });
-    res.json({ status: 200, user: data });
+    if (data) {
+      res.json({ status: 200, user: data });
+    } else {
+      res.json({ status: 404, message: 'engineer not found' });
+    }
   } catch (err: any) {
     handleUnknownExceptions(err, res);
   }

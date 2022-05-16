@@ -1,23 +1,24 @@
-import { ENGINEER, ADMIN } from '../models/User';
+import { ENGINEER, ADMIN, USER } from '../models/User';
 
 const fakeUsers = [
   {
     email: 'admin@admin.com',
     username: 'admin',
-    password: 'admin',
+    password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/3t1.png',
     role: ADMIN,
   },
   {
     email: 'nabil@gmail.com',
     username: 'nabil',
-    password: '123456',
+    password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/2t1.png',
+    role: USER,
   },
   {
-    email: 'enghefsdfdslles@helles.com',
-    username: 'enghelfdsfdles',
-    password: '123456',
+    email: 'mohamed@helles.com',
+    username: 'Mohamed',
+    password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/2t1.png',
     role: ENGINEER,
     hour_price: 100,
@@ -105,7 +106,7 @@ const fakeProducts = [
     price: 14.5,
     categoryId: 4,
     image:
-      'https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B550%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&product=path%5B/pimages/9789352782772_p0_v1%5D&call=url%5Bfile:common/decodeProduct.chain%5D',
+      'http://themesflat.com/html/nah/images/shop/f2.png',
   },
   {
     name: 'Night (The Night Trilogy, #1)',
@@ -114,7 +115,7 @@ const fakeProducts = [
     price: 50,
     categoryId: 3,
     image:
-      'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1575073611l/1617.jpg',
+      'http://themesflat.com/html/nah/images/shop/f3.png',
   },
   {
     name: 'To Kill a Mockingbird',
@@ -123,7 +124,7 @@ const fakeProducts = [
     price: 19.9,
     categoryId: 2,
     image:
-      'https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B550%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&product=path%5B/pimages/9780060935467_p0_v12%5D&call=url%5Bfile:common/decodeProduct.chain%5D',
+      'http://themesflat.com/html/nah/images/shop/f3.png',
   },
   {
     name: 'The Great Gatsby',
@@ -132,7 +133,7 @@ const fakeProducts = [
     price: 200,
     categoryId: 1,
     image:
-      'https://m.media-amazon.com/images/M/MV5BMTkxNTk1ODcxNl5BMl5BanBnXkFtZTcwMDI1OTMzOQ@@._V1_FMjpg_UX999_.jpg',
+      'http://themesflat.com/html/nah/images/shop/f2.png',
   },
 ];
 

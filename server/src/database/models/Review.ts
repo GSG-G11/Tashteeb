@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/connection';
 
 interface IReview extends Model {
-  id: number;
+  id?: number;
   userId: number;
   engId: number;
   review: string;

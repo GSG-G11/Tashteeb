@@ -2,12 +2,12 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/connection';
 
 interface IProduct extends Model {
-  id: number;
+  id?: number;
   name: string;
   price: number;
   description: string;
   categoryId: number;
-  image: string;
+  image?: string;
 }
 
 const Product = sequelize.define<IProduct>('product', {
@@ -29,6 +29,9 @@ const Product = sequelize.define<IProduct>('product', {
   },
   categoryId: {
     type: DataTypes.INTEGER,
+  },
+  image: {
+    type: DataTypes.STRING,
   },
 });
 
