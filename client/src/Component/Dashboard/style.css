@@ -1,0 +1,72 @@
+.Dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Dashboard-header>h2 {
+    color: #edb820;
+    padding: 0 60px;
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.add-product-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.add-product-btn>button {
+    background-color: #edb820;
+    padding: 5px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #edb820;
+    color: #fff;
+}
+
+.dashboard-icons-row {
+    display: flex;
+}
+
+.dashboard-icons-row>p>i {
+    margin: 5px;
+}
+
+.product-actions-row,
+.product-price-row,
+.product-category-row,
+.product-name-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dash-delete-icon {
+    color: rgba(253, 69, 69, 0.845);
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.dash-update-icon {
+    color: rgba(62, 61, 61, 0.845);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid transparent;
+}

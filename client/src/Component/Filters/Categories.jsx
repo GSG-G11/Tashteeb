@@ -4,7 +4,6 @@ import { PropTypes } from 'prop-types';
 
 const { Option } = Select;
 
-// eslint-disable-next-line func-names
 function Categories({ handleCateorieCahnge, allCategories }) {
   return (
     <Select
