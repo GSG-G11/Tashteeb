@@ -11,7 +11,7 @@ const getAllEngineer = async (req: Request, res:Response) => {
       limit: +pageSize,
       offset: +pageSize * (+page - 1),
     });
-    res.json({ status: 200, data: allEngineers });
+    res.json({ status: 200, data: allEngineers, message: 'success get all engineer' });
   } catch (err:any) {
     handleUnknownExceptions(err, res);
   }

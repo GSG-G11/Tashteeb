@@ -94,6 +94,20 @@ describe('patch /products/:id', () => {
       });
   });
 });
+describe('get product by id', () => {
+  test('success get product by id', (done) => {
+    supertest(app)
+      .get('/products/1')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.status).toBe(200);
+        expect(res.body.data.name).toBe('hummer');
+        expect(res.body.data.price).toBe('20');
+        return done();
+      });
+  });
+});
 
 // success deleteProduct
 describe('DELETE /products/:id', () => {
@@ -127,6 +141,20 @@ describe('POST /addProduct', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).toBe(401);
+        return done();
+      });
+  });
+});
+
+describe('get product by id', () => {
+  test('failed get product by id', (done) => {
+    supertest(app)
+      .get('/products/5000')
+      .expect(404)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.status).toBe(404);
+        expect(res.body.message).toBe('product not found');
         return done();
       });
   });
