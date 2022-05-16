@@ -3,9 +3,7 @@ import sequelize from '../config/connection';
 
 interface IReview extends Model {
   id?: number;
-  userId: number;
-  engId: number;
-  review: string;
+  orderId: number;
   rate: number;
 }
 
@@ -15,16 +13,8 @@ const Review = sequelize.define<IReview>('review', {
     primaryKey: true,
     autoIncrement: true,
   },
-  userId: {
+  orderId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  engId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  review: {
-    type: DataTypes.STRING,
     allowNull: false,
   },
   rate: {

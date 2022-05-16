@@ -10,6 +10,7 @@ import {
   getProducrById,
   deleteProduct,
   updateProduct,
+  createReview,
 } from '../controller';
 import { isUser } from '../middlewares';
 
@@ -41,6 +42,7 @@ router.delete('/products/:id', isAdmin, deleteProduct);
 
 router.get('/categories', getCategories);
 router.post('/checkout', isUser, checkout);
+router.post('/checkout', isUser, createReview);
 
 router.use((req, res) => {
   res.status(404).json({
