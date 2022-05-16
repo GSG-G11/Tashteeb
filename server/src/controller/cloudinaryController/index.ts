@@ -11,7 +11,6 @@ const uploadImage = async (req: Request, res: Response) => {
       result,
     });
   } catch (err: any) {
-    console.log(err);
     handleUnknownExceptions(err, res);
   }
 };
