@@ -1,11 +1,9 @@
-import console from 'console';
 import { Request, Response } from 'express';
 import { Product } from '../../database';
 import handleUnknownExceptions from '../../error/handleUnkownError';
 
 const getProductByCategory = async (req: Request, res: Response) => {
   try {
-    console.log(req.params);
     const { categoryId } = req.params;
     const products = await Product.findAll({ where: { categoryId }, limit: 5 });
     if (products.length) {
