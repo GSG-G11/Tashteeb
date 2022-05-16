@@ -3,7 +3,7 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/connection';
 
 interface ICategory extends Model {
-  id: number;
+  id?: number;
   name: string;
   image: string;
 }

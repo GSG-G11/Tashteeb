@@ -10,7 +10,8 @@ import Dashboard from './Component/Dashboard';
 import Satistics from './Component/Dashboard/Satistics';
 import ProductList from './Component/Dashboard/ProductList';
 import Orders from './Component/Dashboard/Orders';
-// import EngineerPage from './Pages/EngineerPage';
+import Cart from './Pages/Cart';
+import EngineerInfo from './Component/Engineer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/eng" element={<EngineerInfo />} />
             <Route path="/profile/:id" element={<EngineerProfile />} />
             <Route path="/product/:id" element={<ProductProfile />} />
             <Route path="dashboard" element={<Dashboard />}>
@@ -26,8 +28,7 @@ function App() {
               <Route path="satistics" element={<Satistics />} />
               <Route path="orders" element={<Orders />} />
             </Route>
-            {/* <Route path="/info" element={<ProductDetailes />} /> */}
-            {/* <Route path="/eng" element={<EngineerPage />} /> */}
+            <Route path="/cart" element={<Cart />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>
