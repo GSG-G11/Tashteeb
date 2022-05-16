@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
+import twilio from '../../utils/twilio';
 import CustomizeError from '../../error/customizeError';
 import handleKnownExceptions from '../../error/handleKnownError';
-import { HiringOrder } from '../../database';
+import { HiringOrder, User } from '../../database';
 import engReplyValidation from '../../validaiton/engReplyValidation';
 
 interface IReqUser extends Request {
@@ -17,7 +18,7 @@ export default async (req: IReqUser, res: Response) => {
 
     const { reply, acceptance } = req.body;
     const {
-      user: { id },
+      user: { id, username },
     } = req; // Engineer ID
     const hiringOrderID = +req.params.id;
 
@@ -37,9 +38,26 @@ export default async (req: IReqUser, res: Response) => {
     hiringOrder.status = acceptance ? 'accepted' : 'rejected';
     hiringOrder.reply = reply;
     await hiringOrder.save();
+    const user = await User.findByPk(hiringOrder.userId, {
+      attributes: ['id', 'username', 'phone'],
+    });
+    if (!user) {
+      throw new CustomizeError(404, 'User not found');
+    }
+    const messege = await twilio(
+      user.phone,
+      `Hi ${user.username},
+Engineer ${username} has ${
+  acceptance ? 'accepted' : 'rejected'
+} your hiring order.
+with a reply: ${reply}
+Tash6eeb team.`,
+    );
+
     res.status(200).json({
       message: 'Hiring order updated successfully',
       data: hiringOrder,
+      messege,
     });
   } catch (err: any) {
     if (err.details) {

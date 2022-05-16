@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import twilio from '../../utils/twilio';
 import CustomizeError from '../../error/customizeError';
 import handleKnownExceptions from '../../error/handleKnownError';
 import { User, HiringOrder } from '../../database';
@@ -11,8 +12,9 @@ interface IReqUser extends Request {
 export default async (req: IReqUser, res: Response) => {
   try {
     const {
-      user: { id },
+      user: { id, username },
     } = req; // User ID
+
     const { error } = await hiringValidation(req.body);
     if (error) {
       throw new CustomizeError(400, error.details[0].message);
@@ -25,19 +27,31 @@ export default async (req: IReqUser, res: Response) => {
 
     const eng = await User.findOne({
       where: { id: engId, role: 1 },
-      attributes: ['id', 'name', 'email', 'phone', 'address', 'role'],
+      attributes: ['id', 'username', 'phone'],
     });
     if (!eng) {
       throw new CustomizeError(404, 'Engineer not found');
     }
-    const hOrder = await HiringOrder.create({
+    const hiringOrder = await HiringOrder.create({
       ...req.body,
-      engineerId: engId,
+      engId,
       userId: id,
     });
+    if (!hiringOrder) {
+      throw new CustomizeError(500, 'Internal server error');
+    }
+    const messege = await twilio(
+      eng.phone,
+      `Hi ${eng.username},
+you have a new hiring order from ${username}
+check it out on https://hiring-order.herokuapp.com/hiring-order/${hiringOrder.id}. 
+Tash6eeb team.`,
+    );
+
     res.status(201).json({
       message: 'Hiring order created successfully',
-      data: hOrder,
+      hiringOrder,
+      messege,
     });
   } catch (err: any) {
     if (err.details) {
