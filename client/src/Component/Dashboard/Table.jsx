@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useContext } from 'react';
 import { Table, Space } from 'antd';
-import axios from 'axios';
+import { Context } from '../../Context/ProductContext';
 
 const columns = [
   {
@@ -38,13 +37,8 @@ const columns = [
 ];
 
 function ProductTable() {
-  const [Products, setProducts] = useState([]);
-  useEffect(() => {
-    axios.get('/products').then((res) => {
-      setProducts(res.data.product);
-    });
-  }, []);
-  return <Table columns={columns} dataSource={Products} />;
+  const { products } = useContext(Context);
+  return <Table columns={columns} dataSource={products} />;
 }
 
 export default ProductTable;

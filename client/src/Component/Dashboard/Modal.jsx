@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { Modal, Button, Form } from 'antd';
 import AddProductModalContent from './AddProductModalContent';
-
+import { Context } from '../../Context/ProductContext';
+import { success, error } from '../AntdMessages.jsx/messages';
 import './style.css';
 
 function DashboardModal({ title }) {
+  const { form, products, setProducts } = useContext(Context);
   const [isDashboardModalVisible, setIsDashboardModalVisible] = useState(false);
   const showDashboardModal = () => {
     setIsDashboardModalVisible(true);
@@ -13,6 +16,16 @@ function DashboardModal({ title }) {
 
   const handleOk = () => {
     setIsDashboardModalVisible(false);
+    axios
+      .post('/products', form)
+      .then((res) => {
+        success('Product added successfully');
+        setProducts([...products, res.data]);
+      })
+      .catch(() => {
+        error('Error adding product');
+        setIsDashboardModalVisible(true);
+      });
   };
 
   const handleCancel = () => {
