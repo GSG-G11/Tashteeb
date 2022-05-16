@@ -41,7 +41,7 @@ function Navbar() {
         {!user ? (
           <>
             <LoginModal />
-            <SignupModal />
+            <SignupModal title="Sign Up" />
           </>
         ) : (
           <UserInfo username={user.username} />

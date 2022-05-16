@@ -1,11 +1,13 @@
 import React from 'react';
 import ProductTable from './Table';
+import DashboardModal from './Modal';
 
 function ProductList() {
   return (
     <section className="dashboard-product-list">
       <div className="add-product-btn">
-        <button type="button"> add product</button>
+        <DashboardModal title="Add Product " />
+        {' '}
       </div>
       <ProductTable />
     </section>
