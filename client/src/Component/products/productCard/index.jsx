@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'antd';
 import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 const { Meta } = Card;
@@ -49,10 +50,12 @@ function ProductCard({
       )}
     >
       <Button type="primary" onClick={addFunc} shape="circle" icon={isAddedToCart ? <CheckOutlined /> : <ShoppingCartOutlined />} />
-      <Meta
-        title={`$${price.toFixed(2)}`}
-        description={name}
-      />
+      <Link to={`/product/${id}`}>
+        <Meta
+          title={`$${price.toFixed(2)}`}
+          description={name}
+        />
+      </Link>
     </Card>
   );
 }
