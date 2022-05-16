@@ -1,5 +1,5 @@
 import {
-  getProducts, addProduct, deleteProduct, updateProduct, getProducrById,
+  getProducts, addProduct, deleteProduct, updateProduct, getProducrById, getProductByCategory,
 } from './products';
 
 import { getCategories } from './categories';
@@ -20,4 +20,5 @@ export {
   addProduct,
   deleteProduct,
   updateProduct,
+  getProductByCategory,
 };
