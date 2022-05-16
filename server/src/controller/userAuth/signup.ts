@@ -6,6 +6,7 @@ import { User } from '../../database';
 import CustomizeError from '../../error/customizeError';
 import handleKnownExceptions from '../../error/handleKnownError';
 import signupValidation from '../../validaiton';
+import upload from '../../middlewares/cloudinary';
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ const signup = async (req: Request, res: Response): Promise<any> => {
   try {
     await signupValidation(req);
     const { password, email, username } = req.body;
+    let { image } = req.body;
+    image = await upload(image, 'images');
     const emailDoesExist = await User.findOne({
       where: { email },
     });
@@ -32,8 +35,10 @@ const signup = async (req: Request, res: Response): Promise<any> => {
     }
     const hashedPassword: string = await bcrypt.hash(password, 10);
     const user = await User.create({
-      ...req.body,
+      email,
+      username,
       password: hashedPassword,
+      image,
     });
     const token = sign(
       { id: user.id, username: user.username, role: user.role },
