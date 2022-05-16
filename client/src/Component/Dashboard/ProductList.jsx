@@ -7,7 +7,6 @@ function ProductList() {
     <section className="dashboard-product-list">
       <div className="add-product-btn">
         <DashboardModal title="Add Product " />
-        {' '}
       </div>
       <ProductTable />
     </section>

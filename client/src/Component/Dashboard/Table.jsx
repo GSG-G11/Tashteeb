@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Table, Space } from 'antd';
 import axios from 'axios';
@@ -37,72 +37,14 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    name: 'red paint',
-    price: 32,
-    category: {
-      id: 1,
-      name: 'paints',
-    },
-  },
-  {
-    key: '13',
-    name: 'red paint',
-    price: 32,
-    category: {
-      id: 1,
-      name: 'paints',
-    },
-  },
-  {
-    key: '133',
-    name: 'red paint',
-    price: 32,
-    category: {
-      id: 1,
-      name: 'paints',
-    },
-  },
-  {
-    key: '61',
-    name: 'red paint',
-    price: 32,
-    category: {
-      id: 1,
-      name: 'paints',
-    },
-  },
-  {
-    key: '2',
-    name: 'corner',
-    price: 42,
-    category: {
-      id: 1,
-      name: 'paints',
-    },
-  },
-  {
-    key: '3',
-    name: ' Black',
-    price: 32,
-    category: {
-      id: 1,
-      name: 'paints',
-    },
-  },
-];
-
 function ProductTable() {
-  const [dataSource, setDataSource] = React.useState([]);
+  const [Products, setProducts] = useState([]);
   useEffect(() => {
     axios.get('/products').then((res) => {
-      setDataSource(res.data.product);
+      setProducts(res.data.product);
     });
   }, []);
-  console.log(dataSource, 'dataSource');
-  return <Table columns={columns} dataSource={data} />;
+  return <Table columns={columns} dataSource={Products} />;
 }
 
 export default ProductTable;

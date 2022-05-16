@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import { Modal, Button, Form } from 'antd';
+import AddProductModalContent from './AddProductModalContent';
 
 import './style.css';
 
@@ -46,7 +46,7 @@ function DashboardModal({ title }) {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <p>hello</p>
+        <AddProductModalContent />
       </Modal>
     </Form>
   );
