@@ -38,7 +38,6 @@ const signup = async (req: Request, res: Response): Promise<any> => {
     const token = sign(
       { id: user.id, username: user.username, role: user.role },
       JWT_SECRET as Secret,
-      { expiresIn: '10h' },
     );
     res.cookie('token', token).json({
       message: 'User created successfully!',
