@@ -28,18 +28,21 @@ import customErrorHandler from '../error';
 
 const router = Router();
 
-router.get('/engPage', getAllEngineer);
-router.get('/eng/:id', gitEngineerById);
-router.get('/product/:id', getProducrById);
-router.get('/engHome', getEngineer);
+router.get('/engineers', getAllEngineer);
+router.get('/engineers/home', getEngineer);
+router.get('/engineers/:id', gitEngineerById);
+
 router.post('/signup', signup);
-router.get('/engHome', getEngineer);
 router.post('/login', login);
 router.get('/auth/user', currentUser);
 router.post('/logout', logout);
+
 router.get('/products', getProducts);
-router.delete('/products/:id', isAdmin, deleteProduct);
+router.get('/products/:id', getProducrById);
+router.post('/products', isAdmin, addProduct);
 router.patch('/products/:id', isAdmin, updateProduct);
+router.delete('/products/:id', isAdmin, deleteProduct);
+
 router.get('/categories', getCategories);
 router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);

@@ -10,7 +10,7 @@ function EngCard() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchData = async () => {
-      const dataAxios = await axios('/api/engHome', {
+      const dataAxios = await axios('/engineers/home', {
         cancelToken: source.token,
       });
       const { data } = dataAxios.data;
