@@ -37,7 +37,7 @@ export default async (req: Request, res: Response) : Promise<any> => {
       username: account.username,
       role: account.role,
     };
-    const token = sign(payload, JWT_SECRET as Secret, { expiresIn: '10h' });
+    const token = sign(payload, JWT_SECRET as Secret);
     res.cookie('token', token, { httpOnly: NODE_ENV === 'production' }).json({
       message: 'User logged in successfully!',
       user: { id: account.id, username: account.username, role: account.role },
