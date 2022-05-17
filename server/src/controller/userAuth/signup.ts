@@ -6,6 +6,7 @@ import { User } from '../../database';
 import CustomizeError from '../../error/customizeError';
 import handleKnownExceptions from '../../error/handleKnownError';
 import signupValidation from '../../validaiton';
+import upload from '../../middlewares/cloudinary';
 
 dotenv.config();
 
@@ -15,7 +16,10 @@ const signup = async (req: Request, res: Response): Promise<any> => {
   try {
     console.log(req.body);
     await signupValidation(req);
-    const { password, email, username } = req.body;
+    const {
+      password, email, username, phone,
+    } = req.body;
+    let { image } = req.body;
     const emailDoesExist = await User.findOne({
       where: { email },
     });
@@ -32,9 +36,15 @@ const signup = async (req: Request, res: Response): Promise<any> => {
       throw new CustomizeError(409, 'This username is already taken!');
     }
     const hashedPassword: string = await bcrypt.hash(password, 10);
+    if (image) {
+      image = await upload(image, 'images');
+    }
     const user = await User.create({
-      ...req.body,
+      email,
+      username,
       password: hashedPassword,
+      image,
+      phone,
     });
     const token = sign(
       { id: user.id, username: user.username, role: user.role },
