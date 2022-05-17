@@ -58,6 +58,8 @@ function useProvideAuth() {
     register,
     logout,
     login,
+    // categoryName,
+    // setCateoryName,
   };
 }
 

@@ -6,6 +6,9 @@ interface IHiringOrder extends Model {
   userId: number;
   engId: number;
   status: string;
+  description: string;
+  price: number;
+  reply?: string;
 }
 
 const HiringOrder = sequelize.define<IHiringOrder>(
@@ -26,7 +29,18 @@ const HiringOrder = sequelize.define<IHiringOrder>(
     },
     status: {
       type: DataTypes.STRING,
+      defaultValue: 'pending',
+    },
+    description: {
+      type: DataTypes.STRING,
       allowNull: false,
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    reply: {
+      type: DataTypes.STRING,
     },
   },
 );

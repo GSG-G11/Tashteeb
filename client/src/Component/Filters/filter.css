@@ -1,0 +1,47 @@
+.filter__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.filter__wrapper input {
+  border: none;
+  margin-bottom: 1rem;
+  width: 40%;
+  height: 3rem;
+  padding-left: 1rem;
+  font-weight: 400;
+  border: 1px solid #edb820;
+  border-radius: 5px;
+}
+input:focus {
+  outline: none;
+}
+.face__Categories {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.face__Categories button {
+  border: none;
+  border: 1px solid #edb820;
+  padding: 0.3rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+.face__Categories button:hover {
+  background-color: #edb820;
+  color: white;
+  transform: scale(1.1);
+}
+
+.ant-dropdown-trigger,
+.sele__categories {
+  background-color: #edb62097;
+  width: 100% !important;
+  font-size: 1.3rem;
+}
+
+.ant-slider-rail {
+  background-color: rgb(193, 161, 161) !important;
+}

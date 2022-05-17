@@ -15,7 +15,7 @@ interface IUser
   image?: string;
   role?: number;
   hourPrice?: number;
-  phone?: string;
+  phone: string;
 }
 const USER : number = 0;
 const ENGINEER :number = 1;
