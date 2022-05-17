@@ -13,6 +13,7 @@ const { JWT_SECRET } = process.env;
 
 const signup = async (req: Request, res: Response): Promise<any> => {
   try {
+    console.log(req.body);
     await signupValidation(req);
     const { password, email, username } = req.body;
     const emailDoesExist = await User.findOne({
