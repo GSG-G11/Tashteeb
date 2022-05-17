@@ -9,12 +9,11 @@ const getProducts = async (req: Request, res: Response) => {
     categoryId,
     minPrice,
     maxPrice,
-    limit = 10,
+    limit = 6,
     page = 1,
   }: any = req.query;
-
   try {
-    const product = await Product.findAll({
+    const product = await Product.findAndCountAll({
       attributes: ['id', 'name', 'price', 'description', 'categoryId'],
       include: Category,
       limit,
