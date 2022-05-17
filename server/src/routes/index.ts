@@ -11,6 +11,7 @@ import {
   getProducrById,
   deleteProduct,
   updateProduct,
+  getProductByCategory,
   userOrder,
   engReply,
 } from '../controller';
@@ -50,6 +51,7 @@ router.post('/products', isAdmin, addProduct);
 router.post('/hiringOrder/:id', isRegularUser, userOrder);
 router.patch('/hiringOrder/:id', isEngineer, engReply);
 
+router.get('/category/:categoryId/products', getProductByCategory);
 router.use((req, res) => {
   res.status(404).json({
     status: 404,
