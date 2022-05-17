@@ -7,6 +7,7 @@ import './productsPage.css';
 import CategoryFilter from '../../Component/Filters/CategoryFilter';
 import SearchInput from '../../Component/SearchInput/SearchInput';
 import ProductCard from '../../Component/products/productCard';
+import { error } from '../../Component/AntdMessages.jsx/messages';
 
 function ProdcutsPage() {
   const [q, setSearch] = useState();
@@ -18,13 +19,7 @@ function ProdcutsPage() {
   const [total, setTotal] = useState(); // how many products
   const [pageSize, setPageSize] = useState(6);
   const [page, setPage] = useState(2);
-
-  const getAllCategories = () => {
-    axios('/categories').then((res) => {
-      const categoriesList = res.data.data;
-      setAllCategories(categoriesList);
-    });
-  };
+  const [err, setErr] = useState(false);
 
   const getCategorieName = (id) => {
     const names = allCategories.filter((cate) => cate.id === id);
@@ -32,12 +27,20 @@ function ProdcutsPage() {
       setCateoryName(names[0].name);
     }
   };
+  const getAllCategories = async () => {
+    try {
+      const getCategories = await axios('/categories');
+      const categoriesList = getCategories.data.data;
+      setAllCategories(categoriesList);
+    } catch (errr) {
+      error('Faild to load categories please refresh the page');
+    }
+  };
 
   useEffect(() => {
-    const getProducts = () => {
-      axios(
-        '/products',
-        {
+    const getProducts = async () => {
+      try {
+        const productData = await axios('/product', {
           params: {
             q,
             categoryId,
@@ -46,15 +49,17 @@ function ProdcutsPage() {
             limit: pageSize,
             page,
           },
-        },
-      ).then((res) => {
-        const data = res.data.product.rows;
+        });
+
+        const data = productData.data.product.rows;
         setProducts(data);
-        getAllCategories();
-        getCategorieName(categoryId);
-        setTotal(res.data.product.count);
-      });
+        setTotal(productData.data.product.count);
+      } catch (errr) {
+        setErr(true);
+      }
     };
+    getAllCategories();
+    getCategorieName(categoryId);
     getProducts();
   }, [q, sliderValue, categoryId, categoryName, page, pageSize]);
 
@@ -96,6 +101,7 @@ function ProdcutsPage() {
             allCategories={allCategories}
             handleCategorieButtons={handleCategorieButtons}
             clearCategories={clearCategories}
+            err={err}
             setCate
           />
         </div>
@@ -106,13 +112,15 @@ function ProdcutsPage() {
             <SearchInput placeHolder="Search Products" onSearch={onSearch} />
           </div>
           <div className="products__wrapper">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                title={product.name}
-                price={product.price}
-              />
-            ))}
+            {err
+              ? error('Faild to load please try again later.')
+              : products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  title={product.name}
+                  price={product.price}
+                />
+              ))}
           </div>
           <div className="paginationEng">
             <Pagination
