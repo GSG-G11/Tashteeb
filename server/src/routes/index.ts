@@ -10,6 +10,7 @@ import {
   getProducrById,
   deleteProduct,
   updateProduct,
+  createReview,
   getProductByCategory,
   userOrder,
   engReply,
@@ -50,6 +51,8 @@ router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);
 router.post('/hiringOrder/:id', isRegularUser, userOrder);
 router.patch('/hiringOrder/:id', isEngineer, engReply);
+
+router.post('/review/:orderId', isUser, createReview);
 
 router.get('/category/:categoryId/products', getProductByCategory);
 router.use((req, res) => {
