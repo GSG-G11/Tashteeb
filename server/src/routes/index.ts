@@ -20,7 +20,6 @@ import {
   isUser, isRegularUser, isAdmin, isEngineer,
 } from '../middlewares';
 
-
 import {
   signup,
   logout,
