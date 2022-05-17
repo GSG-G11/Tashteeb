@@ -5,6 +5,7 @@ interface IReview extends Model {
   id?: number;
   orderId: number;
   rate: number;
+  review: string;
 }
 
 const Review = sequelize.define<IReview>('review', {
@@ -19,6 +20,10 @@ const Review = sequelize.define<IReview>('review', {
   },
   rate: {
     type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  review: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
 });

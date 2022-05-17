@@ -42,7 +42,8 @@ router.delete('/products/:id', isAdmin, deleteProduct);
 
 router.get('/categories', getCategories);
 router.post('/checkout', isUser, checkout);
-router.post('/checkout', isUser, createReview);
+
+router.post('/review/:orderId', isUser, createReview);
 
 router.use((req, res) => {
   res.status(404).json({
