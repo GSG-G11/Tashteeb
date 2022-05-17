@@ -44,6 +44,7 @@ function ShoppingSummary() {
         await axios.post('/checkout', data);
         setCart([]);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     },

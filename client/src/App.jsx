@@ -10,6 +10,10 @@ import Dashboard from './Component/Dashboard';
 import Satistics from './Component/Dashboard/Satistics';
 import ProductList from './Component/Dashboard/ProductList';
 import Orders from './Component/Dashboard/Orders';
+<<<<<<< HEAD
+=======
+import ProdcutsPage from './Pages/productsPage';
+>>>>>>> f7c5665cb0bc64ccf36aa77969630be740a47ad0
 import Cart from './Pages/Cart';
 import EngineerInfo from './Component/Engineer';
 
@@ -28,6 +32,10 @@ function App() {
               <Route path="satistics" element={<Satistics />} />
               <Route path="orders" element={<Orders />} />
             </Route>
+<<<<<<< HEAD
+=======
+            <Route path="/products" element={<ProdcutsPage />} />
+>>>>>>> f7c5665cb0bc64ccf36aa77969630be740a47ad0
             <Route path="/cart" element={<Cart />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
