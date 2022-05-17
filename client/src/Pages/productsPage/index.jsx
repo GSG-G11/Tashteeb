@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Pagination } from 'antd';
 import axios from 'axios';
 import EngineerBanner from '../../Component/EngineerBanner';
-import ProductCard from '../../Component/products/productCard';
 import Filter from '../../Component/Filters/Filter';
 import './productsPage.css';
 import CategoryFilter from '../../Component/Filters/CategoryFilter';
 import SearchInput from '../../Component/SearchInput/SearchInput';
+import ProductCard from '../../Component/products/productCard';
 import { error } from '../../Component/AntdMessages.jsx/messages';
 
 function ProdcutsPage() {

@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
-
 import {
+
   getEngineer,
   getProducts,
   addProduct,
@@ -12,6 +12,7 @@ import {
   deleteProduct,
   updateProduct,
 } from '../controller';
+
 import { isUser } from '../middlewares';
 
 import {

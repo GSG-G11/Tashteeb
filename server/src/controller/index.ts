@@ -1,5 +1,9 @@
 import {
-  getProducts, addProduct, deleteProduct, updateProduct, getProducrById,
+  getProducts,
+  addProduct,
+  deleteProduct,
+  updateProduct,
+  getProducrById,
 } from './products';
 
 import { getCategories } from './categories';
