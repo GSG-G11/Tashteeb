@@ -36,7 +36,7 @@ describe('POST /signup', () => {
       .send({
         username: 'hallos',
         password: 'password',
-        email: 'mohamed@gmail.com',
+        email: 'admin@admin.com',
         role: 1,
         phone: '0594121212',
       })
@@ -57,7 +57,7 @@ describe('POST /signup', () => {
     supertest(app)
       .post('/signup')
       .send({
-        username: 'mohamed',
+        username: 'admin',
         password: 'password',
         email: 'helles@gmail.com',
         role: 1,
