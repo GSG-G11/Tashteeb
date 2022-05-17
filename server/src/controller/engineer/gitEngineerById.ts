@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { User } from '../../database';
 import { ENGINEER } from '../../database/models/User';
-// import CustomizeError from '../../error/customizeError';
 import handleUnknownExceptions from '../../error/handleUnkownError';
 
 const gitEngineerById = async (req: Request, res:Response) => {

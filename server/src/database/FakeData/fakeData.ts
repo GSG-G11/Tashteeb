@@ -7,6 +7,8 @@ const fakeUsers = [
     password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/3t1.png',
     role: ADMIN,
+    phone: '+20100100100',
+
   },
   {
     email: 'nabil@gmail.com',
@@ -14,6 +16,8 @@ const fakeUsers = [
     password: '$2a$10$Mw6FBwi51Lzx50w7hWaaBOxu9XpehgIy0VwWzgl3LvxZCvUqyOSma',
     image: 'http://themesflat.com/html/nah/images/member/2t1.png',
     role: USER,
+    phone: '+970592565688',
+
   },
   {
     email: 'mohamed@helles.com',
@@ -22,7 +26,7 @@ const fakeUsers = [
     image: 'http://themesflat.com/html/nah/images/member/2t1.png',
     role: ENGINEER,
     hour_price: 100,
-    phone: '+20100100100',
+    phone: '+970567780031',
   },
   {
     email: 'enghelles@hsadelles.com',

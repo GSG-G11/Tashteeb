@@ -1,6 +1,6 @@
-import React from 'react';
-
-import { Table, Tag, Space } from 'antd';
+import React, { useContext } from 'react';
+import { Table, Space } from 'antd';
+import { Context } from '../../Context/ProductContext';
 
 const columns = [
   {
@@ -18,21 +18,7 @@ const columns = [
     title: 'Category',
     key: 'category',
     dataIndex: 'category',
-    render: (category) => (
-      <>
-        {category.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    render: (item) => Object.values(item)[1],
   },
   {
     title: 'Action',
@@ -50,47 +36,9 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    name: 'red paint',
-    price: 32,
-    category: ['paints', 'constructions'],
-  },
-  {
-    key: '13',
-    name: 'red paint',
-    price: 32,
-    category: ['paints', 'constructions'],
-  },
-  {
-    key: '133',
-    name: 'red paint',
-    price: 32,
-    category: ['paints', 'constructions'],
-  },
-  {
-    key: '61',
-    name: 'red paint',
-    price: 32,
-    category: ['paints', 'constructions'],
-  },
-  {
-    key: '2',
-    name: 'corner',
-    price: 42,
-    category: ['decoration'],
-  },
-  {
-    key: '3',
-    name: ' Black',
-    price: 32,
-    category: ['decor', 'paints'],
-  },
-];
-
 function ProductTable() {
-  return <Table columns={columns} dataSource={data} />;
+  const { products } = useContext(Context);
+  return <Table columns={columns} dataSource={products} />;
 }
 
 export default ProductTable;

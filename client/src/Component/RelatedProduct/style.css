@@ -1,0 +1,15 @@
+.RelatedProducts{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.RelatedProducts-container{
+    display: flex;
+    flex-direction: row;
+justify-content: space-between;
+}
