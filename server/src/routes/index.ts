@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
-
 import {
+
   getEngineer,
   getProducts,
   addProduct,
@@ -11,8 +11,14 @@ import {
   getProducrById,
   deleteProduct,
   updateProduct,
+  createReview,
+  getProductByCategory,
+  userOrder,
+  engReply,
 } from '../controller';
-import { isUser } from '../middlewares';
+import {
+  isUser, isRegularUser, isAdmin, isEngineer,
+} from '../middlewares';
 
 import {
   signup,
@@ -21,7 +27,6 @@ import {
   currentUser,
 } from '../controller/userAuth/index';
 import customErrorHandler from '../error';
-import isAdmin from '../middlewares/admin';
 
 const router = Router();
 
@@ -42,7 +47,13 @@ router.delete('/products/:id', isAdmin, deleteProduct);
 
 router.get('/categories', getCategories);
 router.post('/checkout', isUser, checkout);
+router.post('/products', isAdmin, addProduct);
+router.post('/hiringOrder/:id', isRegularUser, userOrder);
+router.patch('/hiringOrder/:id', isEngineer, engReply);
 
+router.post('/review/:orderId', isUser, createReview);
+
+router.get('/category/:categoryId/products', getProductByCategory);
 router.use((req, res) => {
   res.status(404).json({
     status: 404,

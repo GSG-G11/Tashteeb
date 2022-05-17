@@ -25,6 +25,7 @@ function EngineerProfile() {
       img={info.image}
       price={info.hourPrice}
       phone={info.phone}
+      id={id}
     />
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Modal, Button, Form, Upload,
 } from 'antd';
+import PropTypes from 'prop-types';
 import {
   UserOutlined,
   TagsOutlined,
@@ -16,7 +17,7 @@ import PasswordInput from './PasswordInput';
 import './style.css';
 import { success, error } from '../AntdMessages.jsx/messages';
 
-function SignupModal() {
+function SignupModal({ title }) {
   const [data, setData] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register } = useAuth();
@@ -63,10 +64,10 @@ function SignupModal() {
         className="signup-btn"
         onClick={showModal}
       >
-        Sign Up
+        {title }
       </Button>
       <Modal
-        title="Sign Up"
+        title={title}
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -117,4 +118,7 @@ function SignupModal() {
   );
 }
 
+SignupModal.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 export default SignupModal;
