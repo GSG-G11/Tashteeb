@@ -11,9 +11,9 @@ describe('POST /signup', () => {
     supertest(app)
       .post('/signup')
       .send({
-        username: 'mohamed',
+        username: 'mohamed2',
         password: 'password',
-        email: 'mohamed@gmail.com',
+        email: 'mohamed2@gmail.com',
         role: 1,
         phone: '0594121212',
       })
