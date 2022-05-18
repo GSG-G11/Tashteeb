@@ -1,6 +1,5 @@
 import { Router, Request, Response } from 'express';
 import {
-
   getEngineer,
   getProducts,
   addProduct,
@@ -11,6 +10,7 @@ import {
   getProducrById,
   deleteProduct,
   updateProduct,
+  createReview,
   getProductByCategory,
   userOrder,
   engReply,
@@ -18,7 +18,6 @@ import {
 import {
   isUser, isRegularUser, isAdmin, isEngineer,
 } from '../middlewares';
-
 import {
   signup,
   logout,
@@ -26,6 +25,8 @@ import {
   currentUser,
 } from '../controller/userAuth/index';
 import customErrorHandler from '../error';
+import uploadImage from '../controller/cloudinaryController';
+import multer from '../middlewares/multer';
 
 const router = Router();
 
@@ -45,10 +46,13 @@ router.patch('/products/:id', isAdmin, updateProduct);
 router.delete('/products/:id', isAdmin, deleteProduct);
 
 router.get('/categories', getCategories);
+router.post('/image', multer.single('images'), uploadImage);
 router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);
 router.post('/hiringOrder/:id', isRegularUser, userOrder);
 router.patch('/hiringOrder/:id', isEngineer, engReply);
+
+router.post('/review/:orderId', isUser, createReview);
 
 router.get('/category/:categoryId/products', getProductByCategory);
 router.use((req, res) => {
