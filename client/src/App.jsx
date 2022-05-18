@@ -13,6 +13,7 @@ import Orders from './Component/Dashboard/Orders';
 import ProdcutsPage from './Pages/productsPage';
 import Cart from './Pages/Cart';
 import EngineerInfo from './Component/Engineer';
+import { ProtectedAdmin, ProtectedUser, ProtectedEngineer } from './ProtectedRoutes/ProtectedRoutes';
 
 function App() {
   return (
@@ -21,16 +22,23 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/eng" element={<EngineerInfo />} />
-            <Route path="/profile/:id" element={<EngineerProfile />} />
-            <Route path="/product/:id" element={<ProductProfile />} />
-            <Route path="dashboard" element={<Dashboard />}>
-              <Route path="product" element={<ProductList />} />
-              <Route path="satistics" element={<Satistics />} />
-              <Route path="orders" element={<Orders />} />
+            <Route element={<ProtectedEngineer />}>
+              <Route path="/eng" element={<EngineerInfo />} />
+              <Route path="/profile/:id" element={<EngineerProfile />} />
             </Route>
-            <Route path="/products" element={<ProdcutsPage />} />
-            <Route path="/cart" element={<Cart />} />
+
+            <Route element={<ProtectedAdmin />}>
+              <Route path="dashboard" element={<Dashboard />}>
+                <Route path="product" element={<ProductList />} />
+                <Route path="satistics" element={<Satistics />} />
+                <Route path="orders" element={<Orders />} />
+              </Route>
+            </Route>
+            <Route element={<ProtectedUser />}>
+              <Route path="/product/:id" element={<ProductProfile />} />
+              <Route path="/products" element={<ProdcutsPage />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>
