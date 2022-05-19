@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from 'cloudinary-react';
 import axios from 'axios';
 import {
   Modal, Input, Form, InputNumber,
@@ -40,7 +41,13 @@ function ProductDetailes({
     <div className="containerProduct">
       <div className="wrapper">
         <div className="image">
-          <img className="product-image" src={img} alt="images" />
+          {/* <img className="product-image" src={img} alt="images" /> */}
+          <Image
+            style={{ width: '100%', height: '500px', borderRadius: '10px' }}
+            cloudName="images"
+            publicId={img}
+            crop="scale"
+          />
         </div>
 
         <div className="data">
