@@ -9,6 +9,7 @@ import getAllEngineer from './engineer/gitAllEngineers';
 import userOrder from './hiringOrder/userOrder';
 import engReply from './hiringOrder/engReply';
 import checkout from './cart/checkout';
+import getAllHiringOrders from './hiringOrder/getAllHiringOrders';
 
 export {
   checkout,
@@ -24,4 +25,5 @@ export {
   getProductByCategory,
   userOrder,
   engReply,
+  getAllHiringOrders,
 };

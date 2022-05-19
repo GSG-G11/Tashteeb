@@ -14,11 +14,11 @@ import {
   getProductByCategory,
   userOrder,
   engReply,
+  getAllHiringOrders,
 } from '../controller';
 import {
   isUser, isRegularUser, isAdmin, isEngineer,
 } from '../middlewares';
-
 
 import {
   signup,
@@ -48,6 +48,7 @@ router.delete('/products/:id', isAdmin, deleteProduct);
 router.get('/categories', getCategories);
 router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);
+router.get('/hiringOrder', isAdmin, getAllHiringOrders);
 router.post('/hiringOrder/:id', isRegularUser, userOrder);
 router.patch('/hiringOrder/:id', isEngineer, engReply);
 
