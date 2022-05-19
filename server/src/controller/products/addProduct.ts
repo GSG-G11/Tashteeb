@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 
 import Product from '../../database/models/Product';
 import handleKnownExceptions from '../../error/handleKnownError';
+import upload from '../../middlewares/cloudinary';
 import addProductValidation from '../../validaiton/addProductValidation';
 
 interface IReqUser extends Request {
@@ -9,16 +10,22 @@ interface IReqUser extends Request {
 }
 
 const addProduct = async (req: IReqUser, res: Response) => {
-  const {
-    name, price, description, categoryId,
-  }: any = req.body;
   try {
+    const {
+      name, price, description, categoryId,
+    }: any = req.body;
+    let image = req.body.image?.path;
     await addProductValidation(req);
+    if (image) {
+      image = await upload(image, 'images');
+    }
+
     const product = await Product.create({
       name,
       price,
       description,
       categoryId,
+      image,
     });
     res.json({ status: 200, product });
   } catch (err: any) {

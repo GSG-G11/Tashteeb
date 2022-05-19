@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import {
+  Modal, Button, Form, Upload,
+} from 'antd';
 import PropTypes from 'prop-types';
-
-import { Modal, Button, Form } from 'antd';
 import {
   UserOutlined,
   TagsOutlined,
   EyeTwoTone,
   EyeInvisibleOutlined,
-  LinkOutlined,
+  UploadOutlined,
 } from '@ant-design/icons';
 import { useAuth } from '../../Context/AuthContext';
 import SelectInput from './Select';
@@ -90,12 +91,18 @@ function SignupModal({ title }) {
           hide={<EyeInvisibleOutlined />}
           changeFunction={(e) => setData({ ...data, password: e.target.value })}
         />
-        <Forminput
+        {/* <Forminput
           name="image"
           placeHolder="Enter Your Image Link"
           prefix={<LinkOutlined />}
           changeFunction={(e) => setData({ ...data, image: e.target.value })}
-        />
+        /> */}
+        <div className="imageSignup-container">
+          <p className="imageSignup"> Image :     </p>
+          <Upload type="pictures" accept=".jpg,.png,.png" onChange={(e) => setData({ ...data, image: e.file })}>
+            <Button className="imageSignupBtn" icon={<UploadOutlined />}>Click to Upload</Button>
+          </Upload>
+        </div>
         <Form.Item label="Role" name="role">
           <SelectInput changeFunction={(e) => setData({ ...data, role: e })} />
 
