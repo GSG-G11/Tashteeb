@@ -26,7 +26,7 @@ export function ProtectedUser({ children }) {
 }
 export function ProtectedEngineer({ children }) {
   const { user } = useAuth();
-  if (user?.role === ENGINEER_ROLE) {
+  if (user?.role !== ENGINEER_ROLE) {
     return <Navigate to="/" replace />;
   }
   return children || <Outlet />;
