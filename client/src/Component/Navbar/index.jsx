@@ -26,8 +26,9 @@ function Navbar() {
       </section>
       <section className="navbar-info">
         <Link to="/">Home</Link>
-        <Link to="/shop">Shop </Link>
-        <Link to="/services">Services</Link>
+        <Link to="/products">Shop </Link>
+        <Link to="/eng">Engineer</Link>
+        {user && <Link to="/dashboard">Dashboard</Link>}
       </section>
       <section
         className="auth-section"
