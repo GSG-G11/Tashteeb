@@ -31,12 +31,6 @@ export function ProtectedEngineer({ children }) {
   }
   return children || <Outlet />;
 }
-export function ProtectedRoute({ children, isAllowed, redirectedPath }) {
-  if (!isAllowed) {
-    return <Navigate to={redirectedPath} replace />;
-  }
-  return children || <Outlet />;
-}
 
 ProtectedUser.propTypes = {
   children: PropTypes.node.isRequired,
@@ -46,9 +40,4 @@ ProtectedEngineer.propTypes = {
 };
 ProtectedAdmin.propTypes = {
   children: PropTypes.node.isRequired,
-};
-ProtectedRoute.propTypes = {
-  children: PropTypes.node.isRequired,
-  isAllowed: PropTypes.bool.isRequired,
-  redirectedPath: PropTypes.string.isRequired,
 };
