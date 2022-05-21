@@ -18,7 +18,8 @@ const signup = async (req: Request, res: Response): Promise<any> => {
     const {
       password, email, username, phone,
     } = req.body;
-    let { image } = req.body;
+    let image = req.body.image?.path;
+    console.log(req.body);
     const emailDoesExist = await User.findOne({
       where: { email },
     });
@@ -51,7 +52,9 @@ const signup = async (req: Request, res: Response): Promise<any> => {
     );
     res.cookie('token', token).json({
       message: 'User created successfully!',
-      user: { id: user.id, username: user.username, role: user.role },
+      user: {
+        id: user.id, username: user.username, role: user.role, image: user.image,
+      },
     });
   } catch (err: any) {
     if (err.details) {

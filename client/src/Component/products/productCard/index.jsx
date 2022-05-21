@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'antd';
+import { Image } from 'cloudinary-react';
 import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -42,10 +43,10 @@ function ProductCard({
       hoverable
       style={{ width: 240 }}
       cover={(
-        <img
-          alt={name}
-          height={240}
-          src={image}
+        <Image
+          cloudName="images"
+          publicId={image}
+          crop="scale"
         />
       )}
     >

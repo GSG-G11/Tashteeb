@@ -18,6 +18,17 @@ div.ant-modal-header button.ant-btn.ant-btn-primary{
 div.ant-modal-footer button.ant-btn.ant-btn-default {
   display: none;
 }
+.imageSignup-container{
+  display: flex;
+}
+.imageSignup{
+  color: #edb820;
+  font-size: 14px;
+}
+.imageSignupBtn{
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
 
 div.ant-modal-footer {
   display: flex;
