@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Table, Space } from 'antd';
 import axios from 'axios';
 import { Context } from '../../Context/ProductContext';
+import UpdateModal from './UpdateModal';
 
 const { Column } = Table;
 
@@ -31,9 +32,7 @@ function ProductTable() {
         key="action"
         render={(text, record) => (
           <Space size="middle">
-            <button type="button" className="dash-update-icon">
-              <i className="ri-edit-line" />
-            </button>
+            <UpdateModal />
             <button
               type="button"
               className="dash-delete-icon"
