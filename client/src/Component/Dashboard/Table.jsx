@@ -32,7 +32,7 @@ function ProductTable() {
         key="action"
         render={(text, record) => (
           <Space size="middle">
-            <UpdateModal />
+            <UpdateModal data={record} />
             <button
               type="button"
               className="dash-delete-icon"

@@ -2,13 +2,31 @@ import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Modal, Form } from 'antd';
-import AddProductModalContent from './AddProductModalContent';
+import UpdateProductModalContent from './UpdateModalContent';
 import { Context } from '../../Context/ProductContext';
-import { success, error } from '../AntdMessages.jsx/messages';
+// import { success, error } from '../AntdMessages.jsx/messages';/
 import './style.css';
 
-function UpdateModal({ title }) {
-  const { form, products, setProducts } = useContext(Context);
+function UpdateModal({ title, data }) {
+  const {
+    productID, setProductID, form, products, setProducts,
+  } = useContext(Context);
+  const updateProduct = (id) => {
+    let newProducts;
+    axios
+      .patch(`/products/${id}`, form)
+      .then((res) => {
+        console.log(res);
+        newProducts = products.filter((item) => item.id !== id);
+        newProducts = [...newProducts, res.data.data];
+        console.log(newProducts);
+        setProducts(newProducts);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const [isDashboardModalVisible, setIsDashboardModalVisible] = useState(false);
   const showDashboardModal = () => {
     setIsDashboardModalVisible(true);
@@ -16,16 +34,7 @@ function UpdateModal({ title }) {
 
   const handleOk = () => {
     setIsDashboardModalVisible(false);
-    axios
-      .post('/products', form)
-      .then((res) => {
-        success('Product added successfully');
-        setProducts([...products, res.data]);
-      })
-      .catch(() => {
-        error('Error adding product');
-        setIsDashboardModalVisible(true);
-      });
+    updateProduct(productID);
   };
 
   const handleCancel = () => {
@@ -34,11 +43,13 @@ function UpdateModal({ title }) {
 
   return (
     <Form>
-
       <button
         type="button"
         className="dash-update-icon"
-        onClick={showDashboardModal}
+        onClick={() => {
+          showDashboardModal();
+          setProductID(data.id);
+        }}
       >
         <i className="ri-edit-line" />
       </button>
@@ -48,7 +59,7 @@ function UpdateModal({ title }) {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <AddProductModalContent />
+        <UpdateProductModalContent data={data} />
       </Modal>
     </Form>
   );
@@ -56,5 +67,6 @@ function UpdateModal({ title }) {
 
 UpdateModal.propTypes = {
   title: PropTypes.string.isRequired,
+  data: PropTypes.func.isRequired,
 };
 export default UpdateModal;

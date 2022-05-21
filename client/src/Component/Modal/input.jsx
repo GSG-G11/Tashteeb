@@ -3,17 +3,12 @@ import { Input, Form } from 'antd';
 import PropTypes from 'prop-types';
 
 function Forminput({
-  name,
-  prefix,
-  placeHolder,
-  changeFunction,
+  name, prefix, placeHolder, changeFunction, theDefault,
 }) {
   return (
-    <Form.Item
-      label={name}
-      name={`${name}`}
-    >
+    <Form.Item label={name} name={`${name}`}>
       <Input
+        defaultValue={theDefault || ''}
         prefix={prefix}
         placeholder={placeHolder}
         onChange={changeFunction}
@@ -26,5 +21,6 @@ Forminput.propTypes = {
   prefix: PropTypes.node.isRequired,
   placeHolder: PropTypes.string.isRequired,
   changeFunction: PropTypes.func.isRequired,
+  theDefault: PropTypes.string.isRequired,
 };
 export default Forminput;
