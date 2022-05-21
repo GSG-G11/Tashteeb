@@ -16,7 +16,6 @@ import EngineerInfo from './Component/Engineer';
 import {
   ProtectedAdmin,
   ProtectedEngineer,
-  // ProtectedRoute,
   ProtectedUser,
 } from './ProtectedRoutes/ProtectedRoutes';
 
@@ -37,10 +36,6 @@ function App() {
                 <Route path="satistics" element={<Satistics />} />
                 <Route path="orders" element={<Orders />} />
               </Route>
-              <Route path="/products" element={<ProdcutsPage />} />
-              <Route path="/product/:id" element={<ProductProfile />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/eng" element={<EngineerInfo />} />
             </Route>
             <Route element={<ProtectedUser />}>
               <Route path="/products" element={<ProdcutsPage />} />
