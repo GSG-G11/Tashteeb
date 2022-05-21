@@ -1,11 +1,19 @@
 import React, { useContext } from 'react';
 import { Table, Space } from 'antd';
+import axios from 'axios';
 import { Context } from '../../Context/ProductContext';
 
 const { Column } = Table;
 
 function ProductTable() {
-  const { products } = useContext(Context);
+  const { products, setProducts } = useContext(Context);
+  const deleteProduct = (id) => {
+    axios.delete(`/products/${id}`).then(() => {
+      const newProducts = products.filter((product) => product.id !== id);
+      setProducts(newProducts);
+    });
+  };
+
   return (
     <Table dataSource={products}>
       <Column title="Name" dataIndex="name" key="name" />
@@ -29,7 +37,7 @@ function ProductTable() {
             <button
               type="button"
               className="dash-delete-icon"
-              onClick={() => console.log(record, text)}
+              onClick={() => deleteProduct(record.id)}
             >
               <i className="ri-delete-bin-7-line" />
             </button>
