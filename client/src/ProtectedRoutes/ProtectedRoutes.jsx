@@ -19,7 +19,8 @@ export function ProtectedAdmin({ children }) {
 }
 export function ProtectedUser({ children }) {
   const { user } = useAuth();
-  if (user) {
+  console.log(user);
+  if (!user) {
     return <Navigate to="/" replace />;
   }
   return children || <Outlet />;
