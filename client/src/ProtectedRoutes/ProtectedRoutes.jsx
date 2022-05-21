@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Navigate,
+  Outlet,
 } from 'react-router-dom';
 import {
   useAuth,
@@ -11,25 +12,26 @@ import {
 
 export function ProtectedAdmin({ children }) {
   const { user } = useAuth();
-  if (user.role === ADMIN_ROLE) {
-    return <Navigate to="/dashboard" replace />;
+  if (user?.role !== ADMIN_ROLE) {
+    return <Navigate to="/" replace />;
   }
-  return children;
+  return children || <Outlet />;
 }
 export function ProtectedUser({ children }) {
   const { user } = useAuth();
-  if (user) {
+  if (!user) {
     return <Navigate to="/" replace />;
   }
-  return children;
+  return children || <Outlet />;
 }
 export function ProtectedEngineer({ children }) {
   const { user } = useAuth();
-  if (user.role === ENGINEER_ROLE) {
-    return <Navigate to="/engineer" replace />;
+  if (user?.role !== ENGINEER_ROLE) {
+    return <Navigate to="/" replace />;
   }
-  return children;
+  return children || <Outlet />;
 }
+
 ProtectedUser.propTypes = {
   children: PropTypes.node.isRequired,
 };
