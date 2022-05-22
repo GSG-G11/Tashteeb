@@ -8,7 +8,7 @@ import gitEngineerById from './engineer/gitEngineerById';
 import getAllEngineer from './engineer/gitAllEngineers';
 import { userOrder, engReply } from './hiringOrder';
 import checkout from './cart/checkout';
-import getAllHiringOrders from './hiringOrder/getAllHiringOrders';
+import getAllOrders from './hiringOrder/getAllOrders';
 import createReview from './Review/Review';
 
 export {
@@ -26,5 +26,5 @@ export {
   getProductByCategory,
   userOrder,
   engReply,
-  getAllHiringOrders,
+  getAllOrders,
 };

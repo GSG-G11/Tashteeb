@@ -14,7 +14,7 @@ import {
   getProductByCategory,
   userOrder,
   engReply,
-  getAllHiringOrders,
+  getAllOrders,
 } from '../controller';
 import {
   isUser, isRegularUser, isAdmin, isEngineer,
@@ -51,7 +51,7 @@ router.get('/categories', getCategories);
 router.post('/image', multer.single('images'), uploadImage);
 router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);
-router.get('/hiringOrder', isAdmin, getAllHiringOrders);
+router.get('/orders', getAllOrders);
 router.post('/hiringOrder/:id', isRegularUser, userOrder);
 router.patch('/hiringOrder/:id', isEngineer, engReply);
 
