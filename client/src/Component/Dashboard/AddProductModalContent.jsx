@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-  Select, Form, Button, Upload,
+  Select, Form,
 } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import Forminput from '../Modal/input';
 import { Context } from '../../Context/ProductContext';
@@ -15,9 +14,10 @@ function AddProductModalContent() {
     setForm, form,
   } = useContext(Context);
   const [categories, setCategories] = useState([]);
-  useEffect(async () => {
-    const res = await axios.get('/categories');
-    setCategories(res.data.data);
+  useEffect(() => {
+    axios.get('/categories').then((res) => {
+      setCategories(res.data.data);
+    });
   }, [Select]);
 
   return (
@@ -34,9 +34,37 @@ function AddProductModalContent() {
       />
       <div className="imageproduct-container">
         <p className="imageproduct"> Image :     </p>
-        <Upload type="pictures" accept=".jpg,.png,.png" onChange={(e) => setForm({ ...form, image: e.file })}>
+        {/* <Upload
+          type="pictures"
+          accept=".jpg,.png,.png"
+          previewFile={(file) => {
+            console.log('hello');
+            console.log(typeof file);
+          }}
+          // onChange={(e) => {
+          //   const reader = new FileReader();
+          //   reader.readAsDataURL(e.file);
+          //   reader.onload = () => {
+          //     // console.log(reader.result);
+          //     setForm({ ...form, image: reader.result });
+          //   };
+          // }}
+        >
           <Button className="imageproductBtn" icon={<UploadOutlined />}>Click to Upload</Button>
         </Upload>
+         */}
+
+        <input
+          type="file"
+          onChange={(e) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(e.target.files[0]);
+            reader.onload = () => {
+              // console.log(reader.result);
+              setForm({ ...form, image: reader.result });
+            };
+          }}
+        />
       </div>
       <Forminput
         name="Price"

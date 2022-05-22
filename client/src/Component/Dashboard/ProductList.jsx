@@ -10,7 +10,7 @@ function ProductList() {
     axios.get('/products').then((res) => {
       const result = res.data.product.rows.map((item) => {
         const {
-          id, name, price, category,
+          id, name, price, category, description,
         } = item;
         return {
           key: id,
@@ -18,6 +18,7 @@ function ProductList() {
           name,
           price,
           category,
+          description,
         };
       });
       setProducts(result);

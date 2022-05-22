@@ -22,9 +22,7 @@ function ProductTable() {
       <Column
         title="Category"
         key="category"
-        render={(item) => Object.entries(item).map(([key, value]) => (
-          <p key={key.id}>{value.name}</p>
-        ))}
+        render={(item) => Object.entries(item).map(([key, value]) => <p key={key}>{value.name}</p>)}
       />
 
       <Column
@@ -32,7 +30,7 @@ function ProductTable() {
         key="action"
         render={(text, record) => (
           <Space size="middle">
-            <UpdateModal data={record} />
+            <UpdateModal data={record} title="Update Product " />
             <button
               type="button"
               className="dash-delete-icon"

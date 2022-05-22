@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Select, Form, Button, Upload,
+  Select, Form,
 } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import Forminput from '../Modal/input';
 import { Context } from '../../Context/ProductContext';
@@ -13,10 +12,17 @@ const { Option } = Select;
 function UpdateProductModalContent({ data }) {
   const { setForm, form } = useContext(Context);
   const [categories, setCategories] = useState([]);
-  useEffect(async () => {
-    const res = await axios.get('/categories');
-    setCategories(res.data.data);
-  }, [Select]);
+  useEffect(() => {
+    axios.get('/categories').then((res) => {
+      setCategories(res.data.data);
+    });
+    setForm({
+      name: data.name,
+      description: data.description,
+      price: data.price,
+      categoryId: data.categoryId,
+    });
+  }, []);
   return (
     <>
       <Forminput
@@ -33,16 +39,17 @@ function UpdateProductModalContent({ data }) {
       />
       <div className="imageproduct-container">
         <p className="imageproduct"> Image : </p>
-        <Upload
-          type="pictures"
-          accept=".jpg,.png,.png"
-          onChange={(e) => setForm({ ...form, image: e.file })}
-          theDefault={data.image}
-        >
-          <Button className="imageproductBtn" icon={<UploadOutlined />}>
-            Click to Upload
-          </Button>
-        </Upload>
+        <input
+          type="file"
+          onChange={(e) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(e.target.files[0]);
+            reader.onload = () => {
+              // console.log(reader.result);
+              setForm({ ...form, image: reader.result });
+            };
+          }}
+        />
       </div>
       <Forminput
         name="Price"
@@ -52,7 +59,7 @@ function UpdateProductModalContent({ data }) {
       />
       <Form.Item label="Category" name="category">
         <Select
-          theDefault={data.categoryId}
+          defaultValue={data.category.name}
           style={{ width: 120 }}
           className="sele"
           onChange={(e) => setForm({ ...form, categoryId: e })}
@@ -68,6 +75,16 @@ function UpdateProductModalContent({ data }) {
   );
 }
 UpdateProductModalContent.propTypes = {
-  data: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.string,
+    categoryId: PropTypes.number,
+    category: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    }),
+  }).isRequired,
 };
 export default UpdateProductModalContent;

@@ -9,18 +9,20 @@ import './style.css';
 
 function UpdateModal({ title, data }) {
   const {
-    productID, setProductID, form, products, setProducts,
+    productID, setProductID, form, products, setProducts, setForm,
   } = useContext(Context);
+
   const updateProduct = (id) => {
     let newProducts;
     axios
       .patch(`/products/${id}`, form)
       .then((res) => {
-        console.log(res);
         newProducts = products.filter((item) => item.id !== id);
-        newProducts = [...newProducts, res.data.data];
-        console.log(newProducts);
+        const product = res.data.data;
+        console.log(product);
+        newProducts = [...newProducts, product];
         setProducts(newProducts);
+        setForm({});
       })
       .catch((err) => {
         console.log(err);
@@ -39,6 +41,7 @@ function UpdateModal({ title, data }) {
 
   const handleCancel = () => {
     setIsDashboardModalVisible(false);
+    setForm({});
   };
 
   return (
@@ -67,6 +70,18 @@ function UpdateModal({ title, data }) {
 
 UpdateModal.propTypes = {
   title: PropTypes.string.isRequired,
-  data: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    key: PropTypes.number,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.string,
+    categoryId: PropTypes.number,
+    category: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    }),
+  }).isRequired,
 };
 export default UpdateModal;
