@@ -13,6 +13,7 @@ import Orders from './Component/Dashboard/Orders';
 import ProdcutsPage from './Pages/productsPage';
 import Cart from './Pages/Cart';
 import EngineerInfo from './Component/Engineer';
+import HiringOrder from './Pages/HiringOrder';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="orders" element={<Orders />} />
             </Route>
             <Route path="/products" element={<ProdcutsPage />} />
+            <Route path="/hiring" element={<HiringOrder />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>

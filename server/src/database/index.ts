@@ -20,13 +20,13 @@ User.hasMany(Review, {
 });
 
 // Engineer has Many HiringOrder
-HiringOrder.hasMany(User, {
+HiringOrder.belongsTo(User, {
   foreignKey: 'engId',
   as: 'engHiringOrder',
 });
 
 // User has Many HiringOrder
-HiringOrder.hasMany(User, {
+HiringOrder.belongsTo(User, {
   foreignKey: 'userId',
   as: 'userHiringOrder',
 });
