@@ -32,7 +32,7 @@ function ProductCard({
   };
 
   useEffect(() => {
-    const products = JSON.parse(localStorage.getItem('products'));
+    const products = JSON.parse(localStorage.getItem('products')) || [];
     const addedToCart = products.some((item) => item.id === id);
     setIsAddedToCart(addedToCart);
   }, []);
