@@ -12,9 +12,10 @@ const getProducts = async (req: Request, res: Response) => {
     limit = 6,
     page = 1,
   }: any = req.query;
+
   try {
     const product = await Product.findAndCountAll({
-      attributes: ['id', 'name', 'price', 'description', 'categoryId'],
+      attributes: ['id', 'name', 'price', 'description', 'categoryId', 'image'],
       include: Category,
       limit,
       offset: (page - 1) * limit,
