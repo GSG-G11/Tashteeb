@@ -19,7 +19,6 @@ const signup = async (req: Request, res: Response): Promise<any> => {
       password, email, username, phone,
     } = req.body;
     let image = req.body.image?.path;
-    console.log(req.body);
     const emailDoesExist = await User.findOne({
       where: { email },
     });
