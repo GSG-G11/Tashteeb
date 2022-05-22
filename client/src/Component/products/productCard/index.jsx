@@ -44,7 +44,7 @@ function ProductCard({
       style={{ width: 240 }}
       cover={(
         <Image
-          cloudName="images"
+          cloudName="dst1qgbta"
           publicId={image}
           crop="scale"
         />
@@ -53,7 +53,7 @@ function ProductCard({
       <Button type="primary" onClick={addFunc} shape="circle" icon={isAddedToCart ? <CheckOutlined /> : <ShoppingCartOutlined />} />
       <Link to={`/product/${id}`}>
         <Meta
-          title={`$${price.toFixed(2)}`}
+          title={`$${+price.toFixed(2)}`}
           description={name}
         />
       </Link>

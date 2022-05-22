@@ -5,7 +5,7 @@ import handleUnknownExceptions from '../../error/handleUnkownError';
 const getProductByCategory = async (req: Request, res: Response) => {
   try {
     const { categoryId } = req.params;
-    const products = await Product.findAll({ where: { categoryId }, limit: 5 });
+    const products = await Product.findAll({ where: { categoryId }, limit: 4 });
     if (products.length) {
       res.json({ status: 200, data: products });
     } else {

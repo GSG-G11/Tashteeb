@@ -34,7 +34,17 @@ function AddProductModalContent() {
       />
       <div className="imageproduct-container">
         <p className="imageproduct"> Image :     </p>
-        <Upload type="pictures" accept=".jpg,.png,.png" onChange={(e) => setForm({ ...form, image: e.file })}>
+        <Upload
+          type="pictures"
+          accept=".jpg,.png,.png"
+          onChange={(e) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(e.file);
+            reader.onload = () => {
+              setForm({ ...form, image: reader.result });
+            };
+          }}
+        >
           <Button className="imageproductBtn" icon={<UploadOutlined />}>Click to Upload</Button>
         </Upload>
       </div>

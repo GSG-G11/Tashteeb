@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductDetailes from '../Component/ProductDetailes';
 import RelatedProducts from '../Component/RelatedProduct';
+import Navbar from '../Component/Navbar';
 
 function ProductProfile() {
   const { id } = useParams();
@@ -20,9 +21,11 @@ function ProductProfile() {
     };
     fetchdata();
     return () => source.cancel();
-  });
+  }, []);
   return (
     <>
+      <Navbar />
+      {info && (
       <ProductDetailes
         isProduct
         id={info.id}
@@ -31,6 +34,7 @@ function ProductProfile() {
         price={info.price}
         img={info.image}
       />
+      )}
       {catrgorgID && <RelatedProducts categoryId={catrgorgID} /> }
     </>
   );
