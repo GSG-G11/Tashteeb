@@ -14,7 +14,7 @@ const updateProduct = async (req: Request, res: Response) => {
     } = req.params;
 
     const {
-      name, price, description,
+      name, price, description, categoryId,
     } = req.body;
     let { image } = req.body;
 
@@ -33,19 +33,8 @@ const updateProduct = async (req: Request, res: Response) => {
     product.name = name;
     product.price = price;
     product.description = description;
-    product.category.updateAttributes({});
+    product.categoryId = categoryId;
     product = await product.save();
-
-    // await product.update({
-    //   name,
-    //   price,
-    //   description,
-    //   categoryId,
-    // });
-
-    // product = await Product.findByPk(id, {
-    //   include: 'category',
-    // });
 
     res.status(201).json({ message: 'Product updated', data: product });
   } catch (err) {

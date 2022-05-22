@@ -34,26 +34,6 @@ function AddProductModalContent() {
       />
       <div className="imageproduct-container">
         <p className="imageproduct"> Image :     </p>
-        {/* <Upload
-          type="pictures"
-          accept=".jpg,.png,.png"
-          previewFile={(file) => {
-            console.log('hello');
-            console.log(typeof file);
-          }}
-          // onChange={(e) => {
-          //   const reader = new FileReader();
-          //   reader.readAsDataURL(e.file);
-          //   reader.onload = () => {
-          //     // console.log(reader.result);
-          //     setForm({ ...form, image: reader.result });
-          //   };
-          // }}
-        >
-          <Button className="imageproductBtn" icon={<UploadOutlined />}>Click to Upload</Button>
-        </Upload>
-         */}
-
         <input
           type="file"
           onChange={(e) => {

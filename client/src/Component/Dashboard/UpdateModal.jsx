@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Modal, Form } from 'antd';
 import UpdateProductModalContent from './UpdateModalContent';
 import { Context } from '../../Context/ProductContext';
-// import { success, error } from '../AntdMessages.jsx/messages';/
+import { success, error } from '../AntdMessages.jsx/messages';
 import './style.css';
 
 function UpdateModal({ title, data }) {
@@ -23,9 +23,10 @@ function UpdateModal({ title, data }) {
         newProducts = [...newProducts, product];
         setProducts(newProducts);
         setForm({});
+        success('Update product successfully');
       })
       .catch((err) => {
-        console.log(err);
+        error('Error', err.response.data.message);
       });
   };
 
@@ -37,6 +38,7 @@ function UpdateModal({ title, data }) {
   const handleOk = () => {
     setIsDashboardModalVisible(false);
     updateProduct(productID);
+    console.log(products);
   };
 
   const handleCancel = () => {
@@ -51,7 +53,9 @@ function UpdateModal({ title, data }) {
         className="dash-update-icon"
         onClick={() => {
           showDashboardModal();
+
           setProductID(data.id);
+          console.log(products);
         }}
       >
         <i className="ri-edit-line" />
@@ -72,7 +76,7 @@ UpdateModal.propTypes = {
   title: PropTypes.string.isRequired,
   data: PropTypes.shape({
     key: PropTypes.number,
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     name: PropTypes.string,
     description: PropTypes.string,
     image: PropTypes.string,
