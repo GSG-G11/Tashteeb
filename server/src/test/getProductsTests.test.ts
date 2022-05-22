@@ -15,7 +15,7 @@ describe('GET /products', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).toBe(200);
-        expect(res.body.product.count).toBe(4);
+        expect(res.body.product.count).toBe(22);
         return done();
       });
   });
