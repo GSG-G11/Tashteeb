@@ -8,6 +8,7 @@ import CategoryFilter from '../../Component/Filters/CategoryFilter';
 import SearchInput from '../../Component/SearchInput/SearchInput';
 import ProductCard from '../../Component/products/productCard';
 import { error } from '../../Component/AntdMessages.jsx/messages';
+import Navbar from '../../Component/Navbar/index';
 
 function ProdcutsPage() {
   const [q, setSearch] = useState();
@@ -88,6 +89,7 @@ function ProdcutsPage() {
   };
   return (
     <div>
+      <Navbar />
       <EngineerBanner title="Shop" />
 
       <div className="products__page__body">

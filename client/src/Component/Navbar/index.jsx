@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../Assets/Group 91.svg';
 import SignupModal from '../Modal';
 import UserInfo from './UserInfo';
-import { useAuth } from '../../Context/AuthContext';
+import { useAuth, ADMIN_ROLE } from '../../Context/AuthContext';
 import LoginModal from '../Modal/login';
 
 function Navbar() {
@@ -26,8 +26,9 @@ function Navbar() {
       </section>
       <section className="navbar-info">
         <Link to="/">Home</Link>
-        <Link to="/shop">Shop </Link>
-        <Link to="/services">Services</Link>
+        <Link to="/products">Shop </Link>
+        <Link to="/eng">Engineer</Link>
+        {user?.role === ADMIN_ROLE && <Link to="/dashboard">Dashboard</Link>}
       </section>
       <section
         className="auth-section"
