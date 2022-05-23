@@ -14,6 +14,7 @@ import {
   getProductByCategory,
   userOrder,
   engReply,
+  getAllOrders,
   getUserHirings,
   getEngHirings,
   completeService,
@@ -21,6 +22,7 @@ import {
 import {
   isUser, isRegularUser, isAdmin, isEngineer,
 } from '../middlewares';
+
 import {
   signup,
   logout,
@@ -52,6 +54,7 @@ router.get('/categories', getCategories);
 router.post('/image', multer.single('images'), uploadImage);
 router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);
+router.get('/orders', isAdmin, getAllOrders);
 
 router.get('/hiringOrder', isRegularUser, getUserHirings);
 router.get('/hiringOrder/engineer', isEngineer, getEngHirings);

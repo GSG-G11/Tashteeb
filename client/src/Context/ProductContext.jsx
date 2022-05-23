@@ -6,6 +6,7 @@ const Context = createContext();
 function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({});
+  const [orders, setOrders] = useState([]);
   const [productID, setProductID] = useState('');
   const [total, setTotal] = useState(0);
   const [pageSize, setPageSize] = useState(6);
@@ -17,6 +18,8 @@ function ProductProvider({ children }) {
         setProducts,
         form,
         setForm,
+        orders,
+        setOrders,
         productID,
         setProductID,
         total,
