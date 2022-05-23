@@ -15,11 +15,13 @@ const getProducts = async (req: Request, res: Response) => {
   }: any = req.query;
 
   try {
+    const offset = (page - 1) * limit;
+
     const product = await Product.findAndCountAll({
       attributes: ['id', 'name', 'price', 'description', 'categoryId', 'image'],
       include: Category,
       limit,
-      offset: (page - 1) * limit,
+      offset: offset > 0 ? offset : 0,
       where: {
         [Op.and]: [
           q && { name: { [Op.iLike]: `%${q}%` } },

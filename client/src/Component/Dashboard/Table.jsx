@@ -7,7 +7,20 @@ import UpdateModal from './UpdateModal';
 const { Column } = Table;
 
 function ProductTable() {
-  const { products, setProducts } = useContext(Context);
+  const {
+    products,
+    setProducts,
+    total, pageSize,
+    setPageSize,
+    page,
+    setPage,
+  } = useContext(Context);
+
+  const handleChange = (newPage, newPageSize) => {
+    setPageSize(newPageSize);
+    setPage(newPage);
+  };
+
   const deleteProduct = (id) => {
     axios.delete(`/products/${id}`).then(() => {
       const newProducts = products.filter((product) => product.id !== id);
@@ -16,7 +29,17 @@ function ProductTable() {
   };
 
   return (
-    <Table dataSource={products}>
+    <Table
+      dataSource={products}
+      pagination={{
+        pageSize,
+        page,
+        total,
+        onChange: handleChange,
+        pageSizeOptions: ['6', '9', '12', '21'],
+        showSizeChanger: true,
+      }}
+    >
       <Column title="Name" dataIndex="name" key="name" />
       <Column title="Price" dataIndex="price" key="price" />
       <Column

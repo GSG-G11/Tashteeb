@@ -5,25 +5,38 @@ import DashboardModal from './Modal';
 import { Context } from '../../Context/ProductContext';
 
 function ProductList() {
-  const { setProducts } = useContext(Context);
+  const {
+    setProducts,
+    setTotal,
+    pageSize,
+    page,
+  } = useContext(Context);
   useEffect(() => {
-    axios.get('/products').then((res) => {
-      const result = res.data.product.rows.map((item) => {
-        const {
-          id, name, price, category, description,
-        } = item;
-        return {
-          key: id,
-          id,
-          name,
-          price,
-          category,
-          description,
-        };
+    axios
+      .get('/products', {
+        params: {
+          page,
+          limit: pageSize,
+        },
+      })
+      .then((res) => {
+        const result = res.data.product.rows.map((item) => {
+          const {
+            id, name, price, category, description,
+          } = item;
+          return {
+            key: id,
+            id,
+            name,
+            price,
+            category,
+            description,
+          };
+        });
+        setProducts(result);
+        setTotal(res.data.product.count);
       });
-      setProducts(result);
-    });
-  }, []);
+  }, [page, pageSize]);
   return (
     <section className="dashboard-product-list">
       <div className="add-product-btn">
