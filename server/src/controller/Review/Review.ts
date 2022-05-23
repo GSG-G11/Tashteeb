@@ -15,7 +15,6 @@ const createReview = async (req: IReqUser, res: Response) => {
   const {
     user: { id },
   } = req;
-  const hiringOrderID = +req.params.id;
   try {
     await reviewValidation(req);
 
@@ -28,7 +27,7 @@ const createReview = async (req: IReqUser, res: Response) => {
 
     const hiringOrder = await HiringOrder.findOne({
       where: {
-        id: hiringOrderID,
+        id: orderId,
       },
     });
     if (!hiringOrder) {
@@ -40,7 +39,7 @@ const createReview = async (req: IReqUser, res: Response) => {
 
     const checkReview = await Review.findOne({
       where: {
-        orderId: hiringOrderID,
+        orderId,
       },
     });
     if (checkReview) {

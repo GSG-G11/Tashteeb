@@ -1,5 +1,5 @@
 .order__card {
-  width: 30%;
+  width: 25rem;
   height: 20rem;
   margin: 4rem;
   border: 1px solid black;
@@ -35,16 +35,19 @@
 }
 
 .order__status {
-  background-color: #125b50;
+  background-color: #F7CB73;
   color: white;
   padding: 0.4rem;
   border-radius: 1rem;
   font-size: 0.8rem;
-  width: 20%;
   text-align: center;
 }
 .order__info {
   font-size: 0.9rem;
   font-weight: bold;
   color: #1D202F;
+}
+
+.order__card ul li div {
+  text-align: end;
 }
