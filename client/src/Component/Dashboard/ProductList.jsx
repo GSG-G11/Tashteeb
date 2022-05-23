@@ -5,7 +5,6 @@ import DashboardModal from './Modal';
 import { Context } from '../../Context/ProductContext';
 
 function ProductList() {
-
   const {
     setProducts,
     setTotal,
