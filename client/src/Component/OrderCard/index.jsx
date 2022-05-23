@@ -9,7 +9,7 @@ import './orderCard.css';
 import { success, error } from '../AntdMessages.jsx/messages';
 
 function OrderCard({
-  time, name, details, price, status, isEngineer, reply, feedback, id,
+  time, name, details, price, status, isEngineer, reply, feedback, id, setRerender, rerender,
 }) {
   let bgColor = '#F29339';
   if (status === 'accepted') {
@@ -35,8 +35,10 @@ function OrderCard({
     if (replyMessege.reply) {
       axios.patch(`/hiringOrder/${id}`, replyMessege)
         .then((res) => {
+          console.log(res);
           success(res.message);
           setReply({});
+          setRerender(!rerender);
         })
         .catch((err) => {
           console.log(err);
@@ -57,8 +59,9 @@ function OrderCard({
     if (reviewMessege.review && reviewMessege.rate) {
       axios.post(`/review/${id}`, reviewMessege)
         .then((res) => {
-          success(res.message);
+          success(res.data.message);
           setReviewMessege({});
+          setRerender(!rerender);
         })
         .catch((err) => {
           console.log(err);
@@ -76,6 +79,8 @@ function OrderCard({
     try {
       console.log('in');
       await axios(`/hiringOrder/${id}/complete`);
+      success('Order completed');
+      setRerender(!rerender);
     } catch (err) {
       console.log(err);
     }
@@ -261,6 +266,8 @@ OrderCard.propTypes = {
   isEngineer: PropTypes.bool,
   reply: PropTypes.string,
   feedback: PropTypes.string,
+  setRerender: PropTypes.func.isRequired,
+  rerender: PropTypes.bool.isRequired,
 };
 
 OrderCard.defaultProps = {

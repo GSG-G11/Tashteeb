@@ -6,6 +6,7 @@ import './style.css';
 
 export default function HiringOrder() {
   const { user } = useAuth();
+  const [rerender, setRerender] = useState(false);
   const [orders, setOrders] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ export default function HiringOrder() {
       return () => source.cancel();
     }
     return () => {};
-  }, [user]);
+  }, [user, rerender]);
 
   return (
     <div>
@@ -42,6 +43,8 @@ export default function HiringOrder() {
             reply={item.reply}
             name={user.role === 1 ? item.userHiringOrder.username : item.engHiringOrder.username}
             isEngineer={user.role === 1}
+            setRerender={setRerender}
+            rerender={rerender}
 
           />
         ))}

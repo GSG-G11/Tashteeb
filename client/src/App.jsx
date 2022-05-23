@@ -16,7 +16,6 @@ import EngineerInfo from './Component/Engineer';
 import HiringOrder from './Pages/HiringOrder';
 import {
   ProtectedAdmin,
-  ProtectedEngineer,
 } from './ProtectedRoutes/ProtectedRoutes';
 
 function App() {
@@ -26,9 +25,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route element={<ProtectedEngineer />}>
-              <Route path="/profile/:id" element={<EngineerProfile />} />
-            </Route>
+            <Route path="/profile/:id" element={<EngineerProfile />} />
 
             <Route element={<ProtectedAdmin />}>
               <Route path="dashboard" element={<Dashboard />}>
