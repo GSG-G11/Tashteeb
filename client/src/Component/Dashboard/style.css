@@ -23,6 +23,17 @@
     justify-content: flex-end;
     margin: 20px 0;
 }
+.imageproduct-container{
+    display: flex;
+  }
+  .imageproduct{
+    color: #edb820;
+    font-size: 14px;
+  }
+  .imageproductBtn{
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
 
 .add-product-btn>button {
     background-color: #edb820;

@@ -14,7 +14,7 @@ const addProduct = async (req: IReqUser, res: Response) => {
     const {
       name, price, description, categoryId,
     }: any = req.body;
-    let { image } = req.body;
+    let image = req.body.image?.path;
     await addProductValidation(req);
     if (image) {
       image = await upload(image, 'images');

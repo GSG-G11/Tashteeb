@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Select, Form } from 'antd';
+import {
+  Select, Form, Button, Upload,
+} from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import Forminput from '../Modal/input';
 import { Context } from '../../Context/ProductContext';
@@ -29,6 +32,12 @@ function AddProductModalContent() {
         placeHolder="add product description"
         changeFunction={(e) => setForm({ ...form, description: e.target.value })}
       />
+      <div className="imageproduct-container">
+        <p className="imageproduct"> Image :     </p>
+        <Upload type="pictures" accept=".jpg,.png,.png" onChange={(e) => setForm({ ...form, image: e.file })}>
+          <Button className="imageproductBtn" icon={<UploadOutlined />}>Click to Upload</Button>
+        </Upload>
+      </div>
       <Forminput
         name="Price"
         placeHolder="add product price"

@@ -8,6 +8,7 @@ import CategoryFilter from '../../Component/Filters/CategoryFilter';
 import SearchInput from '../../Component/SearchInput/SearchInput';
 import ProductCard from '../../Component/products/productCard';
 import { error } from '../../Component/AntdMessages.jsx/messages';
+import Navbar from '../../Component/Navbar/index';
 
 function ProdcutsPage() {
   const [q, setSearch] = useState();
@@ -18,7 +19,7 @@ function ProdcutsPage() {
   const [allCategories, setAllCategories] = useState([]);
   const [total, setTotal] = useState(); // how many products
   const [pageSize, setPageSize] = useState(6);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const [err, setErr] = useState(false);
 
   const getCategorieName = (id) => {
@@ -27,20 +28,10 @@ function ProdcutsPage() {
       setCateoryName(names[0].name);
     }
   };
-  const getAllCategories = async () => {
-    try {
-      const getCategories = await axios('/categories');
-      const categoriesList = getCategories.data.data;
-      setAllCategories(categoriesList);
-    } catch (errr) {
-      error('Faild to load categories please refresh the page');
-    }
-  };
-
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const productData = await axios('/product', {
+        const productData = await axios('/products?', {
           params: {
             q,
             categoryId,
@@ -50,7 +41,6 @@ function ProdcutsPage() {
             page,
           },
         });
-
         const data = productData.data.product.rows;
         setProducts(data);
         setTotal(productData.data.product.count);
@@ -58,11 +48,20 @@ function ProdcutsPage() {
         setErr(true);
       }
     };
+
+    const getAllCategories = async () => {
+      try {
+        const getCategories = await axios('/categories');
+        const categoriesList = getCategories.data.data;
+        setAllCategories(categoriesList);
+      } catch (errr) {
+        error('Faild to load categories please refresh the page');
+      }
+    };
+    getProducts();
     getAllCategories();
     getCategorieName(categoryId);
-    getProducts();
   }, [q, sliderValue, categoryId, categoryName, page, pageSize]);
-
   const handleChange = (newPage, newPageSize) => {
     setPageSize(newPageSize);
     setPage(newPage);
@@ -90,6 +89,7 @@ function ProdcutsPage() {
   };
   return (
     <div>
+      <Navbar />
       <EngineerBanner title="Shop" />
 
       <div className="products__page__body">
@@ -102,7 +102,6 @@ function ProdcutsPage() {
             handleCategorieButtons={handleCategorieButtons}
             clearCategories={clearCategories}
             err={err}
-            setCate
           />
         </div>
 
@@ -117,8 +116,10 @@ function ProdcutsPage() {
               : products.map((product) => (
                 <ProductCard
                   key={product.id}
-                  title={product.name}
-                  price={product.price}
+                  id={product.id}
+                  name={product.name}
+                  image={product.image}
+                  price={+product.price}
                 />
               ))}
           </div>
