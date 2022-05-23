@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Table, Space } from 'antd';
+import { Table, Space, Popconfirm } from 'antd';
 import axios from 'axios';
 import { Context } from '../../Context/ProductContext';
 import UpdateModal from './UpdateModal';
@@ -22,7 +22,9 @@ function ProductTable() {
       <Column
         title="Category"
         key="category"
-        render={(item) => Object.entries(item).map(([key, value]) => <p key={key}>{value.name}</p>)}
+        render={(item) => Object.entries(item).map(([key, value]) => (
+          <p key={key}>{value.name}</p>
+        ))}
       />
 
       <Column
@@ -31,13 +33,20 @@ function ProductTable() {
         render={(text, record) => (
           <Space size="middle">
             <UpdateModal data={record} title="Update Product " />
-            <button
-              type="button"
-              className="dash-delete-icon"
-              onClick={() => deleteProduct(record.id)}
+            <Popconfirm
+              title="Are you sure you want to delete?"
+              onConfirm={() => {
+                deleteProduct(record.id);
+              }}
             >
-              <i className="ri-delete-bin-7-line" />
-            </button>
+              <button
+                type="button"
+                className="dash-delete-icon"
+                // onClick={() => deleteProduct(record.id)}
+              >
+                <i className="ri-delete-bin-7-line" />
+              </button>
+            </Popconfirm>
           </Space>
         )}
       />

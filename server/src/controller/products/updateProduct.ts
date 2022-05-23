@@ -36,9 +36,11 @@ const updateProduct = async (req: Request, res: Response) => {
     product.categoryId = categoryId;
     product = await product.save();
 
+    product = await Product.findByPk(id, {
+      include: 'category',
+    });
     res.status(201).json({ message: 'Product updated', data: product });
   } catch (err) {
-    console.log(err);
     handleUnknownExceptions(err, res);
   }
 };
