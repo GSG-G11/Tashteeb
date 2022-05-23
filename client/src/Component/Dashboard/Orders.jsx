@@ -1,8 +1,9 @@
 import React from 'react';
+import OrderList from './OrderList';
 
 function Orders() {
   return (
-    <div>Orders</div>
+    <OrderList />
   );
 }
 

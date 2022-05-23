@@ -10,6 +10,7 @@ import {
   engReply, userOrder, getUserHirings, getEngHirings, completeService,
 } from './hiringOrder';
 import checkout from './cart/checkout';
+import getAllOrders from './hiringOrder/getAllOrders';
 import createReview from './Review/Review';
 
 export {
@@ -27,6 +28,7 @@ export {
   getProductByCategory,
   userOrder,
   engReply,
+  getAllOrders,
   getUserHirings,
   getEngHirings,
   completeService,
