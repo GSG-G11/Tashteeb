@@ -24,7 +24,9 @@ function ProductProfile() {
   }, []);
   return (
     <>
-      <Navbar />
+      <div className="eng-navbar-section">
+        <Navbar transparent={false} />
+      </div>
       {info && (
       <ProductDetailes
         isProduct
