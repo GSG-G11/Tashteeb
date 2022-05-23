@@ -93,7 +93,7 @@ function OrderCard({
           </div>
         </li>
         <li>
-          {isEngineer ? <p>ENGINEER NAME</p> : <p>CLIENT NAME</p>}
+          {isEngineer ? <p>CLIENT NAME</p> : <p>ENGINEER NAME</p>}
           <div className="order__info">{name}</div>
         </li>
         <li>
@@ -188,56 +188,64 @@ function OrderCard({
             </li>
           ))
         ) : (
-          (status !== 'pending' && (
-          <li>
-            <p>ENGINEER REPLY</p>
-            <div className="order__info">{reply}</div>
-          </li>
-          ))
-         && ((status === 'completed' && (!feedback) && (
-         <li>
-           <Form>
-             <Button
-               type="primary"
-               size="large"
-               onClick={showReviewModal}
-             >
-               Make Review
-             </Button>
-             <Modal
-               title={`Review ${name}`}
-               visible={isReviewModalVisible}
-               onOk={handleReviewOk}
-               onCancel={handleReviewCancel}
-             >
-               <Form.Item
-                 label="review"
-                 name={`${'review'}`}
-               >
-                 <Input
-                   placeholder="Add your review"
-                   onChange={(e) => setReviewMessege({ ...reviewMessege, review: e.target.value })}
-                 />
-               </Form.Item>
-               <Form.Item
-                 label="rating"
-                 name={`${'rating'}`}
-               >
-                 <Rate tooltips={desc} onChange={(e) => setReviewMessege({ ...reviewMessege, rate: e })} value={reviewMessege.rate} />
-                 {reviewMessege.rate ? <span className="ant-rate-text">{desc[reviewMessege.rate - 1]}</span> : ''}
-               </Form.Item>
-             </Modal>
-           </Form>
-           {' '}
+          <>
+            {(status !== 'pending' && (
+            <li>
+              <p>ENGINEER REPLY</p>
+              <div className="order__info">{reply}</div>
+            </li>
+            ))}
 
-         </li>
-         ))
-         || (feedback && (
-         <li>
-           <p>MY FEEDBACK</p>
-           <div className="order__info">{feedback}</div>
-         </li>
-         )))
+            {
+              (status === 'completed' && (!feedback) && (
+                <li>
+                  <Form>
+                    <Button
+                      type="primary"
+                      size="large"
+                      onClick={showReviewModal}
+                    >
+                      Make Review
+                    </Button>
+                    <Modal
+                      title={`Review ${name}`}
+                      visible={isReviewModalVisible}
+                      onOk={handleReviewOk}
+                      onCancel={handleReviewCancel}
+                    >
+                      <Form.Item
+                        label="review"
+                        name={`${'review'}`}
+                      >
+                        <Input
+                          placeholder="Add your review"
+                          onChange={(e) => setReviewMessege({ ...reviewMessege, review: e.target.value })}
+                        />
+                      </Form.Item>
+                      <Form.Item
+                        label="rating"
+                        name={`${'rating'}`}
+                      >
+                        <Rate tooltips={desc} onChange={(e) => setReviewMessege({ ...reviewMessege, rate: e })} value={reviewMessege.rate} />
+                        {reviewMessege.rate ? <span className="ant-rate-text">{desc[reviewMessege.rate - 1]}</span> : ''}
+                      </Form.Item>
+                    </Modal>
+                  </Form>
+                  {' '}
+
+                </li>
+              ))
+            }
+
+            {
+              (feedback && (
+                <li>
+                  <p>MY FEEDBACK</p>
+                  <div className="order__info">{feedback}</div>
+                </li>
+              ))
+            }
+          </>
         )}
       </ul>
     </div>
