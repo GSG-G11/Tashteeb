@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { Op } from 'sequelize';
 
 import { Product, Category } from '../../database';
+import handleKnownExceptions from '../../error/handleKnownError';
 
 const getProducts = async (req: Request, res: Response) => {
   const {
@@ -38,7 +39,9 @@ const getProducts = async (req: Request, res: Response) => {
 
     res.json({ status: 200, product });
   } catch (error: any) {
-    throw new Error('replce with cutiomized error');
+    if (error.errors) {
+      handleKnownExceptions(error, res);
+    }
   }
 };
 
