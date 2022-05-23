@@ -8,7 +8,9 @@ function ProductProvider({ children }) {
   const [form, setForm] = useState({});
   const [orders, setOrders] = useState([]);
   const [productID, setProductID] = useState('');
-
+  const [total, setTotal] = useState(0);
+  const [pageSize, setPageSize] = useState(6);
+  const [page, setPage] = useState(1);
   return (
     <Context.Provider
       value={{
@@ -20,6 +22,12 @@ function ProductProvider({ children }) {
         setOrders,
         productID,
         setProductID,
+        total,
+        setTotal,
+        pageSize,
+        setPageSize,
+        page,
+        setPage,
       }}
     >
       {children}
