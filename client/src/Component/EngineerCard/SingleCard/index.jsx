@@ -10,7 +10,7 @@ function SingleCard({ id, img, name }) {
       <div className="card">
         {/* <img src={img} alt="Avatar" /> */}
         <Image
-          cloudName="images"
+          cloudName="dst1qgbta"
           publicId={img}
           width="304"
           height="400"
