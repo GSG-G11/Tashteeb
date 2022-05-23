@@ -56,10 +56,12 @@
 }
 .user-info {
   display: flex;
+  justify-content: center;
   align-items: center;
   justify-content: space-between;
   position: relative;
   cursor: pointer;
+  margin-top: 1.2rem;
 }
 .user-info img {
   width: 2.5rem;

@@ -131,7 +131,164 @@ const fakeProducts = [
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
     price: 200,
     categoryId: 1,
-    image: 'http://themesflat.com/html/nah/images/shop/f2.png',
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  }, {
+    name: 'The Diary of a Young Girl',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 14.5,
+    categoryId: 4,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  },
+  {
+    name: 'Night (The Night Trilogy, #1)',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 50,
+    categoryId: 3,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'To Kill a Mockingbird',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 19.9,
+    categoryId: 2,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'The Great Gatsby',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 200,
+    categoryId: 1,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  }, {
+    name: 'The Diary of a Young Girl',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 14.5,
+    categoryId: 4,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  },
+  {
+    name: 'Night (The Night Trilogy, #1)',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 50,
+    categoryId: 3,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'To Kill a Mockingbird',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 19.9,
+    categoryId: 2,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'The Great Gatsby',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 200,
+    categoryId: 1,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  }, {
+    name: 'The Diary of a Young Girl',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 14.5,
+    categoryId: 4,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  },
+  {
+    name: 'Night (The Night Trilogy, #1)',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 50,
+    categoryId: 3,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'To Kill a Mockingbird',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 19.9,
+    categoryId: 2,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'The Great Gatsby',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 200,
+    categoryId: 1,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  }, {
+    name: 'The Diary of a Young Girl',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 14.5,
+    categoryId: 4,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  }, {
+    name: 'The Diary of a Young Girl',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 14.5,
+    categoryId: 4,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  },
+  {
+    name: 'Night (The Night Trilogy, #1)',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 50,
+    categoryId: 3,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'To Kill a Mockingbird',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 19.9,
+    categoryId: 2,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f3.png',
+  },
+  {
+    name: 'The Great Gatsby',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 200,
+    categoryId: 1,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
+  }, {
+    name: 'The Diary of a Young Girl',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+    price: 14.5,
+    categoryId: 4,
+    image:
+      'http://themesflat.com/html/nah/images/shop/f2.png',
   },
 ];
 

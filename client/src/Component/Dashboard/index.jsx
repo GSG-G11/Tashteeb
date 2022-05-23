@@ -2,8 +2,8 @@ import React from 'react';
 import './style.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
-import logo from '../../Assets/Group 91.svg';
 import { ProductProvider } from '../../Context/ProductContext';
+import Navbar from '../Navbar';
 
 const { Header, Sider, Content } = Layout;
 
@@ -16,12 +16,7 @@ function Dashboard() {
             style={{ padding: 10, backgroundColor: '#1D202F' }}
             className="Dashboard-header"
           >
-            <Link to="/">
-              <section className="app-logo">
-                <img src={logo} alt="website logo" />
-              </section>
-            </Link>
-            <h2>IBRAHIM</h2>
+            <Navbar />
           </Header>
           <Layout>
             <Sider style={{ minHeight: '89.3vh' }} s>

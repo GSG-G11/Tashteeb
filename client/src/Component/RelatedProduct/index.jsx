@@ -13,30 +13,30 @@ function RelatedProducts({ categoryId }) {
       const datares = await axios.get(`/category/${categoryId}/products`, {
         cancelToken: source.token,
       });
-      setInfo(datares.data);
+      setInfo(datares.data.data);
     };
     fetchData();
     return () => source.cancel();
   }, []);
   return (
     <div className="related-products">
-      { info.length ? (
+      {info && (
         <div className="RelatedProducts">
-          <h4> Related Products </h4>
+          <h4 className="Related-title"> Related Products </h4>
           <div className="RelatedProducts-container">
-            {info.map((item) => (
+            {info && info.map((item) => (
               <ProductCard
+                key={item.id}
                 id={item.id}
-                price={item.price}
+                price={+item.price}
                 name={item.name}
                 image={item.image}
               />
             ))}
           </div>
         </div>
-      ) : null}
+      )}
     </div>
-
   );
 }
 RelatedProducts.propTypes = {

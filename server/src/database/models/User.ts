@@ -16,6 +16,7 @@ interface IUser
   role?: number;
   hourPrice?: number;
   phone: string;
+  bio?: string;
 }
 const USER : number = 0;
 const ENGINEER :number = 1;
@@ -52,6 +53,10 @@ const User = sequelize.define<IUser>('users', {
     defaultValue: 0,
   },
   phone: {
+    type: DataTypes.STRING,
+    defaultValue: '',
+  },
+  bio: {
     type: DataTypes.STRING,
     defaultValue: '',
   },

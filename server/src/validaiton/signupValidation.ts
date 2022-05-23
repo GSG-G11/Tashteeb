@@ -7,9 +7,9 @@ const signupValidation = (req : Request) => {
       .email(),
     username: Joi.string().min(4).max(255).required(),
     password: Joi.string().min(6).max(255).required(),
-    image: Joi.string().min(6),
+    image: Joi.string(),
     role: Joi.number().min(0).max(2),
-    cartItems: Joi.object(),
+    bio: Joi.string().min(6),
     hourPrice: Joi.number().min(0),
     phone: Joi.string().min(6).max(255),
   });

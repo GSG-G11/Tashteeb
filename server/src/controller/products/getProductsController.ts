@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { Op } from 'sequelize';
 
 import { Product, Category } from '../../database';
+import handleKnownExceptions from '../../error/handleKnownError';
 
 const getProducts = async (req: Request, res: Response) => {
   const {
@@ -12,9 +13,10 @@ const getProducts = async (req: Request, res: Response) => {
     limit = 6,
     page = 1,
   }: any = req.query;
+
   try {
     const product = await Product.findAndCountAll({
-      attributes: ['id', 'name', 'price', 'description', 'categoryId'],
+      attributes: ['id', 'name', 'price', 'description', 'categoryId', 'image'],
       include: Category,
       limit,
       offset: (page - 1) * limit,
@@ -37,7 +39,9 @@ const getProducts = async (req: Request, res: Response) => {
 
     res.json({ status: 200, product });
   } catch (error: any) {
-    throw new Error('replce with cutiomized error');
+    if (error.errors) {
+      handleKnownExceptions(error, res);
+    }
   }
 };
 
