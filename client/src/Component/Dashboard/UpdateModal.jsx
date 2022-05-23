@@ -19,7 +19,6 @@ function UpdateModal({ title, data }) {
       .then((res) => {
         newProducts = products.filter((item) => item.id !== id);
         const product = res.data.data;
-        console.log(product);
         newProducts = [...newProducts, product];
         setProducts(newProducts);
         setForm({});
@@ -38,7 +37,6 @@ function UpdateModal({ title, data }) {
   const handleOk = () => {
     setIsDashboardModalVisible(false);
     updateProduct(productID);
-    console.log(products);
   };
 
   const handleCancel = () => {
@@ -55,7 +53,6 @@ function UpdateModal({ title, data }) {
           showDashboardModal();
 
           setProductID(data.id);
-          console.log(products);
         }}
       >
         <i className="ri-edit-line" />

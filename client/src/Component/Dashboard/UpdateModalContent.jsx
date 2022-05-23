@@ -45,7 +45,6 @@ function UpdateProductModalContent({ data }) {
             const reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = () => {
-              // console.log(reader.result);
               setForm({ ...form, image: reader.result });
             };
           }}
