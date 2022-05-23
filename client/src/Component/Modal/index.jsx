@@ -1,6 +1,8 @@
+/* eslint-disable max-len */
+/* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import {
-  Modal, Button, Form, Upload,
+  Modal, Button, Form, Upload, Input,
 } from 'antd';
 import PropTypes from 'prop-types';
 import {
@@ -9,6 +11,7 @@ import {
   EyeTwoTone,
   EyeInvisibleOutlined,
   UploadOutlined,
+  DollarOutlined,
 } from '@ant-design/icons';
 import { useAuth } from '../../Context/AuthContext';
 import SelectInput from './Select';
@@ -18,8 +21,9 @@ import './style.css';
 import { success, error } from '../AntdMessages.jsx/messages';
 
 function SignupModal({ title }) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ role: 0 });
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isEngineer, setIsEngineer] = useState(false);
   const { register } = useAuth();
   const showModal = () => {
     setIsModalVisible(true);
@@ -104,7 +108,9 @@ function SignupModal({ title }) {
           </Upload>
         </div>
         <Form.Item label="Role" name="role">
-          <SelectInput changeFunction={(e) => setData({ ...data, role: e })} />
+          <SelectInput
+            changeFunction={(e) => { setData({ ...data, role: e }); setIsEngineer(e == 1); }}
+          />
 
         </Form.Item>
         <Forminput
@@ -113,6 +119,24 @@ function SignupModal({ title }) {
           prefix={<TagsOutlined />}
           changeFunction={(e) => setData({ ...data, phone: e.target.value })}
         />
+        { isEngineer && (
+        <>
+          <Forminput
+            name="Hourly Price"
+            placeHolder="ENTER YOUR PRICE PER HOUR"
+            prefix={<DollarOutlined />}
+            changeFunction={(e) => setData({ ...data, hourPrice: isEngineer ? e.target.value : null })}
+          />
+          <Form.Item label="Description" name="Description">
+            <Input.TextArea
+              placeholder="YOUR BIO"
+              onChange={(e) => setData({ ...data, bio: isEngineer ? e.target.value : null })}
+              rows={4}
+            />
+          </Form.Item>
+
+        </>
+        )}
       </Modal>
     </Form>
   );

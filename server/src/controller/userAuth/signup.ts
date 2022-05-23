@@ -16,7 +16,7 @@ const signup = async (req: Request, res: Response): Promise<any> => {
   try {
     await signupValidation(req);
     const {
-      password, email, username, phone,
+      password, email, username, phone, role, bio, hourPrice,
     } = req.body;
     let image = req.body.image?.path;
     const emailDoesExist = await User.findOne({
@@ -38,7 +38,16 @@ const signup = async (req: Request, res: Response): Promise<any> => {
     if (image) {
       image = await upload(image, 'images');
     }
-    const user = await User.create({
+    const user = role === 1 ? await User.create({
+      email,
+      username,
+      password: hashedPassword,
+      image,
+      phone,
+      role,
+      bio,
+      hourPrice,
+    }) : await User.create({
       email,
       username,
       password: hashedPassword,
