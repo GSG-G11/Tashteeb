@@ -8,7 +8,6 @@ const fakeUsers = [
     image: 'http://themesflat.com/html/nah/images/member/3t1.png',
     role: ADMIN,
     phone: '+20100100100',
-
   },
   {
     email: 'nabil@gmail.com',
@@ -17,7 +16,6 @@ const fakeUsers = [
     image: 'http://themesflat.com/html/nah/images/member/2t1.png',
     role: USER,
     phone: '+970592565688',
-
   },
   {
     email: 'mohamed@helles.com',
@@ -109,8 +107,7 @@ const fakeProducts = [
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
     price: 14.5,
     categoryId: 4,
-    image:
-      'http://themesflat.com/html/nah/images/shop/f2.png',
+    image: 'http://themesflat.com/html/nah/images/shop/f2.png',
   },
   {
     name: 'Night (The Night Trilogy, #1)',
@@ -118,8 +115,7 @@ const fakeProducts = [
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
     price: 50,
     categoryId: 3,
-    image:
-      'http://themesflat.com/html/nah/images/shop/f3.png',
+    image: 'http://themesflat.com/html/nah/images/shop/f3.png',
   },
   {
     name: 'To Kill a Mockingbird',
@@ -127,8 +123,7 @@ const fakeProducts = [
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
     price: 19.9,
     categoryId: 2,
-    image:
-      'http://themesflat.com/html/nah/images/shop/f3.png',
+    image: 'http://themesflat.com/html/nah/images/shop/f3.png',
   },
   {
     name: 'The Great Gatsby',
@@ -136,8 +131,7 @@ const fakeProducts = [
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
     price: 200,
     categoryId: 1,
-    image:
-      'http://themesflat.com/html/nah/images/shop/f2.png',
+    image: 'http://themesflat.com/html/nah/images/shop/f2.png',
   },
 ];
 
@@ -164,4 +158,102 @@ const fakeCategories = [
   },
 ];
 
-export { fakeUsers, fakeProducts, fakeCategories };
+const fakeOrders = [
+  {
+
+    userId: 1,
+    totalPrice: 90,
+  },
+  {
+
+    userId: 2,
+    totalPrice: 12,
+  },
+  {
+
+    userId: 3,
+    totalPrice: 423,
+  },
+  {
+    userId: 4,
+    totalPrice: 100,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+  {
+    userId: 5,
+    totalPrice: 1020,
+  },
+];
+const fakeProductOrder = [
+  {
+    orderId: 1,
+    productId: 1,
+    quantity: 20,
+    subtotalPrice: 100,
+  },
+  {
+    orderId: 1,
+    productId: 4,
+    quantity: 20,
+    subtotalPrice: 100,
+  },
+  {
+    orderId: 1,
+    productId: 3,
+    quantity: 20,
+    subtotalPrice: 100,
+  },
+  {
+    orderId: 3,
+    productId: 2,
+    quantity: 20,
+    subtotalPrice: 100,
+  },
+  {
+    orderId: 2,
+    productId: 3,
+    quantity: 20,
+    subtotalPrice: 100,
+  },
+  {
+    orderId: 4,
+    productId: 3,
+    quantity: 1,
+    subtotalPrice: 60,
+  },
+];
+
+export {
+  fakeUsers, fakeProducts, fakeCategories, fakeOrders, fakeProductOrder,
+};

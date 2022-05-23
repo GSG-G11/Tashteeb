@@ -6,9 +6,10 @@ import { Context } from '../../Context/ProductContext';
 
 function ProductList() {
   const { setProducts } = useContext(Context);
+
   useEffect(() => {
     axios.get('/products').then((res) => {
-      setProducts(res.data.product);
+      setProducts(res.data.product.rows);
     });
   }, []);
   return (
