@@ -19,3 +19,9 @@ html {
   background: #EDB820;
   border-radius: 15px;
 }
+
+.eng-navbar-section{
+  position: absolute;
+  top: 0;
+  left: 0;
+}

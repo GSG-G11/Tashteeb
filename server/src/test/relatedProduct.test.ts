@@ -18,7 +18,7 @@ describe('get products by category', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.body.status).toBe(200);
-        expect(res.body.data.length).toBe(1);
+        expect(res.body.data.length).toBe(4);
         return done();
       });
   });

@@ -17,7 +17,7 @@ const isAdmin = (req: Request, res: Response, next: NextFunction) => {
         req.user = user;
         next();
       } else {
-        throw new CustomizeError(401, 'unauthorized not a reqgualr user');
+        throw new CustomizeError(401, 'unauthorized not a regular user');
       }
     } catch (error) {
       handleKnownExceptions(error, res);

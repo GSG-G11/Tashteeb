@@ -13,9 +13,9 @@ import Orders from './Component/Dashboard/Orders';
 import ProdcutsPage from './Pages/productsPage';
 import Cart from './Pages/Cart';
 import EngineerInfo from './Component/Engineer';
+import HiringOrder from './Pages/HiringOrder';
 import {
   ProtectedAdmin,
-  ProtectedEngineer,
 } from './ProtectedRoutes/ProtectedRoutes';
 
 function App() {
@@ -25,9 +25,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route element={<ProtectedEngineer />}>
-              <Route path="/profile/:id" element={<EngineerProfile />} />
-            </Route>
+            <Route path="/profile/:id" element={<EngineerProfile />} />
 
             <Route element={<ProtectedAdmin />}>
               <Route path="dashboard" element={<Dashboard />}>
@@ -37,6 +35,7 @@ function App() {
               </Route>
             </Route>
             <Route path="/products" element={<ProdcutsPage />} />
+            <Route path="/hiring" element={<HiringOrder />} />
             <Route path="/product/:id" element={<ProductProfile />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/eng" element={<EngineerInfo />} />

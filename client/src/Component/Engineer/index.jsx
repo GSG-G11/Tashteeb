@@ -4,6 +4,8 @@ import { Pagination } from 'antd';
 import SingleCard from '../EngineerCard/SingleCard';
 import '../EngineerCard/style.css';
 import './style.css';
+import Navbar from '../Navbar';
+import EngineerBanner from '../EngineerBanner';
 
 function EngineerInfo() {
   const [info, setInfo] = useState([]);
@@ -32,27 +34,31 @@ function EngineerInfo() {
   };
 
   return (
-    <div className="engController">
-      <div className="cardDetailes engineerInfo">
-        {info.map((item) => (
-          <SingleCard
-            key={item.id}
-            id={item.id}
-            name={item.username}
-            img={item.image}
+    <div>
+      <Navbar />
+      <EngineerBanner title="Engineers Info" />
+      <div className="engController">
+        <div className="cardDetailes engineerInfo">
+          {info.map((item) => (
+            <SingleCard
+              key={item.id}
+              id={item.id}
+              name={item.username}
+              img={item.image}
+            />
+          ))}
+        </div>
+        <div className="paginationEng">
+          <Pagination
+            className="pagGng"
+            defaultCurrent={1}
+            defaultPageSize={pageSize}
+            showSizeChanger
+            total={total}
+            onChange={handleChange}
+            pageSizeOptions={[6, 9, 12, 21]}
           />
-        ))}
-      </div>
-      <div className="paginationEng">
-        <Pagination
-          className="pagGng"
-          defaultCurrent={1}
-          defaultPageSize={pageSize}
-          showSizeChanger
-          total={total}
-          onChange={handleChange}
-          pageSizeOptions={[6, 9, 12, 21]}
-        />
+        </div>
       </div>
     </div>
   );

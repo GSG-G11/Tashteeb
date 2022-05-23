@@ -10,7 +10,7 @@ import './style.css';
 import { success, error } from '../AntdMessages.jsx/messages';
 
 function ProductDetailes({
-  isProduct = true, name, description, img, price, phone, id,
+  isProduct = true, name, description, img, price = '0', phone, id, hourPrice = 0,
 }) {
   const [data, setData] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -44,7 +44,7 @@ function ProductDetailes({
           {/* <img className="product-image" src={img} alt="images" /> */}
           <Image
             style={{ width: '100%', height: '500px', borderRadius: '10px' }}
-            cloudName="images"
+            cloudName="dst1qgbta"
             publicId={img}
             crop="scale"
           />
@@ -85,7 +85,12 @@ function ProductDetailes({
                 {price}
               </h3>
             ) : (
-              <h3 className="price"> $ 15,6 3/hr</h3>
+              <h3 className="price">
+                {' '}
+                $
+                {' '}
+                {hourPrice}
+              </h3>
             )}
           </div>
 
@@ -137,15 +142,20 @@ function ProductDetailes({
 ProductDetailes.propTypes = {
   isProduct: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   img: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  phone: PropTypes.number.isRequired,
+  price: PropTypes.string,
+  phone: PropTypes.string,
   id: PropTypes.number.isRequired,
+  hourPrice: PropTypes.number,
 };
 
 ProductDetailes.defaultProps = {
   isProduct: true,
+  price: '0',
+  phone: null,
+  description: '',
+  hourPrice: 0,
 };
 
 export default ProductDetailes;

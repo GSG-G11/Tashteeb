@@ -16,9 +16,9 @@ const signup = async (req: Request, res: Response): Promise<any> => {
   try {
     await signupValidation(req);
     const {
-      password, email, username, phone,
+      password, email, username, phone, role, bio, hourPrice,
     } = req.body;
-    let image = req.body.image?.path;
+    let { image } = req.body;
     const emailDoesExist = await User.findOne({
       where: { email },
     });
@@ -38,11 +38,21 @@ const signup = async (req: Request, res: Response): Promise<any> => {
     if (image) {
       image = await upload(image, 'images');
     }
-    const user = await User.create({
+    const user = role === 1 ? await User.create({
       email,
       username,
       password: hashedPassword,
       image,
+      phone,
+      role,
+      bio,
+      hourPrice,
+    }) : await User.create({
+      email,
+      username,
+      password: hashedPassword,
+      image,
+      role,
       phone,
     });
     const token = sign(
