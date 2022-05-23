@@ -35,7 +35,6 @@ const updateProduct = async (req: Request, res: Response) => {
     product.description = description;
     product.categoryId = categoryId;
     product = await product.save();
-
     product = await Product.findByPk(id, {
       include: 'category',
     });
