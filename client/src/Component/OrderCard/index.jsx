@@ -35,14 +35,12 @@ function OrderCard({
     if (replyMessege.reply) {
       axios.patch(`/hiringOrder/${id}`, replyMessege)
         .then((res) => {
-          console.log(res);
           success(res.message);
           setReply({});
           setRerender(!rerender);
         })
         .catch((err) => {
-          console.log(err);
-          // error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
+          error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
         });
     } else {
       error('Please fill all the fields');
@@ -64,8 +62,7 @@ function OrderCard({
           setRerender(!rerender);
         })
         .catch((err) => {
-          console.log(err);
-          // error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
+          error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
         });
     } else {
       error('Please fill all the fields');
@@ -77,12 +74,11 @@ function OrderCard({
 
   const completeOrder = async () => {
     try {
-      console.log('in');
       await axios(`/hiringOrder/${id}/complete`);
       success('Order completed');
       setRerender(!rerender);
     } catch (err) {
-      console.log(err);
+      error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
     }
   };
 

@@ -4,9 +4,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-/* .products__wrapper:last-child {
-align-items: flex-start !important;
-} */
+
 .products__page__body {
   display: flex;
 }
