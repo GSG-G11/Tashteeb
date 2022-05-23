@@ -6,6 +6,7 @@ import { Context } from '../../Context/ProductContext';
 
 function ProductList() {
   const { setProducts } = useContext(Context);
+
   useEffect(() => {
     axios.get('/products').then((res) => {
       const result = res.data.product.rows.map((item) => {

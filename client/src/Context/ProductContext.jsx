@@ -6,6 +6,7 @@ const Context = createContext();
 function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({});
+  const [orders, setOrders] = useState([]);
   const [productID, setProductID] = useState('');
 
   return (
@@ -15,6 +16,8 @@ function ProductProvider({ children }) {
         setProducts,
         form,
         setForm,
+        orders,
+        setOrders,
         productID,
         setProductID,
       }}

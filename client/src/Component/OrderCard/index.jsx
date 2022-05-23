@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -9,7 +8,17 @@ import './orderCard.css';
 import { success, error } from '../AntdMessages.jsx/messages';
 
 function OrderCard({
-  time, name, details, price, status, isEngineer, reply, feedback, id, setRerender, rerender,
+  time,
+  name,
+  details,
+  price,
+  status,
+  isEngineer,
+  reply,
+  feedback,
+  id,
+  setRerender,
+  rerender,
 }) {
   let bgColor = '#F29339';
   if (status === 'accepted') {
@@ -33,16 +42,19 @@ function OrderCard({
   const handleOk = () => {
     setIsModalVisible(false);
     if (replyMessege.reply) {
-      axios.patch(`/hiringOrder/${id}`, replyMessege)
+      axios
+        .patch(`/hiringOrder/${id}`, replyMessege)
         .then((res) => {
-          console.log(res);
           success(res.message);
           setReply({});
           setRerender(!rerender);
         })
         .catch((err) => {
-          console.log(err);
-          // error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
+          error(
+            err.response.data.error
+              ? err.response.data.error.message
+              : err.response.data.message,
+          );
         });
     } else {
       error('Please fill all the fields');
@@ -57,15 +69,19 @@ function OrderCard({
   const handleReviewOk = () => {
     setIsReviewModalVisible(false);
     if (reviewMessege.review && reviewMessege.rate) {
-      axios.post(`/review/${id}`, reviewMessege)
+      axios
+        .post(`/review/${id}`, reviewMessege)
         .then((res) => {
           success(res.data.message);
           setReviewMessege({});
           setRerender(!rerender);
         })
         .catch((err) => {
-          console.log(err);
-          // error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
+          error(
+            err.response.data.error
+              ? err.response.data.error.message
+              : err.response.data.message,
+          );
         });
     } else {
       error('Please fill all the fields');
@@ -77,12 +93,15 @@ function OrderCard({
 
   const completeOrder = async () => {
     try {
-      console.log('in');
       await axios(`/hiringOrder/${id}/complete`);
       success('Order completed');
       setRerender(!rerender);
     } catch (err) {
-      console.log(err);
+      error(
+        err.response.data.error
+          ? err.response.data.error.message
+          : err.response.data.message,
+      );
     }
   };
 
@@ -136,7 +155,10 @@ function OrderCard({
                       transition: 'all 1s ease-in-out',
                       width: '90px',
                     }}
-                    onClick={() => { setReply({ acceptance: true }); showModal(); }}
+                    onClick={() => {
+                      setReply({ acceptance: true });
+                      showModal();
+                    }}
                   >
                     ACCEPT
                   </Button>
@@ -151,7 +173,10 @@ function OrderCard({
                       transition: 'all 1s ease-in-out',
                       width: '90px',
                     }}
-                    onClick={() => { setReply({ acceptance: false }); showModal(); }}
+                    onClick={() => {
+                      setReply({ acceptance: false });
+                      showModal();
+                    }}
                   >
                     REJECT
                   </Button>
@@ -161,17 +186,13 @@ function OrderCard({
                     onOk={handleOk}
                     onCancel={handleCancel}
                   >
-                    <Form.Item
-                      label="reply"
-                      name={`${'reply'}`}
-                    >
+                    <Form.Item label="reply" name={`${'reply'}`}>
                       <Input
                         placeholder="Add your reply"
                         onChange={(e) => setReply({ ...replyMessege, reply: e.target.value })}
                       />
                     </Form.Item>
                   </Modal>
-
                 </Form>
               </div>
             </li>
@@ -179,77 +200,69 @@ function OrderCard({
           || (status === 'accepted' && (
             <li>
               <Form>
-                <Button
-                  type="primary"
-                  size="large"
-                  onClick={completeOrder}
-
-                >
+                <Button type="primary" size="large" onClick={completeOrder}>
                   Mark as Done
                 </Button>
               </Form>
               {' '}
-
             </li>
           ))
         ) : (
           <>
-            {(status !== 'pending' && (
-            <li>
-              <p>ENGINEER REPLY</p>
-              <div className="order__info">{reply}</div>
-            </li>
-            ))}
+            {status !== 'pending' && (
+              <li>
+                <p>ENGINEER REPLY</p>
+                <div className="order__info">{reply}</div>
+              </li>
+            )}
 
-            {
-              (status === 'completed' && (!feedback) && (
-                <li>
-                  <Form>
-                    <Button
-                      type="primary"
-                      size="large"
-                      onClick={showReviewModal}
-                    >
-                      Make Review
-                    </Button>
-                    <Modal
-                      title={`Review ${name}`}
-                      visible={isReviewModalVisible}
-                      onOk={handleReviewOk}
-                      onCancel={handleReviewCancel}
-                    >
-                      <Form.Item
-                        label="review"
-                        name={`${'review'}`}
-                      >
-                        <Input
-                          placeholder="Add your review"
-                          onChange={(e) => setReviewMessege({ ...reviewMessege, review: e.target.value })}
-                        />
-                      </Form.Item>
-                      <Form.Item
-                        label="rating"
-                        name={`${'rating'}`}
-                      >
-                        <Rate tooltips={desc} onChange={(e) => setReviewMessege({ ...reviewMessege, rate: e })} value={reviewMessege.rate} />
-                        {reviewMessege.rate ? <span className="ant-rate-text">{desc[reviewMessege.rate - 1]}</span> : ''}
-                      </Form.Item>
-                    </Modal>
-                  </Form>
-                  {' '}
+            {status === 'completed' && !feedback && (
+              <li>
+                <Form>
+                  <Button type="primary" size="large" onClick={showReviewModal}>
+                    Make Review
+                  </Button>
+                  <Modal
+                    title={`Review ${name}`}
+                    visible={isReviewModalVisible}
+                    onOk={handleReviewOk}
+                    onCancel={handleReviewCancel}
+                  >
+                    <Form.Item label="review" name={`${'review'}`}>
+                      <Input
+                        placeholder="Add your review"
+                        onChange={(e) => setReviewMessege({
+                          ...reviewMessege,
+                          review: e.target.value,
+                        })}
+                      />
+                    </Form.Item>
+                    <Form.Item label="rating" name={`${'rating'}`}>
+                      <Rate
+                        tooltips={desc}
+                        onChange={(e) => setReviewMessege({ ...reviewMessege, rate: e })}
+                        value={reviewMessege.rate}
+                      />
+                      {reviewMessege.rate ? (
+                        <span className="ant-rate-text">
+                          {desc[reviewMessege.rate - 1]}
+                        </span>
+                      ) : (
+                        ''
+                      )}
+                    </Form.Item>
+                  </Modal>
+                </Form>
+                {' '}
+              </li>
+            )}
 
-                </li>
-              ))
-            }
-
-            {
-              (feedback && (
-                <li>
-                  <p>MY FEEDBACK</p>
-                  <div className="order__info">{feedback}</div>
-                </li>
-              ))
-            }
+            {feedback && (
+              <li>
+                <p>MY FEEDBACK</p>
+                <div className="order__info">{feedback}</div>
+              </li>
+            )}
           </>
         )}
       </ul>
