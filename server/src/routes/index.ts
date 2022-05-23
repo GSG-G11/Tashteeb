@@ -16,6 +16,7 @@ import {
   engReply,
   getUserHirings,
   getEngHirings,
+  completeService,
 } from '../controller';
 import {
   isUser, isRegularUser, isAdmin, isEngineer,
@@ -56,8 +57,9 @@ router.get('/hiringOrder', isRegularUser, getUserHirings);
 router.get('/hiringOrder/engineer', isEngineer, getEngHirings);
 router.post('/hiringOrder/:id', isRegularUser, userOrder);
 router.patch('/hiringOrder/:id', isEngineer, engReply);
+router.get('/hiringOrder/:id/complete', isEngineer, completeService);
 
-router.post('/review/:orderId', isUser, createReview);
+router.post('/review/:orderId', isRegularUser, createReview);
 
 router.get('/category/:categoryId/products', getProductByCategory);
 router.use((req, res) => {

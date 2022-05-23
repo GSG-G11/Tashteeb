@@ -13,7 +13,7 @@ export default async (req: IReqUser, res: Response) => {
       user: { id },
     } = req; // User ID
     const userHiringOrder = await HiringOrder.findAll({
-      where: { userId: id },
+      where: { engId: id },
       include: { model: User, as: 'userHiringOrder', attributes: ['id', 'username', 'phone'] },
     });
     if (!userHiringOrder) {

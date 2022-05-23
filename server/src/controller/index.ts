@@ -7,7 +7,7 @@ import getEngineer from './engineer/gitEngineer';
 import gitEngineerById from './engineer/gitEngineerById';
 import getAllEngineer from './engineer/gitAllEngineers';
 import {
-  engReply, userOrder, getUserHirings, getEngHirings,
+  engReply, userOrder, getUserHirings, getEngHirings, completeService,
 } from './hiringOrder';
 import checkout from './cart/checkout';
 import createReview from './Review/Review';
@@ -29,4 +29,5 @@ export {
   engReply,
   getUserHirings,
   getEngHirings,
+  completeService,
 };
