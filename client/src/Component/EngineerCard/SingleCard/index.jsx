@@ -5,7 +5,6 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function SingleCard({ id, img, name }) {
-  // console.log(id);
   return (
     <div className="continerCard">
       <div className="card">

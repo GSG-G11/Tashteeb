@@ -33,11 +33,20 @@ export function ProtectedEngineer({ children }) {
 }
 
 ProtectedUser.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 ProtectedEngineer.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 ProtectedAdmin.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+ProtectedAdmin.defaultProps = {
+  children: null,
+};
+ProtectedEngineer.defaultProps = {
+  children: null,
+};
+ProtectedUser.defaultProps = {
+  children: null,
 };

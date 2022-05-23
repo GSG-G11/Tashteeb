@@ -6,6 +6,7 @@ const Context = createContext();
 function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({});
+  const [productID, setProductID] = useState('');
 
   return (
     <Context.Provider
@@ -14,6 +15,8 @@ function ProductProvider({ children }) {
         setProducts,
         form,
         setForm,
+        productID,
+        setProductID,
       }}
     >
       {children}
