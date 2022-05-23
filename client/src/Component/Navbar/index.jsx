@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import logo from '../../Assets/Group 91.svg';
 import SignupModal from '../Modal';
 import UserInfo from './UserInfo';
 import { useAuth, ADMIN_ROLE } from '../../Context/AuthContext';
 import LoginModal from '../Modal/login';
 
-function Navbar() {
+function Navbar({ transparent = true }) {
   const { user } = useAuth();
 
   const [navbar, setNavbar] = useState('transparent');
@@ -20,7 +21,7 @@ function Navbar() {
   };
   window.addEventListener('scroll', changeBackground);
   return (
-    <nav className={`navbar-holder ${navbar}`}>
+    <nav className={`navbar-holder ${transparent && navbar}`}>
       <section className="app-logo">
         <img src={logo} alt="website logo" />
       </section>
@@ -51,5 +52,13 @@ function Navbar() {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  transparent: PropTypes.bool,
+};
+
+Navbar.defaultProps = {
+  transparent: true,
+};
 
 export default Navbar;
