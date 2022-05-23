@@ -8,7 +8,20 @@ function ProductList() {
   const { setProducts } = useContext(Context);
   useEffect(() => {
     axios.get('/products').then((res) => {
-      setProducts(res.data.product);
+      const result = res.data.product.rows.map((item) => {
+        const {
+          id, name, price, category, description,
+        } = item;
+        return {
+          key: id,
+          id,
+          name,
+          price,
+          category,
+          description,
+        };
+      });
+      setProducts(result);
     });
   }, []);
   return (

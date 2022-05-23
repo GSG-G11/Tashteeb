@@ -17,22 +17,22 @@ function ProductCard({
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const addFunc = () => {
     if (!isAddedToCart) {
-      const products = JSON.parse(localStorage.getItem('products'));
+      const products = JSON.parse(localStorage.getItem('cart'));
       products.push({
         id, name, price, image, quantity: 1,
       });
-      localStorage.setItem('products', JSON.stringify(products));
+      localStorage.setItem('cart', JSON.stringify(products));
       setIsAddedToCart(true);
     } else {
-      const products = JSON.parse(localStorage.getItem('products'));
+      const products = JSON.parse(localStorage.getItem('cart'));
       const newProducts = products.filter((item) => item.id !== id);
-      localStorage.setItem('products', JSON.stringify(newProducts));
+      localStorage.setItem('cart', JSON.stringify(newProducts));
       setIsAddedToCart(false);
     }
   };
 
   useEffect(() => {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('cart')) || [];
     const addedToCart = products.some((item) => item.id === id);
     setIsAddedToCart(addedToCart);
   }, []);
@@ -44,7 +44,7 @@ function ProductCard({
       style={{ width: 240 }}
       cover={(
         <Image
-          cloudName="images"
+          cloudName="dst1qgbta"
           publicId={image}
           crop="scale"
         />
@@ -53,7 +53,7 @@ function ProductCard({
       <Button type="primary" onClick={addFunc} shape="circle" icon={isAddedToCart ? <CheckOutlined /> : <ShoppingCartOutlined />} />
       <Link to={`/product/${id}`}>
         <Meta
-          title={`$${price.toFixed(2)}`}
+          title={`$${+price.toFixed(2)}`}
           description={name}
         />
       </Link>

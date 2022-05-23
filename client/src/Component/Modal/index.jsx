@@ -2,7 +2,7 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import {
-  Modal, Button, Form, Upload, Input,
+  Modal, Button, Form, Input,
 } from 'antd';
 import PropTypes from 'prop-types';
 import {
@@ -10,7 +10,6 @@ import {
   TagsOutlined,
   EyeTwoTone,
   EyeInvisibleOutlined,
-  UploadOutlined,
   DollarOutlined,
 } from '@ant-design/icons';
 import { useAuth } from '../../Context/AuthContext';
@@ -68,7 +67,7 @@ function SignupModal({ title }) {
         className="signup-btn"
         onClick={showModal}
       >
-        {title }
+        {title}
       </Button>
       <Modal
         title={title}
@@ -102,10 +101,32 @@ function SignupModal({ title }) {
           changeFunction={(e) => setData({ ...data, image: e.target.value })}
         /> */}
         <div className="imageSignup-container">
-          <p className="imageSignup"> Image :     </p>
-          <Upload type="pictures" accept=".jpg,.png,.png" onChange={(e) => setData({ ...data, image: e.file })}>
-            <Button className="imageSignupBtn" icon={<UploadOutlined />}>Click to Upload</Button>
-          </Upload>
+          <p className="imageSignup"> Image : </p>
+          {/* <Upload
+            type="pictures"
+            accept=".jpg,.png,.png"
+            onChange={(e) => {
+              const reader = new FileReader();
+              reader.readAsDataURL(e.file);
+              reader.onload = () => {
+                setData({ ...data, image: reader.result });
+              };
+            }}
+          >
+            <Button className="imageSignupBtn" icon={<UploadOutlined />}>
+              Click to Upload
+            </Button>
+          </Upload> */}
+          <input
+            type="file"
+            onChange={(e) => {
+              const reader = new FileReader();
+              reader.readAsDataURL(e.target.files[0]);
+              reader.onload = () => {
+                setData({ ...data, image: reader.result });
+              };
+            }}
+          />
         </div>
         <Form.Item label="Role" name="role">
           <SelectInput

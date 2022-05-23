@@ -5,13 +5,12 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function SingleCard({ id, img, name }) {
-  // console.log(id);
   return (
     <div className="continerCard">
       <div className="card">
         {/* <img src={img} alt="Avatar" /> */}
         <Image
-          cloudName="images"
+          cloudName="dst1qgbta"
           publicId={img}
           width="304"
           height="400"
