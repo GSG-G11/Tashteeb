@@ -49,13 +49,13 @@ function Table() {
       </thead>
       <tbody>
         {cart.map(({
-          id, name, img, price, quantity,
+          id, name, image, price, quantity,
         }) => (
           <CartRow
             key={id}
             id={id}
             name={name}
-            img={img}
+            img={image}
             price={price}
             quantity={quantity}
             setQuantity={setQuantity}

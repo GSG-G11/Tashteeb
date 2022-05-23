@@ -59,9 +59,7 @@ function ShoppingSummary() {
       modal.confirm(confirmCheckout);
     }
   };
-  localStorage.setItem('cart', JSON.stringify([{
-    id: 1, name: 'test', price: 10, quantity: 1, img: 'https://picsum.photos/200',
-  }]));
+
   return (
     <ReachableContext.Provider value="Light">
       <div className="summary">
