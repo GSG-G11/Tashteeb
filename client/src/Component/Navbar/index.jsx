@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import logo from '../../Assets/Group 91.svg';
 import SignupModal from '../Modal';
 import UserInfo from './UserInfo';
-import { useAuth, ADMIN_ROLE } from '../../Context/AuthContext';
+import {
+  useAuth, ADMIN_ROLE, USER_ROLE, ENGINEER_ROLE,
+} from '../../Context/AuthContext';
 import LoginModal from '../Modal/login';
 import ShowBadge from '../Badge/Badge';
 
@@ -31,10 +33,9 @@ function Navbar({ transparent = true }) {
         <Link to="/">Home</Link>
         <Link to="/products">Shop </Link>
         <Link to="/eng">Engineer</Link>
-        {user?.role === ADMIN_ROLE ? (
-          <Link to="/dashboard">Dashboard</Link>
-        ) : (
-          <Link to="/hiring">Hiring Orders</Link>
+        {user?.role === ADMIN_ROLE && <Link to="/dashboard">Dashboard</Link>}
+        {(user?.role === USER_ROLE || user?.role === ENGINEER_ROLE) && (
+          <Link to="/hiring">Hiring Order</Link>
         )}
       </section>
       <section

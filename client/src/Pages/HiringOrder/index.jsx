@@ -12,7 +12,6 @@ export default function HiringOrder() {
   const [orders, setOrders] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     if (user) {
       const cancelToken = axios.CancelToken;
@@ -36,31 +35,34 @@ export default function HiringOrder() {
       <div className="eng-navbar-section">
         <Navbar transparent={false} />
       </div>
-      {' '}
-      <div className="hiring-order">
-        <div className="hiring-order-container">
-          {orders.map((item) => (
-            <OrderCard
-              key={item.id}
-              id={item.id}
-              status={item.status}
-              details={item.description}
-              price={item.price}
-              time={item.createdAt}
-              reply={item.reply}
-              name={
+      {orders.length === 0 ? (
+        <h1 className="ptag">there is no orders for you yet</h1>
+      ) : (
+        <div className="hiring-order">
+          <div className="hiring-order-container">
+            {orders.map((item) => (
+              <OrderCard
+                key={item.id}
+                id={item.id}
+                status={item.status}
+                details={item.description}
+                price={item.price}
+                time={item.createdAt}
+                reply={item.reply}
+                name={
                 user.role === 1
                   ? item.userHiringOrder.username
                   : item.engHiringOrder.username
               }
-              isEngineer={user.role === 1}
-              setRerender={setRerender}
-              rerender={rerender}
-            />
-          ))}
+                isEngineer={user.role === 1}
+                setRerender={setRerender}
+                rerender={rerender}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-      {/* <Footer /> */}
+      )}
+
     </>
   );
 }
