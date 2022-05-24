@@ -7,7 +7,13 @@ import getEngineer from './engineer/gitEngineer';
 import gitEngineerById from './engineer/gitEngineerById';
 import getAllEngineer from './engineer/gitAllEngineers';
 import {
-  engReply, userOrder, getUserHirings, getEngHirings, completeService,
+  engReply,
+  userOrder,
+  getUserHirings,
+  getEngHirings,
+  completeService,
+  getHiringOrders,
+  deleteHiringOrder,
 } from './hiringOrder';
 import checkout from './cart/checkout';
 import getAllOrders from './hiringOrder/getAllOrders';
@@ -32,4 +38,6 @@ export {
   getUserHirings,
   getEngHirings,
   completeService,
+  getHiringOrders,
+  deleteHiringOrder,
 };
