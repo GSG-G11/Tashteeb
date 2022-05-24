@@ -7,10 +7,10 @@ import SignupModal from '../Modal';
 import UserInfo from './UserInfo';
 import { useAuth, ADMIN_ROLE } from '../../Context/AuthContext';
 import LoginModal from '../Modal/login';
+import ShowBadge from '../Badge/Badge';
 
 function Navbar({ transparent = true }) {
   const { user } = useAuth();
-  console.log(user);
   const [navbar, setNavbar] = useState('transparent');
   const changeBackground = () => {
     if (window.scrollY > 50) {
@@ -48,11 +48,25 @@ function Navbar({ transparent = true }) {
       >
         {!user ? (
           <>
+            <Link to="/cart">
+              <div className="badge-holder">
+                <ShowBadge />
+              </div>
+            </Link>
+
             <LoginModal />
             <SignupModal title="Sign Up" />
           </>
         ) : (
-          <UserInfo username={user.username} image={user.image} />
+          <>
+            <Link to="/cart">
+              <div className="badge-holder">
+                <ShowBadge />
+              </div>
+            </Link>
+
+            <UserInfo username={user.username} image={user.image} />
+          </>
         )}
       </section>
     </nav>

@@ -22,7 +22,10 @@ function UserInfo({ username, image }) {
 }
 UserInfo.propTypes = {
   username: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
+};
+UserInfo.defaultProps = {
+  image: '',
 };
 
 export default UserInfo;
