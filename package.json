@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production node server/src/index.ts",
     "test": "cross-env NODE_ENV=test jest server/src/test/ --runInBand",
     "dev": "cross-env NODE_ENV=dev  ts-node-dev server/src/index.ts",
     "user": "cross-env NODE_ENV=dev  ts-node-dev server/src/database/models/User.ts",
