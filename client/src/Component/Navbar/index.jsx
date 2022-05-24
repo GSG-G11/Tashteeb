@@ -10,7 +10,7 @@ import LoginModal from '../Modal/login';
 
 function Navbar({ transparent = true }) {
   const { user } = useAuth();
-
+  console.log(user);
   const [navbar, setNavbar] = useState('transparent');
   const changeBackground = () => {
     if (window.scrollY > 50) {
@@ -23,13 +23,19 @@ function Navbar({ transparent = true }) {
   return (
     <nav className={`navbar-holder ${transparent && navbar}`}>
       <section className="app-logo">
-        <img src={logo} alt="website logo" />
+        <Link to="/">
+          <img src={logo} alt="website logo" />
+        </Link>
       </section>
       <section className="navbar-info">
         <Link to="/">Home</Link>
         <Link to="/products">Shop </Link>
         <Link to="/eng">Engineer</Link>
-        {user?.role === ADMIN_ROLE && <Link to="/dashboard">Dashboard</Link>}
+        {user?.role === ADMIN_ROLE ? (
+          <Link to="/dashboard">Dashboard</Link>
+        ) : (
+          <Link to="/hiring">Hiring Orders</Link>
+        )}
       </section>
       <section
         className="auth-section"
@@ -46,7 +52,7 @@ function Navbar({ transparent = true }) {
             <SignupModal title="Sign Up" />
           </>
         ) : (
-          <UserInfo username={user.username} />
+          <UserInfo username={user.username} image={user.image} />
         )}
       </section>
     </nav>
