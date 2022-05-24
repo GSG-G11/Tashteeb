@@ -18,7 +18,7 @@ function ProdcutsPage() {
   const [sliderValue, setSliderValue] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
   const [total, setTotal] = useState(); // how many products
-  const [pageSize, setPageSize] = useState(6);
+  const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
   const [err, setErr] = useState(false);
 
@@ -131,7 +131,7 @@ function ProdcutsPage() {
               showSizeChanger
               total={total}
               onChange={handleChange}
-              pageSizeOptions={[6, 9, 12, 21]}
+              pageSizeOptions={[8, 12, 16, 20]}
             />
           </div>
         </div>
