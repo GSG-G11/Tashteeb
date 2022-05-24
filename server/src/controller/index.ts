@@ -12,6 +12,7 @@ import {
 import checkout from './cart/checkout';
 import getAllOrders from './hiringOrder/getAllOrders';
 import createReview from './Review/Review';
+import getSatistics from './Satistics';
 
 export {
   checkout,
@@ -32,4 +33,5 @@ export {
   getUserHirings,
   getEngHirings,
   completeService,
+  getSatistics,
 };
