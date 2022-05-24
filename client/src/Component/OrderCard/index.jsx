@@ -6,6 +6,7 @@ import {
 } from 'antd';
 import axios from 'axios';
 import './orderCard.css';
+import moment from 'moment';
 import { success, error } from '../AntdMessages.jsx/messages';
 
 function OrderCard({
@@ -42,6 +43,7 @@ function OrderCard({
         })
         .catch((err) => {
           console.log(err);
+          error('Please fill all the fields');
           // error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
         });
     } else {
@@ -62,10 +64,10 @@ function OrderCard({
           success(res.data.message);
           setReviewMessege({});
           setRerender(!rerender);
+          success(res.message);
         })
-        .catch((err) => {
-          console.log(err);
-          // error(err.response.data.error ? err.response.data.error.message : err.response.data.message);
+        .catch(() => {
+          error('somting went wrong');
         });
     } else {
       error('Please fill all the fields');
@@ -77,7 +79,6 @@ function OrderCard({
 
   const completeOrder = async () => {
     try {
-      console.log('in');
       await axios(`/hiringOrder/${id}/complete`);
       success('Order completed');
       setRerender(!rerender);
@@ -93,7 +94,7 @@ function OrderCard({
           <p>ORDER TIME</p>
           <div className="order__info">
             {' '}
-            {time}
+            {moment(time).format('MMMM Do YYYY')}
             {' '}
           </div>
         </li>
@@ -127,9 +128,8 @@ function OrderCard({
                   <Button
                     type="primary"
                     style={{
-                      marginTop: '25px',
                       backgroundColor: '#008000',
-                      borderRadius: ' 5px',
+                      borderRadius: ' 15px',
                       border: ' 1px solid #008000',
                       color: '#fff',
                       fontWeight: ' 500',
@@ -144,7 +144,7 @@ function OrderCard({
                     type="primary"
                     style={{
                       backgroundColor: '#FF0000',
-                      borderRadius: ' 5px',
+                      borderRadius: ' 15px',
                       border: ' 1px solid #FF0000',
                       color: '#fff',
                       fontWeight: ' 500',

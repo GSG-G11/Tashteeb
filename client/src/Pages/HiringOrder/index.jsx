@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Typography } from 'antd';
-
 import axios from 'axios';
 import Navbar from '../../Component/Navbar';
 // import Footer from '../../Component/footer/Footer';
@@ -33,7 +31,6 @@ export default function HiringOrder() {
     return () => {};
   }, [user, rerender]);
 
-  const { Title } = Typography;
   return (
     <>
       <div className="eng-navbar-section">
@@ -41,9 +38,8 @@ export default function HiringOrder() {
       </div>
       {' '}
       <div className="hiring-order">
-        <Title level={2}>Hiring Orders</Title>
         <div className="hiring-order-container">
-          { orders.map((item) => (
+          {orders.map((item) => (
             <OrderCard
               key={item.id}
               id={item.id}
@@ -52,7 +48,11 @@ export default function HiringOrder() {
               price={item.price}
               time={item.createdAt}
               reply={item.reply}
-              name={user.role === 1 ? item.userHiringOrder.username : item.engHiringOrder.username}
+              name={
+                user.role === 1
+                  ? item.userHiringOrder.username
+                  : item.engHiringOrder.username
+              }
               isEngineer={user.role === 1}
               setRerender={setRerender}
               rerender={rerender}
