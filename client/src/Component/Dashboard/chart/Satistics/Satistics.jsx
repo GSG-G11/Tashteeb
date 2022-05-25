@@ -27,8 +27,8 @@ function Satisticsfetch() {
           count: getData.data.data.order,
           icon: <ShoppingOutlined className="iconChart" style={{ color: '#EDB820' }} />,
         },
-        productOrder: {
-          count: getData.data.data.productOrder,
+        engineer: {
+          count: getData.data.data.engineer,
           icon: <ShoppingCartOutlined className="iconChart" style={{ color: 'blue' }} />,
         },
         product: {

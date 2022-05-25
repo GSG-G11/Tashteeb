@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import {
-  User, ProductOrder, Product, Order, HiringOrder, sequelize, Category,
+  User, Product, Order, HiringOrder, sequelize, Category,
 } from '../../database';
+import { USER, ENGINEER } from '../../database/models/User';
 import handleUnknownExceptions from '../../error/handleUnkownError';
 
 interface IReqUser extends Request {
@@ -10,10 +11,10 @@ interface IReqUser extends Request {
 
 const getSatistics = async (req: IReqUser, res: Response) => {
   try {
-    const [user, productOrder, product, order,
+    const [user, engineer, product, order,
       hiringOrder, productCategory, dataByMonth] = await Promise.all([
-      User.count(),
-      ProductOrder.count(),
+      User.count({ where: { role: USER } }),
+      User.count({ where: { role: ENGINEER } }),
       Product.count(),
       Order.count(),
       HiringOrder.count(),
@@ -32,7 +33,7 @@ const getSatistics = async (req: IReqUser, res: Response) => {
       status: 200,
       data: {
         user,
-        productOrder,
+        engineer,
         product,
         order,
         hiringOrder,
