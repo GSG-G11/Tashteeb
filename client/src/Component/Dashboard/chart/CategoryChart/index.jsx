@@ -21,7 +21,6 @@ function CategoryChart() {
     fetchcategory();
     return () => source.cancel();
   }, []);
-  console.log(data);
   const config = {
     appendPadding: 10,
     data,
@@ -68,8 +67,3 @@ function CategoryChart() {
 }
 
 export default CategoryChart;
-// productCountByCategory: (4) [{…}, {…}, {…}, {…}]
-// 0: {id: 4, name: 'History', number of products: '7'}
-// 1: {id: 2, name: 'Sicfi & Fantasy', number of products: '5'}
-// 2: {id: 3, name: 'Romance', number of products: '5'}
-// 3: {id: 1, name: 'Teen & Young Adult', number of products: '5'}

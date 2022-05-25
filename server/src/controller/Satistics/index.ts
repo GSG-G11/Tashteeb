@@ -18,12 +18,12 @@ const getSatistics = async (req: IReqUser, res: Response) => {
       Product.count(),
       Order.count(),
       HiringOrder.count(),
-      await Category.findAll({
+      Category.findAll({
         attributes: ['id', 'name', [sequelize.fn('count', sequelize.col('"products"."id"')), 'number']],
         include: [{ model: Product, attributes: [] }],
         group: ['category.id'],
       }),
-      await Order.findAll({
+      Order.findAll({
         attributes: [[sequelize.fn('TO_CHAR', sequelize.col('createdAt'), 'MONTH'), 'month'],
           [sequelize.fn('count', sequelize.col('id')), 'count']],
         group: ['month'],
