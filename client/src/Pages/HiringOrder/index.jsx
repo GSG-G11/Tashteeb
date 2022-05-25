@@ -35,6 +35,9 @@ export default function HiringOrder() {
       <div className="eng-navbar-section">
         <Navbar transparent={false} />
       </div>
+      <div className="hiring-orders-title">
+        <h2>Hiring orders</h2>
+      </div>
       {orders.length === 0 ? (
         <h1 className="ptag">there is no orders for you yet</h1>
       ) : (

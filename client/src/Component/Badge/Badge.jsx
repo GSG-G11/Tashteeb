@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Badge } from 'antd';
+import { useAuth } from '../../Context/AuthContext';
 
 function ShowBadge() {
-  const [productNumber, setProductNumber] = useState([]);
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('cart'));
-
-    setProductNumber(items);
-  }, []);
+  const { productNumber } = useAuth();
   return (
     <Badge
       count={productNumber?.length}
