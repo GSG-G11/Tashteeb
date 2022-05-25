@@ -81,3 +81,31 @@
     background-color: transparent;
     border: 1px solid transparent;
 }
+/* 
+chart */
+.chartHome{
+    width: 90%;
+    margin: auto;
+}
+.chartMain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    
+}
+.chartMain .orders{
+    width: 100%;
+}
+.chartMain .orders h2{
+margin-right: 9rem !important;
+margin-bottom: 2rem;
+}
+.chartMain .category{
+    width: 50%;
+    margin-top: 3rem;
+}
+
+

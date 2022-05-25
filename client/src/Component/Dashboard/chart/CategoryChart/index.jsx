@@ -14,8 +14,8 @@ function CategoryChart() {
       });
       const { productCountByCategory } = getData.data.data;
       setData(productCountByCategory.map((item) => ({
-        catrgory: item.name,
-        productNum: item.number,
+        type: item.name,
+        value: +item.number,
       })));
     };
     fetchcategory();
@@ -25,8 +25,8 @@ function CategoryChart() {
   const config = {
     appendPadding: 10,
     data,
-    angleField: 'productNum',
-    colorField: 'catrgory',
+    angleField: 'value',
+    colorField: 'type',
     radius: 1,
     innerRadius: 0.6,
     label: {
@@ -49,12 +49,12 @@ function CategoryChart() {
     statistic: {
       title: false,
       content: {
-        // style: {
-        //   fontSize: '14px',
-        //   whiteSpace: 'pre-wrap',
-        //   overflow: 'hidden',
-        //   textOverflow: 'ellipsis',
-        // },
+        style: {
+          fontSize: '14px',
+          whiteSpace: 'pre-wrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        },
         content: `total ${data.length}`,
       },
     },

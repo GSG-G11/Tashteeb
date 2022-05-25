@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Column } from '@ant-design/plots';
+import './style.css';
 
 function OrderChart() {
   const [data, setData] = React.useState([]);
@@ -14,20 +15,23 @@ function OrderChart() {
       const { orderMonth } = getData.data.data;
       setData(orderMonth.map((item) => ({
         x: item.month,
-        y: item.count,
+        y: +item.count,
       })));
     };
     fetchorder();
     return () => source.cancel();
   }, []);
   return (
-    <Column
-      data={data}
-      xField="x"
-      yField="y"
-      color="#EDB820"
-      width="20px"
-    />
+    <div className="orderChart">
+      <Column
+        data={data}
+        xField="x"
+        yField="y"
+        columnStyle={{ radius: [0], width: '5px' }}
+        color="#EDB820"
+        width="10px"
+      />
+    </div>
   );
 }
 

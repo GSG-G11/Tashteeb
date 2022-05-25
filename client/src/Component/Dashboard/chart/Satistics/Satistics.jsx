@@ -21,23 +21,23 @@ function Satisticsfetch() {
       const datasatistics = {
         user: {
           count: getData.data.data.user,
-          icon: <UserOutlined />,
+          icon: <UserOutlined className="iconChart" style={{ color: 'green' }} />,
         },
         order: {
           count: getData.data.data.order,
-          icon: <ShoppingOutlined />,
+          icon: <ShoppingOutlined className="iconChart" style={{ color: '#EDB820' }} />,
         },
         productOrder: {
           count: getData.data.data.productOrder,
-          icon: <ShoppingCartOutlined />,
+          icon: <ShoppingCartOutlined className="iconChart" style={{ color: 'blue' }} />,
         },
         product: {
           count: getData.data.data.product,
-          icon: <SkinOutlined />,
+          icon: <SkinOutlined className="iconChart" style={{ color: '#00FFFF' }} />,
         },
         hiringOrder: {
           count: getData.data.data.hiringOrder,
-          icon: <PullRequestOutlined />,
+          icon: <PullRequestOutlined className="iconChart" style={{ color: 'red' }} />,
         },
       };
       setData(datasatistics);

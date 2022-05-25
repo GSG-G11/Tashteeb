@@ -1,10 +1,11 @@
 import React from 'react';
 import { Statistic, Row, Col } from 'antd';
 import { PropTypes } from 'prop-types';
+import './style.css';
 
 function Card({ statistics }) {
   return (
-    <div className="card-content">
+    <div className="cardStatistic">
       {Object.keys(statistics).map((item) => (
         <div key={item} className="card">
           <Row>
