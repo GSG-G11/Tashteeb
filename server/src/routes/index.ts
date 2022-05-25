@@ -18,6 +18,8 @@ import {
   getUserHirings,
   getEngHirings,
   completeService,
+  getHiringOrders,
+  deleteHiringOrder,
 } from '../controller';
 import {
   isUser, isRegularUser, isAdmin, isEngineer,
@@ -56,7 +58,9 @@ router.post('/checkout', isUser, checkout);
 router.post('/products', isAdmin, addProduct);
 router.get('/orders', isAdmin, getAllOrders);
 
-router.get('/hiringOrder', isRegularUser, getUserHirings);
+router.get('/hiringOrder', isAdmin, getHiringOrders);
+router.delete('/hiringOrder/:id', isAdmin, deleteHiringOrder);
+router.get('/hiringOrder/user', isRegularUser, getUserHirings);
 router.get('/hiringOrder/engineer', isEngineer, getEngHirings);
 router.post('/hiringOrder/:id', isRegularUser, userOrder);
 router.patch('/hiringOrder/:id', isEngineer, engReply);
