@@ -40,7 +40,9 @@ export default async (req: Request, res: Response) : Promise<any> => {
     const token = sign(payload, JWT_SECRET as Secret);
     res.cookie('token', token, { httpOnly: NODE_ENV === 'production' }).json({
       message: 'User logged in successfully!',
-      user: { id: account.id, username: account.username, role: account.role },
+      user: {
+        id: account.id, username: account.username, role: account.role, image: account.image,
+      },
     });
   } catch (err: any) {
     if (err.details) {

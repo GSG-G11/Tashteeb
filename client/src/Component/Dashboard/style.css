@@ -107,5 +107,12 @@ margin-bottom: 2rem;
     width: 50%;
     margin-top: 3rem;
 }
-
-
+/* order */
+.order__status {
+    background-color: #F7CB73;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
