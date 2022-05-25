@@ -18,6 +18,7 @@ import {
   getUserHirings,
   getEngHirings,
   completeService,
+  getSatistics,
   getHiringOrders,
   deleteHiringOrder,
 } from '../controller';
@@ -67,6 +68,7 @@ router.patch('/hiringOrder/:id', isEngineer, engReply);
 router.get('/hiringOrder/:id/complete', isEngineer, completeService);
 
 router.post('/review/:orderId', isRegularUser, createReview);
+router.get('/satistics', isAdmin, getSatistics);
 
 router.get('/category/:categoryId/products', getProductByCategory);
 router.use((req, res) => {
