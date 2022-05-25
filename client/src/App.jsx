@@ -17,6 +17,7 @@ import HiringOrder from './Pages/HiringOrder';
 import {
   ProtectedAdmin,
 } from './ProtectedRoutes/ProtectedRoutes';
+import HiringOrders from './Component/Dashboard/HiringOrders';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="product" element={<ProductList />} />
                 <Route path="satistics" element={<Satistics />} />
                 <Route path="orders" element={<Orders />} />
+                <Route path="hiring-orders" element={<HiringOrders />} />
               </Route>
             </Route>
             <Route path="/products" element={<ProdcutsPage />} />

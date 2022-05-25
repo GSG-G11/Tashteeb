@@ -46,6 +46,11 @@ function Dashboard() {
                     <span>Satistics</span>
                   </Link>
                 </Menu.Item>
+                <Menu.Item key="4">
+                  <Link to="/dashboard/hiring-orders">
+                    <span>Hiring Orders</span>
+                  </Link>
+                </Menu.Item>
               </Menu>
             </Sider>
             <Layout>

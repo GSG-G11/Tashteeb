@@ -6,8 +6,8 @@
 }
 
 .footer {
+  margin-top: 3rem;
   background-color: var(--navy-blue);
-  /* height: 20rem; */
   text-align: center;
   font-family: "Poppins", sans-serif;
   padding: 1rem 1rem;
@@ -15,6 +15,7 @@
 
 .footer__header {
   color: var(--dimgray);
+  font-size: 3rem;
   letter-spacing: 1rem;
 }
 
@@ -27,9 +28,9 @@
   gap: 1rem;
   padding: 1rem 3rem;
 }
-.footer__ul__header{
+.footer__ul__header {
   font-size: 1.8rem;
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .footer__ul {
@@ -53,7 +54,6 @@
   color: var(--primary);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  
 }
 
 .footer__ul ul li:hover .arrow__icon {
@@ -65,15 +65,14 @@
   width: 10px;
   height: 10px;
 }
-.footer__tweet{
+.footer__tweet {
   color: white;
   max-width: 33%;
   min-width: 33%;
   text-align: start;
-
 }
 
-.twitter__box{
+.twitter__box {
   width: 2rem;
   height: 2rem;
   color: white;

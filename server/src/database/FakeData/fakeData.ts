@@ -327,7 +327,6 @@ const fakeOrders = [
     totalPrice: 12,
   },
   {
-
     userId: 3,
     totalPrice: 423,
   },

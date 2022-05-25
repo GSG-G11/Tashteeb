@@ -81,3 +81,12 @@
     background-color: transparent;
     border: 1px solid transparent;
 }
+
+.order__status {
+    background-color: #F7CB73;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
