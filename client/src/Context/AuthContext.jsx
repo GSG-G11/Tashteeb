@@ -14,20 +14,20 @@ const ADMIN_ROLE = 2;
 function useProvideAuth() {
   const [user, setUser] = useState();
 
-  const register = (data) => axios.post('/signup', data)
+  const register = (data) => axios.post('/api/v1/signup', data)
     .then((res) => {
       setUser(res.data.user);
 
       return res.data;
     });
 
-  const login = (data) => axios.post('/login', data)
+  const login = (data) => axios.post('/api/v1/login', data)
     .then((res) => {
       setUser(res.data.user);
       return res.data;
     });
 
-  const logout = () => axios.post('/logout')
+  const logout = () => axios.post('/api/v1/logout')
     .then((res) => {
       setUser(res.data.user);
 
@@ -37,7 +37,7 @@ function useProvideAuth() {
     const { CancelToken } = axios;
     const source = CancelToken.source();
     axios
-      .get('/auth/user', {
+      .get('/api/v1/auth/user', {
         cancelToken: source.token,
       }).then((res) => {
         setUser(res.data.user);

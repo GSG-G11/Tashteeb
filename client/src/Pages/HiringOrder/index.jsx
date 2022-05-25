@@ -16,7 +16,7 @@ export default function HiringOrder() {
       const cancelToken = axios.CancelToken;
       const source = cancelToken.source();
       const fetchData = async () => {
-        const dataAxios = await axios(user.role === 1 ? '/hiringOrder/engineer' : '/hiringOrder', {
+        const dataAxios = await axios(user.role === 1 ? '/api/v1/hiringOrder/engineer' : '/api/v1/hiringOrder', {
           cancelToken: source.token,
         });
         const { data: { userHiringOrder } } = dataAxios;

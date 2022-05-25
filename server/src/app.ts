@@ -13,7 +13,7 @@ app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ limit: '15mb', extended: false }));
 app.use(cookieParser());
 app.use(compression());
-app.use(router);
+app.use('/api/v1', router);
 const {
   env: { NODE_ENV },
 } = process;

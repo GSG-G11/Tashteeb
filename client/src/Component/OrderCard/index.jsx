@@ -43,7 +43,7 @@ function OrderCard({
     setIsModalVisible(false);
     if (replyMessege.reply) {
       axios
-        .patch(`/hiringOrder/${id}`, replyMessege)
+        .patch(`/api/v1/hiringOrder/${id}`, replyMessege)
         .then((res) => {
           success(res.message);
           setReply({});
@@ -70,7 +70,7 @@ function OrderCard({
     setIsReviewModalVisible(false);
     if (reviewMessege.review && reviewMessege.rate) {
       axios
-        .post(`/review/${id}`, reviewMessege)
+        .post(`/api/v1/review/${id}`, reviewMessege)
         .then((res) => {
           success(res.data.message);
           setReviewMessege({});
@@ -93,7 +93,7 @@ function OrderCard({
 
   const completeOrder = async () => {
     try {
-      await axios(`/hiringOrder/${id}/complete`);
+      await axios(`/api/v1/hiringOrder/${id}/complete`);
       success('Order completed');
       setRerender(!rerender);
     } catch (err) {

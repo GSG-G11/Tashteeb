@@ -41,7 +41,7 @@ function ShoppingSummary() {
         const data = {
           products: cart,
         };
-        await axios.post('/checkout', data);
+        await axios.post('/api/v1/checkout', data);
         setCart([]);
       } catch (error) {
         // eslint-disable-next-line no-console
