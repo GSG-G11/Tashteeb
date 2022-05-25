@@ -12,7 +12,7 @@ function Header() {
         <img src={banner} alt="" />
         <div className="banner-info">
           <h3>we are construction parteners .</h3>
-          <h1>The builders we are the best </h1>
+          <h1>We Are The Best Builders</h1>
           <Button type="primary">
             Who We Are
           </Button>

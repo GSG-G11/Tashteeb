@@ -26,7 +26,7 @@ function EngCard() {
           <h2>OUR TEAM</h2>
           <p>We Have A Team Of Amzining Engineers</p>
         </div>
-        <div className="cardDetailes">
+        <div className="card__container">
           {info.map((item) => (
             <SingleCard
               key={item.id}
@@ -39,7 +39,7 @@ function EngCard() {
       </div>
       <div className="cardBtn">
         <Link to="/eng" className="btn">
-          JOIN US !
+          JOIN US!
         </Link>
       </div>
     </>
