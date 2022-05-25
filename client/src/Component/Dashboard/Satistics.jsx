@@ -1,8 +1,15 @@
 import React from 'react';
+import CategoryChart from './chart/CategoryChart';
+import OrderChart from './chart/OrderChart';
+import Satisticsfetch from './chart/Satistics/Satistics';
 
 function Satistics() {
   return (
-    <div>Satistics</div>
+    <>
+      <Satisticsfetch />
+      <OrderChart />
+      <CategoryChart />
+    </>
   );
 }
 
