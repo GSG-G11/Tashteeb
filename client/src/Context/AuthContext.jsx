@@ -13,6 +13,7 @@ const ADMIN_ROLE = 2;
 
 function useProvideAuth() {
   const [user, setUser] = useState();
+  const [productNumber, setProductNumber] = useState([]);
 
   const register = (data) => axios.post('/signup', data)
     .then((res) => {
@@ -60,6 +61,8 @@ function useProvideAuth() {
     login,
     // categoryName,
     // setCateoryName,
+    productNumber,
+    setProductNumber,
   };
 }
 

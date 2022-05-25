@@ -5,3 +5,31 @@
   justify-content: center;
   width: 100%;
 }
+.hiring-order {
+  margin-top: 10px;
+
+}
+.ptag{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+  height: 300px;
+}
+.hiring-orders-title{
+  width: 11%;
+  margin: 6rem 0 0 3.5rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  transition: all 1s ease-in-out;
+  border-bottom:2px solid #EDB820 ;
+  color: #ddd;
+}
+.hiring-orders-title h2{
+  color: rgb(55, 55, 55);
+  text-transform: capitalize;
+}
