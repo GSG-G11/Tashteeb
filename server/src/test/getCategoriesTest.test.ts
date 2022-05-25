@@ -8,7 +8,7 @@ beforeAll(() => buildFakeData());
 
 describe('GET /categories', () => {
   test('/get categories', (done) => {
-    supertest(app).get('/categories')
+    supertest(app).get('/api/v1/categories')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
