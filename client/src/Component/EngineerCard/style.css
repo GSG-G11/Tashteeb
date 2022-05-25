@@ -85,3 +85,15 @@ flex-wrap: wrap;
     margin-right: 4em;
     text-align: center;
   }
+  .cart-icon{
+    color: #EDB820;
+    font-size:2rem;
+    font-weight: 300;
+  }
+.badge-holder{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+}

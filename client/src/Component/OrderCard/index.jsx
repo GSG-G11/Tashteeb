@@ -5,6 +5,7 @@ import {
 } from 'antd';
 import axios from 'axios';
 import './orderCard.css';
+import moment from 'moment';
 import { success, error } from '../AntdMessages.jsx/messages';
 
 function OrderCard({
@@ -75,6 +76,7 @@ function OrderCard({
           success(res.data.message);
           setReviewMessege({});
           setRerender(!rerender);
+          success(res.message);
         })
         .catch((err) => {
           error(
@@ -112,7 +114,7 @@ function OrderCard({
           <p>ORDER TIME</p>
           <div className="order__info">
             {' '}
-            {time}
+            {moment(time).format('MMMM Do YYYY')}
             {' '}
           </div>
         </li>
@@ -146,9 +148,8 @@ function OrderCard({
                   <Button
                     type="primary"
                     style={{
-                      marginTop: '25px',
                       backgroundColor: '#008000',
-                      borderRadius: ' 5px',
+                      borderRadius: ' 15px',
                       border: ' 1px solid #008000',
                       color: '#fff',
                       fontWeight: ' 500',
@@ -166,7 +167,7 @@ function OrderCard({
                     type="primary"
                     style={{
                       backgroundColor: '#FF0000',
-                      borderRadius: ' 5px',
+                      borderRadius: ' 15px',
                       border: ' 1px solid #FF0000',
                       color: '#fff',
                       fontWeight: ' 500',

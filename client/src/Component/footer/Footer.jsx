@@ -11,9 +11,11 @@ function Footer() {
       <div className="footer__ul__wrapper">
         <FooterUl
           header="Contact Us"
-          li1="Gaza - Palestine"
-          li2="tashteeb@support.com"
-          li3="+972 - 592 - 100 - 443"
+          data={[
+            'Gaza - Palestine',
+            'tashteeb@support.com',
+            '+972 - 592 - 100 - 443',
+          ]}
         />
         <FooterUl
           header="Services"

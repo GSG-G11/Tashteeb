@@ -5,6 +5,7 @@ import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import './style.css';
+import { useAuth } from '../../../Context/AuthContext';
 
 const { Meta } = Card;
 
@@ -15,6 +16,7 @@ function ProductCard({
   price,
 }) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const { setProductNumber } = useAuth();
   const addFunc = () => {
     if (!isAddedToCart) {
       const products = JSON.parse(localStorage.getItem('cart'));
@@ -36,6 +38,11 @@ function ProductCard({
     const addedToCart = products.some((item) => item.id === id);
     setIsAddedToCart(addedToCart);
   }, []);
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('cart'));
+
+    setProductNumber(items);
+  }, [isAddedToCart]);
 
   return (
     <Card

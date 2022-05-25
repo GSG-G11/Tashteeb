@@ -3,10 +3,12 @@ import React from 'react';
 import { DeleteTwoTone } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import './style.css';
+import { useAuth } from '../../Context/AuthContext';
 
 function CartRow({
   img, name, price, quantity, setQuantity, id, deleteItem,
 }) {
+  const { setProductNumber } = useAuth();
   return (
     <tr>
       <td>
@@ -21,7 +23,9 @@ function CartRow({
             className="cart-quantity-button"
             onClick={() => setQuantity(id, quantity - 1)}
           />
-          <div className="cart-quantity-input"><p>{quantity}</p></div>
+          <div className="cart-quantity-input">
+            <p>{quantity}</p>
+          </div>
           <input
             type="button"
             value="+"
@@ -37,7 +41,15 @@ function CartRow({
         <h6>${(price * quantity).toFixed(1)}</h6>
       </td>
       <td>
-        <DeleteTwoTone twoToneColor="#eb2f96" style={{ 'font-size': 20 }} onClick={() => deleteItem(id)} />
+        <DeleteTwoTone
+          twoToneColor="#eb2f96"
+          style={{ 'font-size': 20 }}
+          onClick={() => {
+            deleteItem(id);
+            const items = JSON.parse(localStorage.getItem('cart'));
+            setProductNumber(items);
+          }}
+        />
       </td>
     </tr>
   );
