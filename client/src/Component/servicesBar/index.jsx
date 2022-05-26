@@ -12,7 +12,7 @@ function ServicesBar() {
       <div>
         <h2 className="service-heading">What We Do</h2>
         <hr />
-        <p className="service-description">Here At Tashteeb We Don't believe In To Do List's, We Believe That The Right Time To Be Doing Something Is NOW!</p>
+        <p className="service-description">Here At Tashteeb We Dont believe In To Do Lists, We Believe That The Right Time To Be Doing Something Is NOW!</p>
       </div>
       <div className="service-container">
         <div className="service-landing">

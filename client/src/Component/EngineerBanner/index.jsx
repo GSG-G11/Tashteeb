@@ -9,7 +9,10 @@ function EngineerBanner({ title, desc }) {
         <div className="dataEng">
           <div><h1>{title}</h1></div>
           <div className="engineerLinks">
-            <p> {desc}</p>
+            <p>
+              {' '}
+              {desc}
+            </p>
           </div>
         </div>
       </div>
