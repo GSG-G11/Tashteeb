@@ -31,7 +31,7 @@ function useProvideAuth() {
   const logout = () => axios.post('/api/v1/logout')
     .then((res) => {
       setUser(res.data.user);
-
+      localStorage.removeItem('cart');
       return res.data.user;
     });
   useEffect(() => {
