@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Pagination } from 'antd';
-import SingleCard from '../EngineerCard/SingleCard';
-import '../EngineerCard/style.css';
-import './style.css';
-import Navbar from '../Navbar';
-import EngineerBanner from '../EngineerBanner';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Pagination } from "antd";
+import SingleCard from "../EngineerCard/SingleCard";
+import "../EngineerCard/style.css";
+import "./style.css";
+import Navbar from "../Navbar";
+import EngineerBanner from "../EngineerBanner";
 
 function EngineerInfo() {
   const [info, setInfo] = useState([]);
@@ -16,7 +16,7 @@ function EngineerInfo() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchEng = async () => {
-      const getData = await axios.get('/engineers', {
+      const getData = await axios.get("/engineers", {
         cancelToken: source.token,
         params: { pageSize, page },
       });
@@ -36,7 +36,10 @@ function EngineerInfo() {
   return (
     <div>
       <Navbar />
-      <EngineerBanner title="Engineers Info" />
+      <EngineerBanner
+        title="Engineers Info"
+        desc="Browse Through Our List Of Amazing Engineers "
+      />
       <div className="engController">
         <div className="cardDetailes engineerInfo">
           {info.map((item) => (

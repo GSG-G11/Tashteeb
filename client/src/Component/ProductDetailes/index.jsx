@@ -50,7 +50,6 @@ function ProductDetailes({
     <div className="containerProduct">
       <div className="wrapper">
         <div className="image">
-          {/* <img className="product-image" src={img} alt="images" /> */}
           <Image cloudName="dst1qgbta" publicId={img} crop="scale" />
         </div>
 

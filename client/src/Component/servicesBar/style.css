@@ -2,12 +2,13 @@
 
 .service-bar {
   width: 100%;
-  height: 25rem;
+  height: 30rem;
   background-color: #272b37;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   padding: 1rem;
+  padding:  4rem;
 }
 .service-heading {
   font-family: "Poppins", sans-serif;
@@ -29,6 +30,7 @@
   width: calc(100vw - 2rem);
   height: calc(100vw / 6);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 2px solid #ffffff;

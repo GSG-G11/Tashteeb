@@ -7,6 +7,7 @@
     position: fixed;
     width: 100%;
     z-index: 5;
+    padding: 0 4rem;
 }
 .transparent {
   background-color: transparent;
@@ -18,7 +19,6 @@
 .app-logo img {
     width: 100%;
     object-fit: contain;
-    padding: 20px;
     cursor: pointer;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .auth-section {
-  width: 15%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
 }

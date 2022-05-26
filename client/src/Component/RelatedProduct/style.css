@@ -1,16 +1,17 @@
-.RelatedProducts{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    margin: auto;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-    font-size: 2rem;
-    font-weight: 600;
+.RelatedProducts {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
-.RelatedProducts-container{
-    display: flex;
-    flex-direction: row;
-justify-content: space-evenly;
+.RelatedProducts-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 4rem;
 }

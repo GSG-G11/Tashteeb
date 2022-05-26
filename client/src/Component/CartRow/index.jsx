@@ -21,7 +21,7 @@ function CartRow({
             type="button"
             value="-"
             className="cart-quantity-button"
-            onClick={() => setQuantity(id, quantity - 1)}
+            onClick={() => quantity > 0 && setQuantity(id, quantity - 1)}
           />
           <div className="cart-quantity-input">
             <p>{quantity}</p>
