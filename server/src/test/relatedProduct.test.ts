@@ -13,7 +13,7 @@ afterAll(() => {
 describe('get products by category', () => {
   test('success get product by category', (done) => {
     supertest(app)
-      .get('/category/2/products')
+      .get('/api/v1/category/2/products')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -24,7 +24,7 @@ describe('get products by category', () => {
   });
   test('failed get product by category', (done) => {
     supertest(app)
-      .get('/category/4000/products')
+      .get('/api/v1/category/4000/products')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);

@@ -22,7 +22,7 @@ function ProductTable() {
   };
 
   const deleteProduct = (id) => {
-    axios.delete(`/products/${id}`).then(() => {
+    axios.delete(`/api/v1/products/${id}`).then(() => {
       const newProducts = products.filter((product) => product.id !== id);
       setProducts(newProducts);
     });

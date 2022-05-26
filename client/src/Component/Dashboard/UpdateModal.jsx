@@ -15,7 +15,7 @@ function UpdateModal({ title, data }) {
   const updateProduct = (id) => {
     let newProducts;
     axios
-      .patch(`/products/${id}`, form)
+      .patch(`/api/v1/products/${id}`, form)
       .then((res) => {
         newProducts = products.filter((item) => item.id !== id);
         const product = res.data.data;

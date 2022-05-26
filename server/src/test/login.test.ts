@@ -9,7 +9,7 @@ beforeAll(() => buildFakeData());
 describe('POST /login', () => {
   test('success login', (done) => {
     supertest(app)
-      .post('/login')
+      .post('/api/v1/login')
       .send({
         email: 'admin@admin.com',
         password: '123456789',
@@ -29,7 +29,7 @@ describe('POST /login', () => {
 describe('POST /login', () => {
   test('wrong password', (done) => {
     supertest(app)
-      .post('/login')
+      .post('/api/v1/login')
       .send({
         email: 'admin@admin.com',
         password: 'incorrect password',
@@ -48,7 +48,7 @@ describe('POST /login', () => {
 describe('POST /login', () => {
   test('not esisting email', (done) => {
     supertest(app)
-      .post('/login')
+      .post('/api/v1/login')
       .send({
         email: 'doesnt.exist@gmail.com',
         password: 'password',

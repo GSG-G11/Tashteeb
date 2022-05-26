@@ -13,7 +13,7 @@ afterAll(() => {
 describe('get all engineer', () => {
   test('success get data', (done) => {
     supertest(app)
-      .get('/engineers')
+      .get('/api/v1/engineers')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -28,7 +28,7 @@ describe('get all engineer', () => {
 describe('get all engineer', () => {
   test('failed get data', (done) => {
     supertest(app)
-      .get('/engineerss')
+      .get('/api/v1/engineerss')
       .expect(404)
       .end((err, res) => {
         if (err) return done(err);
@@ -40,7 +40,7 @@ describe('get all engineer', () => {
 describe('get home engineer', () => {
   test('success get data', (done) => {
     supertest(app)
-      .get('/engineers/home')
+      .get('/api/v1/engineers/home')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -54,7 +54,7 @@ describe('get home engineer', () => {
 describe('get engineer by id', () => {
   test('success get engineer by id', (done) => {
     supertest(app)
-      .get('/engineers/4')
+      .get('/api/v1/engineers/4')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -68,7 +68,7 @@ describe('get engineer by id', () => {
 describe('get engineer by id', () => {
   test('failed get engineer by id', (done) => {
     supertest(app)
-      .get('/engineers/5000')
+      .get('/api/v1/engineers/5000')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
