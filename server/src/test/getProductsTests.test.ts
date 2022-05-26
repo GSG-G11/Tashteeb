@@ -10,7 +10,7 @@ beforeAll(() => buildFakeData());
 describe('GET /products', () => {
   test('get products', (done) => {
     supertest(app)
-      .get('/products')
+      .get('/api/v1/products')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -24,7 +24,7 @@ describe('GET /products', () => {
 
   test('get products with search', (done) => {
     supertest(app)
-      .get('/products?q=diary')
+      .get('/api/v1/products?q=diary')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -37,7 +37,7 @@ describe('GET /products', () => {
 
   test('get products with category id', (done) => {
     supertest(app)
-      .get('/products?categoryId=1')
+      .get('/api/v1/products?categoryId=1')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -50,7 +50,7 @@ describe('GET /products', () => {
 
   test('/get products within range of max and min', (done) => {
     supertest(app)
-      .get('/products?minPrice=10&maxPrice=20')
+      .get('/api/v1/products?minPrice=10&maxPrice=20')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);

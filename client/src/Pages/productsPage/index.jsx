@@ -31,7 +31,7 @@ function ProdcutsPage() {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const productData = await axios('/products?', {
+        const productData = await axios('/api/v1/products?', {
           params: {
             q,
             categoryId,
@@ -51,7 +51,7 @@ function ProdcutsPage() {
 
     const getAllCategories = async () => {
       try {
-        const getCategories = await axios('/categories');
+        const getCategories = await axios('/api/v1/categories');
         const categoriesList = getCategories.data.data;
         setAllCategories(categoriesList);
       } catch (errr) {

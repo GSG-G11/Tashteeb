@@ -9,7 +9,7 @@ const { Title } = Typography;
 function OrderList() {
   const { setOrders, orders } = useContext(Context);
   useEffect(() => {
-    axios.get('/orders').then((res) => {
+    axios.get('/api/v1/orders').then((res) => {
       setOrders(res.data.data);
       return res.data.data;
     });

@@ -9,7 +9,7 @@ beforeAll(() => buildFakeData());
 describe('POST /signup', () => {
   test('success sign up', (done) => {
     supertest(app)
-      .post('/signup')
+      .post('/api/v1/signup')
       .send({
         username: 'mohamed2',
         password: 'password',
@@ -32,7 +32,7 @@ describe('POST /signup', () => {
 describe('POST /signup', () => {
   test('duplicate email', (done) => {
     supertest(app)
-      .post('/signup')
+      .post('/api/v1/signup')
       .send({
         username: 'hallos',
         password: 'password',
@@ -55,7 +55,7 @@ describe('POST /signup', () => {
 describe('POST /signup', () => {
   test('duplicate username', (done) => {
     supertest(app)
-      .post('/signup')
+      .post('/api/v1/signup')
       .send({
         username: 'admin',
         password: 'password',

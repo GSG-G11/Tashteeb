@@ -11,7 +11,7 @@ function EngineerProfile() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchData = async () => {
-      const datares = await axios.get(`/engineers/${id}`, {
+      const datares = await axios.get(`/api/v1/engineers/${id}`, {
         cancelToken: source.token,
       });
       setInfo(datares.data.user);

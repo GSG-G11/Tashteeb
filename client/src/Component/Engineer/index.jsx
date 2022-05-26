@@ -16,7 +16,7 @@ function EngineerInfo() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchEng = async () => {
-      const getData = await axios.get('/engineers', {
+      const getData = await axios.get('/api/v1/engineers', {
         cancelToken: source.token,
         params: { pageSize, page },
       });

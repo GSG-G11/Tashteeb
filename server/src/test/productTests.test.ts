@@ -13,7 +13,7 @@ beforeAll(() => buildFakeData());
 describe('POST /addProduct', () => {
   test('success addProduct', (done) => {
     supertest(app)
-      .post('/products')
+      .post('/api/v1/products')
       .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
@@ -35,7 +35,7 @@ describe('POST /addProduct', () => {
 describe('POST /addProduct', () => {
   test('faild addProduct', (done) => {
     supertest(app)
-      .post('/products')
+      .post('/api/v1/products')
       .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
@@ -55,7 +55,7 @@ describe('POST /addProduct', () => {
 describe('POST /addProduct', () => {
   test('validation failed addProduct', (done) => {
     supertest(app)
-      .post('/products')
+      .post('/api/v1/products')
       .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
@@ -78,7 +78,7 @@ describe('POST /addProduct', () => {
 describe('patch /products/:id', () => {
   test('success updateProduct', (done) => {
     supertest(app)
-      .patch('/products/1')
+      .patch('/api/v1/products/1')
       .set('Cookie', [`token=${ADMIN}`])
       .send({
         name: 'hummer',
@@ -97,7 +97,7 @@ describe('patch /products/:id', () => {
 describe('get product by id', () => {
   test('success get product by id', (done) => {
     supertest(app)
-      .get('/products/1')
+      .get('/api/v1/products/1')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -115,7 +115,7 @@ describe('DELETE /products/:id', () => {
     'success deleteProduct',
     (done) => {
       supertest(app)
-        .delete('/products/1')
+        .delete('/api/v1/products/1')
         .set('Cookie', [`token=${ADMIN}`])
         .end((err, res) => {
           if (err) return done(err);
@@ -130,7 +130,7 @@ describe('DELETE /products/:id', () => {
 describe('POST /addProduct', () => {
   test('unauthenticated addProduct', (done) => {
     supertest(app)
-      .post('/products')
+      .post('/api/v1/products')
       .send({
         name: 'hummer',
         price: 20,
@@ -149,7 +149,7 @@ describe('POST /addProduct', () => {
 describe('get product by id', () => {
   test('failed get product by id', (done) => {
     supertest(app)
-      .get('/products/5000')
+      .get('/api/v1/products/5000')
       .expect(404)
       .end((err, res) => {
         if (err) return done(err);

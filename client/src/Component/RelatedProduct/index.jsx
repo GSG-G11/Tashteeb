@@ -10,7 +10,7 @@ function RelatedProducts({ categoryId }) {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchData = async () => {
-      const datares = await axios.get(`/category/${categoryId}/products`, {
+      const datares = await axios.get(`/api/v1/category/${categoryId}/products`, {
         cancelToken: source.token,
       });
       setInfo(datares.data.data);
