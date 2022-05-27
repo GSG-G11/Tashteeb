@@ -1,5 +1,4 @@
 .navbar-holder {
-    height: 60px;
     background-color: #1D202F;
     display: flex;
     justify-content: space-between;
@@ -8,22 +7,31 @@
     position: fixed;
     width: 100%;
     z-index: 5;
+    padding: 0 4rem;
 }
 .transparent {
   background-color: transparent;
 }
 
+.app-logo{
+  width: 15%;
+}
 .app-logo img {
-    width: 13rem;
+    width: 100%;
     object-fit: contain;
-    padding: 20px;
     cursor: pointer;
 }
 
 .navbar-info {
     display: flex;
+    width: 20%;
 }
 
+.auth-section {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
 .navbar-info a {
     padding: 0 15px;
     cursor: pointer;

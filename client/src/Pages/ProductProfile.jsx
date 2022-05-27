@@ -21,7 +21,7 @@ function ProductProfile() {
     };
     fetchdata();
     return () => source.cancel();
-  }, []);
+  }, [id]);
   return (
     <>
       <div className="eng-navbar-section">

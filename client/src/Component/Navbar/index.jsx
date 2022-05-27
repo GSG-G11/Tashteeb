@@ -42,7 +42,6 @@ function Navbar({ transparent = true }) {
         className="auth-section"
         style={{
           display: 'flex',
-          justifyContent: 'center',
           alignItems: 'center',
           marginBottom: '25px',
         }}
