@@ -19,25 +19,44 @@ function Satisticsfetch() {
         cancelToken: source.token,
       });
       const datasatistics = {
-        user: {
+        users: {
           count: getData.data.data.user,
-          icon: <UserOutlined className="iconChart" style={{ color: 'green' }} />,
+          icon: (
+            <UserOutlined className="iconChart" style={{ color: '#EDB820' }} />
+          ),
         },
-        order: {
+        orders: {
           count: getData.data.data.order,
-          icon: <ShoppingOutlined className="iconChart" style={{ color: '#EDB820' }} />,
+          icon: (
+            <ShoppingOutlined
+              className="iconChart"
+              style={{ color: '#EDB820' }}
+            />
+          ),
         },
-        engineer: {
+        engineers: {
           count: getData.data.data.engineer,
-          icon: <ShoppingCartOutlined className="iconChart" style={{ color: 'blue' }} />,
+          icon: (
+            <ShoppingCartOutlined
+              className="iconChart"
+              style={{ color: '#EDB820' }}
+            />
+          ),
         },
-        product: {
+        products: {
           count: getData.data.data.product,
-          icon: <SkinOutlined className="iconChart" style={{ color: '#00FFFF' }} />,
+          icon: (
+            <SkinOutlined className="iconChart" style={{ color: '#EDB820' }} />
+          ),
         },
-        hiringOrder: {
+        hirings: {
           count: getData.data.data.hiringOrder,
-          icon: <PullRequestOutlined className="iconChart" style={{ color: 'red' }} />,
+          icon: (
+            <PullRequestOutlined
+              className="iconChart"
+              style={{ color: '#EDB820' }}
+            />
+          ),
         },
       };
       setData(datasatistics);
