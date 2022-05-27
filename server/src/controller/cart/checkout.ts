@@ -9,9 +9,10 @@ interface IReqUser extends Request {
 
 export default async (req: IReqUser, res: Response) => {
   try {
+    const { user: { username, id } } = req; // User ID
     const totalPrice = req.body.products.reduce((acc: number, cur: { price: number; quantity: number; }) => acc + cur.price * cur.quantity, 0);
     const order = await Order.create({
-      userId: req.user.id,
+      userId: id,
       totalPrice,
     });
     const orderId = order.id;
@@ -23,6 +24,9 @@ export default async (req: IReqUser, res: Response) => {
         subtotalPrice: product.price * product.quantity,
       })),
     );
+
+    const io = req.app.get('socketio');
+    io.emit('notification', { message: `User ${username} has checkouted an order.` });
 
     res.status(200).json({
       message: 'Cart checkouted successfully',
