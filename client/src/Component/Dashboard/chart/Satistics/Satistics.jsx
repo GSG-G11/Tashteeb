@@ -15,7 +15,7 @@ function Satisticsfetch() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchEng = async () => {
-      const getData = await axios.get('/satistics', {
+      const getData = await axios.get('/api/v1/satistics', {
         cancelToken: source.token,
       });
       const datasatistics = {
