@@ -115,7 +115,7 @@ describe('DELETE /products/:id', () => {
     'success deleteProduct',
     (done) => {
       supertest(app)
-        .delete('/products/3')
+        .delete('/api/v1/products/3')
         .set('Cookie', [`token=${ADMIN}`])
         .end((err, res) => {
           if (err) return done(err);
