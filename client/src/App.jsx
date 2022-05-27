@@ -18,6 +18,7 @@ import {
   ProtectedAdmin,
 } from './ProtectedRoutes/ProtectedRoutes';
 import HiringOrders from './Component/Dashboard/HiringOrders';
+import AboutUs from './Component/AboutUs';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="/product/:id" element={<ProductProfile />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/eng" element={<EngineerInfo />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Router>

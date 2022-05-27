@@ -33,7 +33,7 @@ function Navbar({ transparent = true }) {
         <Link to="/">Home</Link>
         <Link to="/products">Shop </Link>
         <Link to="/eng">Engineer</Link>
-        {user?.role === ADMIN_ROLE && <Link to="/dashboard">Dashboard</Link>}
+        {user?.role === ADMIN_ROLE && <Link to="/dashboard/satistics">Dashboard</Link>}
         {(user?.role === USER_ROLE || user?.role === ENGINEER_ROLE) && (
           <Link to="/hiring">Hiring Order</Link>
         )}

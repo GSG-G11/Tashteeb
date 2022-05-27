@@ -12,18 +12,17 @@ function Dashboard() {
     <ProductProvider>
       <div className="Dashboard">
         <Layout>
-          <Header
-            style={{ padding: 10, backgroundColor: '#1D202F' }}
-            className="Dashboard-header"
-          >
-            <Navbar />
+          <Header style={{ backgroundColor: '#1D202F' }}>
+            <div className="dashborad-nav">
+              <Navbar />
+            </div>
           </Header>
           <Layout>
             <Sider style={{ minHeight: '89.3vh' }} s>
               <Menu
                 theme="dark"
                 mode="inline"
-                defaultSelectedKeys={['1']}
+                defaultSelectedKeys={['3']}
                 defaultOpenKeys={['sub1']}
                 style={{
                   height: '100%',
@@ -31,6 +30,11 @@ function Dashboard() {
                   backgroundColor: '#1D202F',
                 }}
               >
+                <Menu.Item key="3">
+                  <Link to="/dashboard/satistics">
+                    <span>Satistics</span>
+                  </Link>
+                </Menu.Item>
                 <Menu.Item key="1">
                   <Link to="/dashboard/product">
                     <span>Product</span>
@@ -41,11 +45,7 @@ function Dashboard() {
                     <span>Orders</span>
                   </Link>
                 </Menu.Item>
-                <Menu.Item key="3">
-                  <Link to="/dashboard/satistics">
-                    <span>Satistics</span>
-                  </Link>
-                </Menu.Item>
+
                 <Menu.Item key="4">
                   <Link to="/dashboard/hiring-orders">
                     <span>Hiring Orders</span>

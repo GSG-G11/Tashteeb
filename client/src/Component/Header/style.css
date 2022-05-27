@@ -38,6 +38,18 @@
   align-items: center;
   font-size: 1.2rem;
 }
+.about-home{
+    margin-top: 25px;
+    padding: 10px 25px;
+    background-color: #EDB820;
+    border-radius: 5px;
+    border: 1px solid #EDB820;
+    color: #fff;
+    font-weight: 500;
+    transition: all 1s ease-in-out;
+    display: flex;
+    align-items: center;
+}
 
 .banner-info button:hover {
   background-color: transparent;
