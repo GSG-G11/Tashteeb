@@ -29,6 +29,7 @@ export default async (req: IReqUser, res: Response) => {
       productOrder,
     });
   } catch (error: any) {
+    console.log(error);
     handleUnknownError(error, res);
   }
 };
