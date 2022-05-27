@@ -24,7 +24,7 @@ describe('GET /products', () => {
 
   test('get products with search', (done) => {
     supertest(app)
-      .get('/products?q=Tape')
+      .get('/api/v1/products?q=Tape')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
