@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Request, Response } from 'express';
 import { Order, ProductOrder } from '../../database';
-import handleUnknownError from '../../error/handleUnkownError';
+import errorHandler from '../../error';
 
 interface IReqUser extends Request {
   user?: any;
@@ -33,6 +33,6 @@ export default async (req: IReqUser, res: Response) => {
       productOrder,
     });
   } catch (error: any) {
-    handleUnknownError(error, res);
+    errorHandler(error, res);
   }
 };
