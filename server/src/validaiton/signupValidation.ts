@@ -9,7 +9,7 @@ const signupValidation = (req : Request) => {
     password: Joi.string().min(6).max(255).required(),
     image: Joi.string(),
     role: Joi.number().min(0).max(2),
-    bio: Joi.string().min(6),
+    bio: Joi.string(),
     hourPrice: Joi.number().min(0),
     phone: Joi.string().min(6).max(255),
   });
