@@ -8,7 +8,6 @@ import store from '../../images/store 1.png';
 function ServicesBar() {
   return (
     <section className="service-bar">
-      <div className="spacing" />
       <div>
         <h2 className="service-heading">What We Do</h2>
         <hr />

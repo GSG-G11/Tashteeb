@@ -26,7 +26,7 @@
 }
 
 .card {
-  width: 25%;
+  width: 20%;
   border: 1px solid #edb820;
   border-radius: 15px;
   transition: all 0.3s ease-in-out;
@@ -41,14 +41,18 @@
   gap: 3rem;
   margin-bottom: 2rem;
   padding: 3rem 0;
+  object-fit: cover;
 }
 .card__img__container {
   width: 100%;
-  overflow: hidden;
+  height: 85%;
 }
 .card__img__container img {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+
 }
 
 .cardDetailes .card:hover {
@@ -60,7 +64,7 @@
   flex-direction: column;
   align-items: center;
   align-content: center;
-  margin-bottom: 1rem;
+  height: 15%;
 }
 .Engdetailes h4 {
   text-transform: uppercase;
@@ -68,6 +72,10 @@
   font-weight: 600;
   width: 100%;
   margin-bottom: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.Engdetailes h4:hover{
+  color: #edb820;
 }
 .Engdetailes p {
   margin-top: 1px;
