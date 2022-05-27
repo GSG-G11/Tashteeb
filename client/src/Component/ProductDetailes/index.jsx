@@ -28,7 +28,7 @@ function ProductDetailes({
     setIsModalVisible(false);
     if (data.price && data.description) {
       try {
-        await axios.post(`/hiringOrder/${id}`, data);
+        await axios.post(`/api/v1/hiringOrder/${id}`, data);
         success('Order sent successfully');
       } catch (err) {
         error(

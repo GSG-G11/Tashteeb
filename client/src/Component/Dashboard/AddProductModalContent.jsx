@@ -15,7 +15,7 @@ function AddProductModalContent() {
   } = useContext(Context);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get('/categories').then((res) => {
+    axios.get('/api/v1/categories').then((res) => {
       setCategories(res.data.data);
     });
   }, [Select]);

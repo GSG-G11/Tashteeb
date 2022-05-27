@@ -17,7 +17,7 @@ function DashboardModal({ title }) {
   const handleOk = () => {
     setIsDashboardModalVisible(false);
     axios
-      .post('/products', form)
+      .post('/api/v1/products', form)
       .then((res) => {
         success('Product added successfully');
         setProducts([...products, res.data]);

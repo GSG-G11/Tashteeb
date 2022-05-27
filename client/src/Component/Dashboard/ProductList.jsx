@@ -14,7 +14,7 @@ function ProductList() {
 
   useEffect(() => {
     axios
-      .get('/products', {
+      .get('/api/v1/products', {
         params: {
           page,
           limit: pageSize,
