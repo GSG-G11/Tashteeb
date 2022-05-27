@@ -19,7 +19,7 @@ function HiringOrderTable({
   };
 
   const deleteHO = (id) => {
-    axios.delete(`/hiringOrder/${id}`).then(() => {
+    axios.delete(`/api/v1/hiringOrder/${id}`).then(() => {
       const newHO = hiringOrders.filter((ho) => ho.id !== id);
       setHiringOrders(newHO);
     });

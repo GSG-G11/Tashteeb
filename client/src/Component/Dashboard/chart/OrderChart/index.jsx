@@ -9,7 +9,7 @@ function OrderChart() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchorder = async () => {
-      const getData = await axios.get('/satistics', {
+      const getData = await axios.get('/api/v1/satistics', {
         cancelToken: source.token,
       });
       const { orderMonth } = getData.data.data;
