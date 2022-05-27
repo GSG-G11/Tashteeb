@@ -24,11 +24,11 @@ describe('GET /products', () => {
 
   test('get products with search', (done) => {
     supertest(app)
-      .get('/products?q=diary')
+      .get('/products?q=Tape')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.body.product.rows[0].name).toBe('The Diary of a Young Girl');
+        expect(res.body.product.rows[0].name).toBe('Tape Measure');
         return done();
       });
   });
@@ -54,7 +54,7 @@ describe('GET /products', () => {
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.body.product.rows[0].price).toBe('14.5');
+        expect(res.body.product.rows[0].price).toBe('18.5');
         return done();
       });
   });
