@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { notification } from 'antd';
 import logo from '../../Assets/Group 91.svg';
@@ -26,12 +26,14 @@ function Navbar({ transparent = true }) {
   };
   window.addEventListener('scroll', changeBackground);
 
+  const navigate = useNavigate();
+
   const openNotification = (data) => {
     notification.open({
       message: 'Order Created',
       description: data,
       onClick: () => {
-        console.log('Notification Clicked!');
+        navigate('/dashboard/orders');
       },
     });
   };
@@ -45,6 +47,11 @@ function Navbar({ transparent = true }) {
       });
       socket.on('notification', (data) => {
         openNotification(data.message);
+        setTimeout(
+          () => {
+          },
+          3000,
+        );
       });
     }
   }, []);
