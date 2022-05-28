@@ -14,7 +14,7 @@ export function SocketProvider({ children }) {
 
     });
     setSocket(newSocket);
-    return () => newSocket.close();
+    return () => socket.disconnect;
   }, []);
 
   const value = useMemo(() => ({

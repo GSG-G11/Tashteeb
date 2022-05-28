@@ -46,9 +46,9 @@ function Navbar({ transparent = true }) {
         console.log(`connect_error due to ${err.message}`);
       });
       socket.on('notification', (data) => {
-        openNotification(data.message);
         setTimeout(
           () => {
+            openNotification(data.message);
           },
           3000,
         );
