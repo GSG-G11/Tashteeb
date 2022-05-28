@@ -51,17 +51,16 @@ function Navbar({ transparent = true }) {
         if (!users.some((id) => id === data.userId)) {
           openNotification(data.message);
           setUsers([...users, data.userId]);
+          setTimeout(
+            () => {
+              setUsers([]);
+            },
+            5000,
+          );
         }
       });
     }
   }, []);
-
-  setTimeout(
-    () => {
-      setUsers([]);
-    },
-    5000,
-  );
 
   return (
     <nav className={`navbar-holder ${transparent && navbar}`}>
