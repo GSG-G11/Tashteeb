@@ -58,8 +58,8 @@ function Navbar({ transparent = true }) {
       });
     }
     return () => {
-      socket.off('connect_error');
-      socket.off('notification');
+      socket?.off('connect_error');
+      socket?.off('notification');
     };
   }, []);
 
