@@ -10,23 +10,24 @@ import { useAuth } from '../../../Context/AuthContext';
 const { Meta } = Card;
 
 function ProductCard({
-  id,
-  name,
-  image,
-  price,
+  id, name, image, price,
 }) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const { setProductNumber } = useAuth();
   const addFunc = () => {
     if (!isAddedToCart) {
-      const products = JSON.parse(localStorage.getItem('cart'));
+      const products = JSON.parse(localStorage.getItem('cart')) || [];
       products.push({
-        id, name, price, image, quantity: 1,
+        id,
+        name,
+        price,
+        image,
+        quantity: 1,
       });
       localStorage.setItem('cart', JSON.stringify(products));
       setIsAddedToCart(true);
     } else {
-      const products = JSON.parse(localStorage.getItem('cart'));
+      const products = JSON.parse(localStorage.getItem('cart')) || [];
       const newProducts = products.filter((item) => item.id !== id);
       localStorage.setItem('cart', JSON.stringify(newProducts));
       setIsAddedToCart(false);
@@ -39,8 +40,7 @@ function ProductCard({
     setIsAddedToCart(addedToCart);
   }, []);
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('cart'));
-
+    const items = JSON.parse(localStorage.getItem('cart')) || [];
     setProductNumber(items);
   }, [isAddedToCart]);
 
@@ -49,20 +49,16 @@ function ProductCard({
       className="product-card"
       hoverable
       style={{ width: 240 }}
-      cover={(
-        <Image
-          cloudName="dst1qgbta"
-          publicId={image}
-          crop="scale"
-        />
-      )}
+      cover={<Image cloudName="dst1qgbta" publicId={image} crop="scale" />}
     >
-      <Button type="primary" onClick={addFunc} shape="circle" icon={isAddedToCart ? <CheckOutlined /> : <ShoppingCartOutlined />} />
+      <Button
+        type="primary"
+        onClick={addFunc}
+        shape="circle"
+        icon={isAddedToCart ? <CheckOutlined /> : <ShoppingCartOutlined />}
+      />
       <Link to={`/product/${id}`}>
-        <Meta
-          title={`$${+price.toFixed(2)}`}
-          description={name}
-        />
+        <Meta title={`$${+price.toFixed(2)}`} description={name} />
       </Link>
     </Card>
   );

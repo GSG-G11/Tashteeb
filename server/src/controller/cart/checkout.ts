@@ -9,11 +9,11 @@ interface IReqUser extends Request {
 
 export default async (req: IReqUser, res: Response) => {
   try {
-    const { user: { username, id } } = req; // User ID
-    const totalPrice = req.body.products.reduce((acc: number, cur: { price: number; quantity: number; }) => acc + cur.price * cur.quantity, 0);
+    const { user: { username, id } } = req;
+    const totalPrice = req.body.products.reduce((acc: any, cur: { price: any; quantity: any; }) => acc + cur.price * cur.quantity, 0);
     const order = await Order.create({
-      userId: id,
-      totalPrice,
+      userId: +id,
+      totalPrice: +totalPrice,
     });
     const orderId = order.id;
     const productOrder = await ProductOrder.bulkCreate(

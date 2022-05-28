@@ -36,7 +36,10 @@ function EngineerInfo() {
   return (
     <div>
       <Navbar />
-      <EngineerBanner title="Engineers Info" />
+      <EngineerBanner
+        title="Engineers Info"
+        desc="Browse Through Our List Of Amazing Engineers "
+      />
       <div className="engController">
         <div className="cardDetailes engineerInfo">
           {info.map((item) => (

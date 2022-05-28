@@ -6,22 +6,17 @@ import { Link } from 'react-router-dom';
 
 function SingleCard({ id, img, name }) {
   return (
-    <div className="continerCard">
-      <div className="card">
-        {/* <img src={img} alt="Avatar" /> */}
-        <Image
-          cloudName="dst1qgbta"
-          publicId={img}
-          width="304"
-          height="400"
-          crop="scale"
-        />
-        <div className="Engdetailes">
-          <Link to={`/profile/${id}`}>
-            <h4><b>{name}</b></h4>
-          </Link>
-          <p>Architect & Engineer</p>
-        </div>
+    <div className="card">
+      <div className="card__img__container">
+        <Image cloudName="dst1qgbta" publicId={img} />
+      </div>
+      <div className="Engdetailes">
+        <Link to={`/profile/${id}`}>
+          <h4>
+            <b>{name}</b>
+          </h4>
+        </Link>
+        <p>Architect & Engineer</p>
       </div>
     </div>
   );
