@@ -17,10 +17,8 @@ export function SocketProvider({ children }) {
     return () => socket.close();
   }, []);
 
-  const value = useMemo(() => ({
-    socket,
-  }), [socket]);
-  return <SocketContext.Provider value={value}>{children}</SocketContext.Provider>;
+
+  return <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>;
 }
 
 SocketProvider.propTypes = {

@@ -40,24 +40,13 @@ function Navbar({ transparent = true }) {
 
   const { socket } = useSocket();
 
-  const [users, setUsers] = useState([]);
-
   useEffect(() => {
     if (socket && user?.role === 2) {
       socket.on('connect_error', (err) => {
         console.log(`connect_error due to ${err.message}`);
       });
       socket.on('notification', (data) => {
-        if (!users.some((id) => id === data.userId)) {
-          openNotification(data.message);
-          setUsers([...users, data.userId]);
-          setTimeout(
-            () => {
-              setUsers([]);
-            },
-            5000,
-          );
-        }
+        openNotification(data.message);
       });
     }
   }, []);
