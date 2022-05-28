@@ -38,15 +38,23 @@ function Navbar({ transparent = true }) {
     });
   };
 
+  const [delay, setDelay] = useState(true);
   const { socket } = useSocket();
 
   useEffect(() => {
-    if (socket && user?.role === 2) {
+    if (delay && socket && user?.role === 2) {
       socket.on('connect_error', (err) => {
         console.log(`connect_error due to ${err.message}`);
       });
       socket.on('notification', (data) => {
         openNotification(data.message);
+        setDelay(false);
+        setTimeout(
+          () => {
+            setDelay(true);
+          },
+          1000,
+        );
       });
     }
   }, []);
