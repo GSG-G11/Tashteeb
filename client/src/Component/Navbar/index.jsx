@@ -47,7 +47,7 @@ function Navbar({ transparent = true }) {
         openNotification(data.message);
       });
     }
-  }, []);
+  }, [socket]);
 
   return (
     <nav className={`navbar-holder ${transparent && navbar}`}>
