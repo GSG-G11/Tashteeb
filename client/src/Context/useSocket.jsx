@@ -1,5 +1,5 @@
 import React, {
-  createContext, useContext, useEffect, useMemo, useState,
+  createContext, useContext, useEffect, useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import io from 'socket.io-client';
@@ -16,7 +16,6 @@ export function SocketProvider({ children }) {
     setSocket(newSocket);
     return () => socket.close();
   }, []);
-
 
   return <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>;
 }
