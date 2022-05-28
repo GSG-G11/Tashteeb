@@ -26,7 +26,7 @@ export default async (req: IReqUser, res: Response) => {
     );
 
     const io = req.app.get('socketio');
-    io.emit('notification', { message: `User ${username} has checkouted an order.` });
+    io.emit('notification', { message: `User ${username} has checkouted an order.`, userId: id });
 
     res.status(200).json({
       message: 'Cart checkouted successfully',
