@@ -12,9 +12,9 @@ function Dashboard() {
     <ProductProvider>
       <div className="Dashboard">
         <Layout>
-          <Header style={{ backgroundColor: '#1D202F' }}>
+          <Header style={{ backgroundColor: '#1D202F', marginBottom: '.1px' }}>
             <div className="dashborad-nav">
-              <Navbar />
+              <Navbar transparent={false} />
             </div>
           </Header>
           <Layout>
