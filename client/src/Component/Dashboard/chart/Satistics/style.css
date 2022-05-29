@@ -6,7 +6,7 @@
   }
   
   .cardStatistic .card {
-    background: #F0F2F5;
+    background: #1D202F;
     border-radius: 1rem;
     display: flex;
     align-items: center !important;
@@ -24,3 +24,6 @@
  .iconChart {
     font-size: 2.2rem ;
   }
+.ant-statistic-content-value-int, .ant-statistic-title{
+  color: #fff !important;
+}

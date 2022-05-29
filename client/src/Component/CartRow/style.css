@@ -48,13 +48,14 @@ td input, .cart-quantity-input {
     background-color: #EBEBEB;
     border: none;
 }
-
+.td {
+    background-color: white;
+}
 td img {
-    width: 150px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
     margin-right: 1rem;
     object-fit: contain;
-    background-color: #C4C4C4;
     border-radius: 20px;
 }
 

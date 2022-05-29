@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Request, Response } from 'express';
 import { Order, ProductOrder } from '../../database';
-import handleUnknownError from '../../error/handleUnkownError';
+import errorHandler from '../../error';
 
 interface IReqUser extends Request {
   user?: any;
@@ -9,10 +9,11 @@ interface IReqUser extends Request {
 
 export default async (req: IReqUser, res: Response) => {
   try {
-    const totalPrice = req.body.products.reduce((acc: number, cur: { price: number; quantity: number; }) => acc + cur.price * cur.quantity, 0);
+    const { user: { username, id } } = req;
+    const totalPrice = req.body.products.reduce((acc: any, cur: { price: any; quantity: any; }) => acc + cur.price * cur.quantity, 0);
     const order = await Order.create({
-      userId: req.user.id,
-      totalPrice,
+      userId: +id,
+      totalPrice: +totalPrice,
     });
     const orderId = order.id;
     const productOrder = await ProductOrder.bulkCreate(
@@ -24,11 +25,14 @@ export default async (req: IReqUser, res: Response) => {
       })),
     );
 
+    const io = req.app.get('socketio');
+    io.emit('notification', { message: `User ${username} has checkouted an order.`, userId: id });
+
     res.status(200).json({
       message: 'Cart checkouted successfully',
       productOrder,
     });
   } catch (error: any) {
-    handleUnknownError(error, res);
+    errorHandler(error, res);
   }
 };

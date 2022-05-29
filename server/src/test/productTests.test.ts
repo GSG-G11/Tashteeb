@@ -81,10 +81,10 @@ describe('patch /products/:id', () => {
       .patch('/api/v1/products/1')
       .set('Cookie', [`token=${ADMIN}`])
       .send({
-        name: 'hummer',
-        price: 20,
-        description: 'simple hummer tool',
-        categoryId: 1,
+        name: 'Bon Tool 82-405 24" Redwood Float W/Wood Handle',
+        price: 18.5,
+        description: 'The largest selection of tools manufactured to the highest quality standards Package Dimensions: 12.7 H x 57.404 L x 4.318 W (centimetres) Package Weight: 0.453 kilograms Country of Origin : China',
+        categoryId: 4,
       })
       .expect(201)
       .end((err, res) => {
@@ -102,8 +102,8 @@ describe('get product by id', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).toBe(200);
-        expect(res.body.data.name).toBe('hummer');
-        expect(res.body.data.price).toBe('20');
+        expect(res.body.data.name).toBe('Bon Tool 82-405 24" Redwood Float W/Wood Handle');
+        expect(res.body.data.price).toBe('18.5');
         return done();
       });
   });
@@ -115,11 +115,11 @@ describe('DELETE /products/:id', () => {
     'success deleteProduct',
     (done) => {
       supertest(app)
-        .delete('/api/v1/products/1')
+        .delete('/api/v1/products/3')
         .set('Cookie', [`token=${ADMIN}`])
         .end((err, res) => {
           if (err) return done(err);
-          expect(JSON.parse(res.text).message).toBe('Product deleted');
+          expect(res.body.message).toBe('Product deleted');
           return done();
         });
     },

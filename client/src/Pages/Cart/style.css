@@ -3,7 +3,9 @@
     padding: 0 3rem;
     max-width: 1200px;
 }
-
+.card td img {
+    width: 100%;
+}
 table {
     width: 100%;
     border-collapse: separate !important;

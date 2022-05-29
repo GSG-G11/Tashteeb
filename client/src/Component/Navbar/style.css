@@ -1,5 +1,4 @@
 .navbar-holder {
-    height: 60px;
     background-color: #1D202F;
     display: flex;
     justify-content: space-between;
@@ -8,20 +7,32 @@
     position: fixed;
     width: 100%;
     z-index: 5;
+    padding: 0 4rem;
+    transition: all 0.3s ease-in-out;
 }
 .transparent {
   background-color: transparent;
 }
 
+.app-logo{
+  width: 20%;
+}
 .app-logo img {
-    width: 13rem;
+    width: 90%;
     object-fit: contain;
-    padding: 20px;
     cursor: pointer;
 }
 
 .navbar-info {
     display: flex;
+    min-width: 25%;
+    justify-content: center;
+}
+
+.auth-section {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar-info a {
@@ -29,11 +40,16 @@
     cursor: pointer;
     color: #fff;
     font-weight: 300;
+    font-size: 1.2rem;
     letter-spacing: 1.5px;
     transition: all .5s ease-in-out;
   position: relative;
 
 }
+.badge-holder:hover{
+  opacity: 0.8 !important;
+}
+
 
 .navbar-info a::after {
   content: '';

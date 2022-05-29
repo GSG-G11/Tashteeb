@@ -12,7 +12,7 @@ function HiringOrdersList() {
 
   useEffect(() => {
     axios
-      .get('/hiringOrder', {
+      .get('/api/v1/hiringOrder', {
         params: {
           page,
           limit: pageSize,

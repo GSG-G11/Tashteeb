@@ -20,7 +20,7 @@ const Order = sequelize.define<IOrder>(
       allowNull: false,
     },
     totalPrice: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
   },

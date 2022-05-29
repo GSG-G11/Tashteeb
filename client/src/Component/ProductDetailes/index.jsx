@@ -24,9 +24,11 @@ function ProductDetailes({
         await axios.post(`/api/v1/hiringOrder/${id}`, data);
         success('Order sent successfully');
       } catch (err) {
-        error(err.response.data.error
-          ? err.response.data.error.message
-          : err.response.data.message);
+        error(
+          err.response.data.error
+            ? err.response.data.error.message
+            : err.response.data.message,
+        );
       }
     } else {
       error('Please fill all the fields');
@@ -40,14 +42,8 @@ function ProductDetailes({
   return (
     <div className="containerProduct">
       <div className="wrapper">
-        <div className="image">
-          {/* <img className="product-image" src={img} alt="images" /> */}
-          <Image
-            style={{ width: '100%', height: '500px', borderRadius: '10px' }}
-            cloudName="dst1qgbta"
-            publicId={img}
-            crop="scale"
-          />
+        <div className="image__cont">
+          <Image cloudName="dst1qgbta" publicId={img} crop="scale" />
         </div>
 
         <div className="data">
@@ -75,7 +71,11 @@ function ProductDetailes({
             {isProduct ? (
               <> </>
             ) : (
-              <a href={`https://wa.me/${phone}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://wa.me/${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="ri-whatsapp-line iconWhats" />
               </a>
             )}
@@ -116,7 +116,6 @@ function ProductDetailes({
                       onChange={(value) => setData({ ...data, price: value })}
                       addonAfter="$"
                     />
-
                   </Form.Item>
                   <Form.Item label="Description" name="Description">
                     <Input.TextArea
@@ -128,7 +127,7 @@ function ProductDetailes({
                 </Modal>
               </div>
             )}
-            <Link to="/" className="browser ">
+            <Link to="/" className="browser" style={{ fontSize: 19.2 }}>
               Continue Browsing
             </Link>
           </div>

@@ -59,7 +59,7 @@ describe('get engineer by id', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).toBe(200);
-        expect(res.body.user.username).toBe('Alex Drysdale');
+        expect(res.body.user.username).toBe('Alex mobsiane');
         expect(res.body.user.role).toBe(1);
         return done();
       });
