@@ -10,14 +10,7 @@ import './style.css';
 import { success, error } from '../AntdMessages.jsx/messages';
 
 function ProductDetailes({
-  isProduct = true,
-  name,
-  description,
-  img,
-  price = '0',
-  phone,
-  id,
-  hourPrice = 0,
+  isProduct = true, name, description, img, price = '0', phone, id, hourPrice = 0, bio,
 }) {
   const [data, setData] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -74,7 +67,7 @@ function ProductDetailes({
           </div>
           <div className="content">
             <h3 className="title">{name}</h3>
-            <p className="text">{description}</p>
+            {isProduct ? <p className="text">{description}</p> : <p className="text">{bio}</p>}
             {isProduct ? (
               <> </>
             ) : (
@@ -93,9 +86,7 @@ function ProductDetailes({
               </h3>
             ) : (
               <h3 className="price">
-                {' '}
                 $
-                {' '}
                 {hourPrice}
               </h3>
             )}
@@ -149,6 +140,7 @@ ProductDetailes.propTypes = {
   isProduct: PropTypes.bool,
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
+  bio: PropTypes.string,
   img: PropTypes.string.isRequired,
   price: PropTypes.string,
   phone: PropTypes.string,
@@ -161,6 +153,7 @@ ProductDetailes.defaultProps = {
   price: '0',
   phone: null,
   description: '',
+  bio: '',
   hourPrice: 0,
 };
 

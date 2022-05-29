@@ -19,6 +19,7 @@ function EngineerProfile() {
     fetchData();
     return () => source.cancel();
   }, []);
+  console.log(info);
   return (
     <div>
       <div className="eng-navbar-section">
@@ -31,6 +32,7 @@ function EngineerProfile() {
         img={info.image}
         hourPrice={info.hourPrice}
         phone={info.phone}
+        bio={info.bio}
         id={+id}
       />
       ) }
