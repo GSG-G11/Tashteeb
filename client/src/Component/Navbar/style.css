@@ -18,7 +18,7 @@
   width: 20%;
 }
 .app-logo img {
-    width: 90%;
+    width: 60%;
     object-fit: contain;
     cursor: pointer;
 }
@@ -31,8 +31,6 @@
 
 .auth-section {
   width: 20%;
-  display: flex;
-  justify-content: space-between;
 }
 
 .navbar-info a {
@@ -40,7 +38,7 @@
     cursor: pointer;
     color: #fff;
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 1.5px;
     transition: all .5s ease-in-out;
   position: relative;
