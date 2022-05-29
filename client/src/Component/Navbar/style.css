@@ -8,23 +8,25 @@
     z-index: 5;
     padding: 0 4rem;
     height: 60px;
+    transition: all 0.3s ease-in-out;
 }
 .transparent {
   background-color: transparent;
 }
 
 .app-logo{
-  width: 15%;
+  width: 20%;
 }
 .app-logo img {
-    width: 100%;
+    width: 90%;
     object-fit: contain;
     cursor: pointer;
 }
 
 .navbar-info {
     display: flex;
-    width: 20%;
+    min-width: 25%;
+    justify-content: center;
 }
 
 .auth-section {
@@ -32,16 +34,22 @@
   display: flex;
   justify-content: space-between;
 }
+
 .navbar-info a {
     padding: 0 15px;
     cursor: pointer;
     color: #fff;
     font-weight: 300;
+    font-size: 1.2rem;
     letter-spacing: 1.5px;
     transition: all .5s ease-in-out;
   position: relative;
 
 }
+.badge-holder:hover{
+  opacity: 0.8 !important;
+}
+
 
 .navbar-info a::after {
   content: '';

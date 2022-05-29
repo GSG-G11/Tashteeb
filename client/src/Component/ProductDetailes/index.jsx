@@ -49,7 +49,7 @@ function ProductDetailes({
   return (
     <div className="containerProduct">
       <div className="wrapper">
-        <div className="image">
+        <div className="image__cont">
           <Image cloudName="dst1qgbta" publicId={img} crop="scale" />
         </div>
 
