@@ -59,9 +59,6 @@ function ShoppingSummary() {
       modal.confirm(confirmCheckout);
     }
   };
-  const emptyCart = () => {
-    setCart([]);
-  };
 
   return (
     <ReachableContext.Provider value="Light">
@@ -97,7 +94,6 @@ function ShoppingSummary() {
           <button
             type="button"
             onClick={() => {
-              emptyCart();
               checkout();
             }}
             className="checkout-btn"
