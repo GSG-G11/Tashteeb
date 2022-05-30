@@ -43,7 +43,6 @@ const getSatistics = async (req: IReqUser, res: Response) => {
       message: 'success get all data',
     });
   } catch (err: any) {
-    console.log(err);
     handleUnknownExceptions(err, res);
   }
 };
