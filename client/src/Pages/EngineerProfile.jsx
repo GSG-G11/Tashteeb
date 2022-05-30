@@ -19,7 +19,6 @@ function EngineerProfile() {
     fetchData();
     return () => source.cancel();
   }, []);
-  console.log(info);
   return (
     <div>
       <div className="eng-navbar-section">

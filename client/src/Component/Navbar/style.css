@@ -30,7 +30,8 @@
 }
 
 .auth-section {
-  width: 20%;
+  width: 15%;
+  justify-content: space-between;
 }
 
 .navbar-info a {
@@ -131,3 +132,5 @@
 .user-info:hover .child {
   display: flex;
 }
+
+
