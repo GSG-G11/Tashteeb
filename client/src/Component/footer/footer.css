@@ -14,7 +14,7 @@
 }
 
 .footer__header {
-  color: var(--dimgray);
+  color: rgb(221, 196, 196);
   font-size: 3rem;
   letter-spacing: 1rem;
 }
@@ -29,6 +29,7 @@
   padding: 1rem 3rem;
 }
 .footer__ul__header {
+  color: #DAE0E6;
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }

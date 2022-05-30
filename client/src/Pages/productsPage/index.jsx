@@ -90,7 +90,7 @@ function ProdcutsPage() {
   return (
     <div>
       <Navbar />
-      <EngineerBanner title="Shop" />
+      <EngineerBanner title="Shop" desc="Find All You Need In Our Shop" />
 
       <div className="products__page__body">
         <div className="products__sideBar">

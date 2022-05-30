@@ -80,7 +80,7 @@ function ShoppingSummary() {
         <div className="buy">
           <div className="subtotal">
             <span>Subtotal</span>
-            <span className="num">${totalPrice}</span>
+            <span className="num">${totalPrice.toFixed(2)}</span>
           </div>
           <div className="tax">
             <span>Tax</span>
@@ -89,9 +89,16 @@ function ShoppingSummary() {
           <hr />
           <div className="total">
             <span>Total</span>
-            <span className="num">${totalPrice * 1.25}</span>
+            <span className="num">${(totalPrice * 1.25).toFixed(2)}</span>
           </div>
-          <button type="button" onClick={() => checkout()} className="checkout-btn">CHECKOUT</button>
+          <button
+            type="button"
+            onClick={() => {
+              checkout();
+            }}
+            className="checkout-btn"
+          >CHECKOUT
+          </button>
           <span className="confirm">Confirm Shopping</span>
         </div>
 

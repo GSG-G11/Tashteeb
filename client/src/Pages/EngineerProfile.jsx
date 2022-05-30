@@ -31,6 +31,7 @@ function EngineerProfile() {
         img={info.image}
         hourPrice={info.hourPrice}
         phone={info.phone}
+        bio={info.bio}
         id={+id}
       />
       ) }

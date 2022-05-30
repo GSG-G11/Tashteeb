@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 50%;
 }
 
 .service-card .image {
@@ -30,7 +31,8 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 5px;
-    margin: 0 10rem;
+    width: 50%;
+    margin: 0 auto;
 
 }
 

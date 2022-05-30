@@ -9,7 +9,7 @@ function CategoryChart() {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     const fetchcategory = async () => {
-      const getData = await axios.get('/satistics', {
+      const getData = await axios.get('/api/v1/satistics', {
         cancelToken: source.token,
       });
       const { productCountByCategory } = getData.data.data;

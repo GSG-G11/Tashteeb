@@ -57,7 +57,7 @@ const User = sequelize.define<IUser>('users', {
     defaultValue: '',
   },
   bio: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     defaultValue: '',
   },
 });

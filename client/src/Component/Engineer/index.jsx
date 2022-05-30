@@ -10,7 +10,7 @@ import EngineerBanner from '../EngineerBanner';
 function EngineerInfo() {
   const [info, setInfo] = useState([]);
   const [total, setTotal] = useState();
-  const [pageSize, setPageSize] = useState(6);
+  const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
   useEffect(() => {
     const cancelToken = axios.CancelToken;
@@ -36,7 +36,10 @@ function EngineerInfo() {
   return (
     <div>
       <Navbar />
-      <EngineerBanner title="Engineers Info" />
+      <EngineerBanner
+        title="Engineers Info"
+        desc="Browse Through Our List Of Amazing Engineers "
+      />
       <div className="engController">
         <div className="cardDetailes engineerInfo">
           {info.map((item) => (
@@ -56,7 +59,7 @@ function EngineerInfo() {
             showSizeChanger
             total={total}
             onChange={handleChange}
-            pageSizeOptions={[6, 9, 12, 21]}
+            pageSizeOptions={[8, 12, 16, 20]}
           />
         </div>
       </div>

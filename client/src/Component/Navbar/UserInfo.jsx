@@ -7,10 +7,7 @@ function UserInfo({ username, image }) {
   const { logout } = useAuth();
   return (
     <div className="user-info">
-      <Image
-        cloudName="dst1qgbta"
-        publicId={image}
-      />
+      <Image cloudName="dst1qgbta" publicId={image} />
       <p>{username}</p>
       <div className="child">
         <button type="button" onClick={() => logout()}>
