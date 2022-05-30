@@ -44,6 +44,7 @@ function Navbar({ transparent = true }) {
   useEffect(() => {
     if (delay && socket && user?.role === 2) {
       socket.on('connect_error', (err) => {
+        // eslint-disable-next-line no-console
         console.log(`connect_error due to ${err.message}`);
       });
       socket.on('notification', (data) => {
